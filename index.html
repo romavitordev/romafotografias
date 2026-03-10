@@ -686,7 +686,7 @@ tailwind.config = {
 
  
 // ======================
-// CAROUSEL MODERNO
+// CAROUSEL INFINITO
 // ======================
 
 const track = document.querySelector(".carousel-track");
@@ -695,104 +695,146 @@ const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
 const container = document.querySelector(".carousel-track-container");
 
-let currentIndex = 0;
-
-function updateCarousel(){
-
-if(!track || slides.length === 0) return;
-
-const containerWidth = container.offsetWidth;
-const slideWidth = slides[0].offsetWidth;
-
-slides.forEach((slide,i)=>{
-
-slide.classList.remove("active");
-
-if(i === currentIndex){
-slide.classList.add("active");
+if (track && slides.length > 0) {
+    // Clonar primeiro e último slide para efeito infinito
+    const firstSlide = slides[0].cloneNode(true);
+    const lastSlide = slides[slides.length - 1].cloneNode(true);
+    
+    // Adicionar clones no início e fim
+    track.insertBefore(lastSlide, track.firstChild);
+    track.appendChild(firstSlide);
+    
+    // Pegar todos os slides novamente (incluindo clones)
+    const allSlides = document.querySelectorAll(".slide");
+    let currentIndex = 1; // Começar no primeiro slide real (após o clone)
+    let isTransitioning = false;
+    
+    function updateCarousel() {
+        const containerWidth = container.offsetWidth;
+        const slideWidth = allSlides[0].offsetWidth;
+        
+        allSlides.forEach((slide, i) => {
+            slide.classList.remove("active");
+            if (i === currentIndex) {
+                slide.classList.add("active");
+            }
+        });
+        
+        // Calcular offset para centralizar o slide ativo
+        const offset = -(currentIndex * slideWidth) + (containerWidth / 2) - (slideWidth / 2);
+        track.style.transform = `translateX(${offset}px)`;
+    }
+    
+    // Função para próximo slide
+    function goToNext() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentIndex++;
+        
+        if (currentIndex >= allSlides.length) {
+            // Chegou no final (clone do primeiro), pular para o primeiro real
+            track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            updateCarousel();
+            
+            setTimeout(() => {
+                isTransitioning = false;
+                track.style.transition = 'none';
+                currentIndex = 1;
+                updateCarousel();
+                // Forçar reflow para aplicar a mudança sem transição
+                track.offsetHeight;
+                track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            }, 600);
+        } else {
+            updateCarousel();
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 600);
+        }
+    }
+    
+    // Função para slide anterior
+    function goToPrev() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentIndex--;
+        
+        if (currentIndex < 0) {
+            // Chegou no início (clone do último), pular para o último real
+            track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            updateCarousel();
+            
+            setTimeout(() => {
+                isTransitioning = false;
+                track.style.transition = 'none';
+                currentIndex = allSlides.length - 2;
+                updateCarousel();
+                // Forçar reflow para aplicar a mudança sem transição
+                track.offsetHeight;
+                track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            }, 600);
+        } else {
+            updateCarousel();
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 600);
+        }
+    }
+    
+    // Botão próximo
+    if (nextBtn) {
+        nextBtn.addEventListener("click", goToNext);
+    }
+    
+    // Botão anterior
+    if (prevBtn) {
+        prevBtn.addEventListener("click", goToPrev);
+    }
+    
+    // Swipe mobile
+    let startX = 0;
+    
+    track.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+    });
+    
+    track.addEventListener("touchend", (e) => {
+        let endX = e.changedTouches[0].clientX;
+        
+        if (startX - endX > 50) {
+            goToNext();
+        }
+        
+        if (endX - startX > 50) {
+            goToPrev();
+        }
+    });
+    
+    // Autoplay
+    let autoplayInterval = setInterval(goToNext, 4000);
+    
+    // Pausar autoplay ao interagir
+    function pauseAutoplay() {
+        clearInterval(autoplayInterval);
+    }
+    
+    function resumeAutoplay() {
+        autoplayInterval = setInterval(goToNext, 4000);
+    }
+    
+    nextBtn?.addEventListener("mouseenter", pauseAutoplay);
+    nextBtn?.addEventListener("mouseleave", resumeAutoplay);
+    prevBtn?.addEventListener("mouseenter", pauseAutoplay);
+    prevBtn?.addEventListener("mouseleave", resumeAutoplay);
+    
+    // Iniciar - garantir que a transição esteja ativada
+    window.addEventListener("load", () => {
+        track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        updateCarousel();
+    });
+    
+    window.addEventListener("resize", updateCarousel);
 }
-
-});
-
-const offset = -(currentIndex * slideWidth) + (containerWidth / 2) - (slideWidth / 2);
-
-track.style.transform = `translateX(${offset}px)`;
-
-}
-
-
-// botão próximo
-if(nextBtn){
-nextBtn.addEventListener("click",()=>{
-
-currentIndex++;
-
-if(currentIndex >= slides.length){
-currentIndex = 0;
-}
-
-updateCarousel();
-
-});
-}
-
-
-// botão anterior
-if(prevBtn){
-prevBtn.addEventListener("click",()=>{
-
-currentIndex--;
-
-if(currentIndex < 0){
-currentIndex = slides.length - 1;
-}
-
-updateCarousel();
-
-});
-}
-
-
-// swipe mobile
-let startX = 0;
-
-track.addEventListener("touchstart",(e)=>{
-startX = e.touches[0].clientX;
-});
-
-track.addEventListener("touchend",(e)=>{
-
-let endX = e.changedTouches[0].clientX;
-
-if(startX - endX > 50){
-nextBtn.click();
-}
-
-if(endX - startX > 50){
-prevBtn.click();
-}
-
-});
-
-
-// autoplay
-setInterval(()=>{
-
-currentIndex++;
-
-if(currentIndex >= slides.length){
-currentIndex = 0;
-}
-
-updateCarousel();
-
-},4000);
-
-
-// inicia
-window.addEventListener("load",updateCarousel);
-window.addEventListener("resize",updateCarousel);
 </script>
 </body>
 </html>
-
