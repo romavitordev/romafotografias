@@ -1,1 +1,842 @@
-dd
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitor Roma | Fotografia</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+blockquote {
+    font-style: italic;
+    border-left: 4px solid #ccc;
+    padding: 0.5em 1em;
+    background-color: #f9f9f9;
+    color: #222; /* Cor do texto da frase */
+}
+
+cite {
+    display: block;
+    font-style: normal;
+    color: #555; /* Cor do autor */
+    margin-top: 0.5em;
+}
+
+body {
+    background-color: #0B0F14;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ======================
+MASONRY GRID
+====================== */
+
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-auto-rows: 10px;
+    gap: 16px;
+}
+
+.masonry-item {
+    break-inside: avoid;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.masonry-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+
+/* ======================
+NAV LINKS
+====================== */
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #60A5FA;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+
+/* ======================
+DROPDOWN
+====================== */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1F2937;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #2d333b;
+}
+
+
+/* ======================
+ANIMATION
+====================== */
+
+.animate-scroll {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ======================
+CAROUSEL
+====================== */
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-inner {
+    display: flex;
+    align-items: stretch;
+    transition: transform 0.6s ease;
+    will-change: transform;
+}
+
+.slide {
+    flex:0 0 60%;
+    min-width:60%;
+    padding:0 20px;
+    box-sizing:border-box;
+}
+
+.slide a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-track-container{
+overflow:hidden;
+position:relative;
+}
+
+
+/* ======================
+INDICATORS
+====================== */
+
+.carousel-indicators {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .carousel-indicators {
+        display: flex;
+    }
+}
+
+.indicator {
+    transition: all .3s ease;
+}
+
+.indicator.active {
+    background-color: #60A5FA !important;
+    transform: scale(1.2);
+}
+.carousel-wrapper{
+position:relative;
+width:100%;
+}
+
+.carousel-track{
+display:flex;
+transition:transform .6s cubic-bezier(.4,0,.2,1);
+}
+
+.slide{
+flex:0 0 60%;
+padding:0 20px;
+position:relative;
+cursor:pointer;
+}
+
+.slide img{
+width:100%;
+height:420px;
+object-fit:cover;
+border-radius:20px;
+filter:blur(2px) brightness(.7);
+transform:scale(.85);
+transition:all .5s ease;
+}
+
+.slide.active img{
+filter:none;
+transform:scale(1);
+}
+
+.slide-overlay{
+position:absolute;
+bottom:20px;
+left:30px;
+color:white;
+}
+
+.slide-overlay h3{
+font-size:24px;
+font-weight:bold;
+}
+
+.slide-overlay p{
+font-size:14px;
+opacity:.8;
+}
+
+@media(max-width:768px){
+
+.slide{
+flex:0 0 85%;
+}
+
+.slide img{
+height:320px;
+}
+
+}
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="hidden md:flex fixed w-full z-50 bg-dark-bg/95 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-2xl font-bold text-accent">VR</a>
+                </div>
+                
+                <!-- Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-white hover:text-accent px-3 py-2 rounded-md font-medium">Início</a>
+                        
+                        <!-- Portfolio Dropdown -->
+                        <div class="relative dropdown">
+                            <button class="nav-link text-white hover:text-accent px-3 py-2 rounded-md font-medium">
+                                Portfólio <i class="fas fa-chevron-down text-xs ml-1"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="arquitetura.html">Arquitetura</a>
+                                <a href="forza.html">Capturas Forza</a>
+                                <a href="retratos.html">Retratos</a>
+                                <a href="natureza.html">Natureza</a>
+                            </div>
+                        </div>
+                        
+                        <a href="#historia" class="nav-link text-white hover:text-accent px-3 py-2 rounded-md font-medium">Quem Sou Eu</a>
+                        <a href="#contato" class="nav-link text-white hover:text-accent px-3 py-2 rounded-md font-medium">Contato</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bottom Navigation for Mobile -->
+    <div class="bottom-nav fixed bottom-0 left-0 right-0 bg-dark-card border-t border-gray-800 md:hidden z-50">
+        <div class="flex justify-around items-center py-2">
+            <a href="index.html" class="flex flex-col items-center text-accent">
+                <i class="fas fa-home text-lg"></i>
+                <span class="text-xs">Início</span>
+            </a>
+            <a href="#portfolio" class="flex flex-col items-center text-white hover:text-accent">
+                <i class="fas fa-camera text-lg"></i>
+                <span class="text-xs">Portfólio</span>
+            </a>
+            <a href="#historia" class="flex flex-col items-center text-white hover:text-accent">
+                <i class="fas fa-book text-lg"></i>
+                <span class="text-xs">História</span>
+            </a>
+            <a href="#contato" class="flex flex-col items-center text-white hover:text-accent">
+                <i class="fas fa-envelope text-lg"></i>
+                <span class="text-xs">Contato</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1920&q=80" 
+                 alt="Hero Background" 
+                 class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-dark-bg/50 to-dark-bg"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4">
+            <p class="text-accent uppercase tracking-[0.3em] mb-4 text-sm sm:text-base">Arte e Fotografia</p>
+            <h1 class="text-5xl sm:text-7xl font-semibold tracking-[0.15em] mb-6">VITOR ROMA</h1>
+            <p class="text-xl sm:text-2xl text-gray-300 max-w-2xl mx-auto mb-8">
+                Capturando memórias através da câmera
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#portfolio" class="bg-accent text-dark-bg px-8 py-3 rounded-full font-semibold hover:bg-white transition duration-300">
+                    Ver Portfólio
+                </a>
+                <a href="#contato" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-dark-bg transition duration-300">
+                    Contato
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Down -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#portfolio" class="text-white text-2xl">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+<section id="portfolio" class="py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4">Meu Portfólio</h2>
+            <div class="w-24 h-1 bg-accent mx-auto"></div>
+        </div>
+
+    <div class="carousel-wrapper relative">
+
+    <button class="prev absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-dark-card/80 hover:bg-accent text-white p-3 rounded-full transition">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+
+
+    <div class="carousel-track-container overflow-hidden">
+
+    <div class="carousel-track flex items-center">
+
+    <a href="arquitetura.html" class="slide">
+        <img src="capa_arquitetura.jpg" alt="Arquitetura">
+
+        <div class="slide-overlay">
+        <h3>Arquitetura</h3>
+        <p>Espaços urbanos</p>
+        </div>
+
+    </a>
+
+
+        <a href="forza.html" class="slide">
+        <img src="capa_forza.png" alt="Carros e Fotografias Digitais no Forza Horizon">
+
+    <div class="slide-overlay">
+        <h3>Carros Virtuais</h3>
+        <p>Fotografias Forza Horizon</p>
+    </div>
+
+        </a>
+
+
+        <a href="retratos.html" class="slide">
+        <img src="capa_retrato.jpg" alt="Retratos">
+
+    <div class="slide-overlay">
+        <h3>Retratos</h3>
+        <p>Expressões humanas</p>
+    </div>
+
+        </a>
+
+
+        <a href="natureza.html" class="slide">
+        <img src="capa_natureza.jpg" alt="Natureza">
+
+    <div class="slide-overlay">
+        <h3>Natureza</h3>
+        <p>Paisagens naturais</p>
+    </div>
+
+        </a>
+
+    </div>
+
+            </div>
+
+
+            <button class="next absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-dark-card/80 hover:bg-accent text-white p-3 rounded-full transition">
+            <i class="fas fa-chevron-right"></i>
+            </button>
+
+
+            </div>
+
+        </div>
+</section>
+    <!-- Minha História Section -->
+    <section id="historia" class="py-16 md:py-20 px-4 bg-dark-card">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Quem Sou Eu</h2>
+                <div class="w-24 h-1 bg-accent mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <!-- Foto -->
+                <div class="order-1 lg:order-2">
+                    <div class="relative max-w-sm mx-auto lg:max-w-md">
+                        <img src="Vitor_foto.jpg"
+                             alt="Vitor Roma"
+                             class="w-full rounded-lg shadow-2xl">
+                        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-accent/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-camera text-accent text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Texto -->
+                <div class="order-2 lg:order-1 text-center lg:text-left">
+                    <h3 class="text-xl md:text-2xl font-bold mb-6 text-accent">Olá, eu sou o Vitor Roma</h3>
+
+                    <div class="space-y-4 text-gray-300 leading-relaxed mb-8">
+                        <p>
+                            Sou um fotógrafo e desenvolvedor web <strong>em desenvolvimento</strong>, apaixonado por capturar momentos únicos e transformá-los em memórias que podem ser revividas ao longo do tempo.
+                            </p>
+                        <p>
+                            Estou no início da minha jornada, mas com <b>muita</b> dedicação e criatividade.
+                            Busco criar imagens que transmitam emoção e contem as <em>SUAS</em> histórias.
+                        </p>
+                        <p>
+                            Por estar começando agora, ofereço sessões fotográficas com valores mais acessíveis, sendo uma ótima oportunidade
+                            para quem deseja registrar momentos especiais sem comprometer o orçamento. Meu objetivo é sempre entregar imagens que superem expectativas,
+                            criando conexões e lembranças duradouras através da fotografia.
+                        </p>
+                        <p>
+                            Acredito que cada fotografia tem o poder de despertar os mais profundos da Alma. Seja em retratos, eventos ou projetos autorais. Não basta apenas olhar a imagem, é preciso sentir a emoção que ela transmite. 
+                            A verdadeira arte é aquela que toca o coração de quem a contempla, despertando sentimentos e memórias únicas.
+                        </p>
+                        <blockquote>
+                            A verdadeira arte é só um reflexo dos sentimentos de quem a contempla (...)
+                            <cite>Rafael Lange</cite>
+                        </blockquote>
+                    </div>
+
+                    <!-- Redes Sociais -->
+                    <div class="flex justify-center lg:justify-start gap-6">
+                        <a href="https://instagram.com/romart.photos" target="_blank"
+                           class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent transition-all duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/5515991061471"
+                           class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent transition-all duration-300">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="mailto:romavitor@hotmail.com"
+                           class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent transition-all duration-300">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Entre em Contato</h2>
+                <div class="w-24 h-1 bg-accent mx-auto"></div>
+                <p class="text-gray-400 mt-4">Vamos criar algo incrível juntos!</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Email -->
+                <div class="text-center p-6 bg-dark-card rounded-lg">
+                    <div class="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-accent text-xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">WhatsApp</h3>
+                    <p class="text-gray-400">15 991061471</p>
+                </div>
+                
+                <!-- Email -->
+                <div class="text-center p-6 bg-dark-card rounded-lg">
+                    <div class="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-accent text-xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Email</h3>
+                    <p class="text-gray-400">romavitor@hotmail.com</p>
+                </div>
+                
+                <!-- Redes Sociais -->
+                <div class="text-center p-6 bg-dark-card rounded-lg">
+                    <div class="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fab fa-instagram text-accent text-xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Instagram</h3>
+                    <p class="text-gray-400">@romart.photos</p>
+                </div>
+            </div>
+            
+            <!-- Formulário de Contato -->
+            <form class="mt-12 space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="Seu Nome" 
+                           class="w-full px-4 py-3 bg-dark-card border border-gray-700 rounded-lg focus:border-accent focus:outline-none text-white">
+                    <input type="email" placeholder="Seu Email" 
+                           class="w-full px-4 py-3 bg-dark-card border border-gray-700 rounded-lg focus:border-accent focus:outline-none text-white">
+                </div>
+                <input type="text" placeholder="Assunto" 
+                       class="w-full px-4 py-3 bg-dark-card border border-gray-700 rounded-lg focus:border-accent focus:outline-none text-white">
+                <textarea placeholder="Sua Mensagem" rows="5" 
+                          class="w-full px-4 py-3 bg-dark-card border border-gray-700 rounded-lg focus:border-accent focus:outline-none text-white"></textarea>
+                <button type="submit" class="w-full bg-accent text-dark-bg py-3 rounded-lg font-bold hover:bg-white transition duration-300">
+                    Enviar Mensagem
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-card py-12 px-4 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <!-- Logo e Descrição -->
+                <div>
+                    <a href="index.html" class="text-2xl font-bold text-accent">VR</a>
+                    <p class="text-gray-400 mt-2">Fotografia profissional capturando momentos únicos.</p>
+                </div>
+                
+                <!-- Links Rápidos -->
+                <div>
+                    <h4 class="font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-accent transition">Início</a></li>
+                        <li><a href="#portfolio" class="hover:text-accent transition">Portfólio</a></li>
+                        <li><a href="#historia" class="hover:text-accent transition">Minha História</a></li>
+                        <li><a href="#contato" class="hover:text-accent transition">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Redes Sociais -->
+                <div>
+                    <h4 class="font-bold mb-4">Siga-me</h4>
+                    <div class="flex gap-4">
+                        <a href="https://instagram.com/romart.photos" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-accent hover:text-dark-bg transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/5515991061471" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-accent hover:text-dark-bg transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:romavitor@hotmail.com" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-accent hover:text-dark-bg transition">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Créditos -->
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2026 Vitor Roma | Todos os direitos reservados</p>
+                <p class="mt-2">Desenvolvido por: <span class="text-white">Vitor Roma</span> | Sala: <span class="text-white">DS3Q17</span> | RA: <span class="text-white">R8504C4</span></p>
+            </div>
+        </div>
+    </footer>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                'dark-bg': '#0B0F14',
+                'dark-card': '#1F2937',
+                'accent': '#60A5FA',
+            },
+            fontFamily: {
+                'display': ['Space Grotesk', 'sans-serif'],
+                'body': ['Inter', 'sans-serif'],
+            }
+        }
+    }
+};
+</script>
+
+<script>
+
+    // ======================
+    // SMOOTH SCROLL
+    // ======================
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+        anchor.addEventListener("click", function(e){
+
+            e.preventDefault();
+
+            const target = document.querySelector(this.getAttribute("href"));
+
+            if(target){
+
+                target.scrollIntoView({
+                    behavior:"smooth"
+                });
+
+            }
+
+        });
+
+    });
+
+
+    // ======================
+    // NAVBAR EFFECT
+    // ======================
+
+    window.addEventListener("scroll", ()=>{
+
+        const nav = document.querySelector("nav");
+
+        if(!nav) return;
+
+        if(window.scrollY > 50){
+
+            nav.classList.add("bg-dark-bg/98");
+            nav.classList.remove("bg-dark-bg/95");
+
+        } else {
+
+            nav.classList.remove("bg-dark-bg/98");
+            nav.classList.add("bg-dark-bg/95");
+
+        }
+
+    });
+
+
+    // ======================
+    // MOBILE BOTTOM NAV
+    // ======================
+
+    const bottomNav = document.querySelector(".bottom-nav");
+
+    if(bottomNav){
+
+        if(window.innerWidth < 768){
+            bottomNav.classList.add("hidden");
+        }
+
+        window.addEventListener("scroll", ()=>{
+
+            if(window.scrollY > window.innerHeight - 100){
+                bottomNav.classList.remove("hidden");
+            } else {
+                bottomNav.classList.add("hidden");
+            }
+
+        });
+
+    }
+
+
+ 
+// ======================
+// CAROUSEL INFINITO
+// ======================
+
+const track = document.querySelector(".carousel-track");
+const slides = document.querySelectorAll(".slide");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+const container = document.querySelector(".carousel-track-container");
+
+if (track && slides.length > 0) {
+    // Clonar primeiro e último slide para efeito infinito
+    const firstSlide = slides[0].cloneNode(true);
+    const lastSlide = slides[slides.length - 1].cloneNode(true);
+    
+    // Adicionar clones no início e fim
+    track.insertBefore(lastSlide, track.firstChild);
+    track.appendChild(firstSlide);
+    
+    // Pegar todos os slides novamente (incluindo clones)
+    const allSlides = document.querySelectorAll(".slide");
+    let currentIndex = 1; // Começar no primeiro slide real (após o clone)
+    let isTransitioning = false;
+    
+    function updateCarousel() {
+        const containerWidth = container.offsetWidth;
+        const slideWidth = allSlides[0].offsetWidth;
+        
+        allSlides.forEach((slide, i) => {
+            slide.classList.remove("active");
+            if (i === currentIndex) {
+                slide.classList.add("active");
+            }
+        });
+        
+        // Calcular offset para centralizar o slide ativo
+        const offset = -(currentIndex * slideWidth) + (containerWidth / 2) - (slideWidth / 2);
+        track.style.transform = `translateX(${offset}px)`;
+    }
+    
+    // Função para próximo slide
+    function goToNext() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentIndex++;
+        
+        if (currentIndex >= allSlides.length) {
+            // Chegou no final (clone do primeiro), pular para o primeiro real
+            track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            updateCarousel();
+            
+            setTimeout(() => {
+                isTransitioning = false;
+                track.style.transition = 'none';
+                currentIndex = 1;
+                updateCarousel();
+                // Forçar reflow para aplicar a mudança sem transição
+                track.offsetHeight;
+                track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            }, 600);
+        } else {
+            updateCarousel();
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 600);
+        }
+    }
+    
+    // Função para slide anterior
+    function goToPrev() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentIndex--;
+        
+        if (currentIndex < 0) {
+            // Chegou no início (clone do último), pular para o último real
+            track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            updateCarousel();
+            
+            setTimeout(() => {
+                isTransitioning = false;
+                track.style.transition = 'none';
+                currentIndex = allSlides.length - 2;
+                updateCarousel();
+                // Forçar reflow para aplicar a mudança sem transição
+                track.offsetHeight;
+                track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            }, 600);
+        } else {
+            updateCarousel();
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 600);
+        }
+    }
+    
+    // Botão próximo
+    if (nextBtn) {
+        nextBtn.addEventListener("click", goToNext);
+    }
+    
+    // Botão anterior
+    if (prevBtn) {
+        prevBtn.addEventListener("click", goToPrev);
+    }
+    
+    // Swipe mobile
+    let startX = 0;
+    
+    track.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+    });
+    
+    track.addEventListener("touchend", (e) => {
+        let endX = e.changedTouches[0].clientX;
+        
+        if (startX - endX > 50) {
+            goToNext();
+        }
+        
+        if (endX - startX > 50) {
+            goToPrev();
+        }
+    });
+    
+    // Autoplay
+    let autoplayInterval = setInterval(goToNext, 4000);
+    
+    // Pausar autoplay ao interagir
+    function pauseAutoplay() {
+        clearInterval(autoplayInterval);
+    }
+    
+    function resumeAutoplay() {
+        autoplayInterval = setInterval(goToNext, 4000);
+    }
+    
+    nextBtn?.addEventListener("mouseenter", pauseAutoplay);
+    nextBtn?.addEventListener("mouseleave", resumeAutoplay);
+    prevBtn?.addEventListener("mouseenter", pauseAutoplay);
+    prevBtn?.addEventListener("mouseleave", resumeAutoplay);
+    
+    // Iniciar - garantir que a transição esteja ativada
+    window.addEventListener("load", () => {
+        track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        updateCarousel();
+    });
+    
+    window.addEventListener("resize", updateCarousel);
+}
+</script>
+</body>
+</html>
+
+
