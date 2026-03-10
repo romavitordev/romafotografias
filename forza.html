@@ -90,7 +90,11 @@
             .vsco-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 480px) {
-            .vsco-grid { grid-template-columns: 1fr; gap: 2px; }
+            .vsco-grid { 
+                grid-template-columns: 1fr; 
+                gap: 16px; 
+                padding: 0 16px;
+            }
         }
         .nav-link { position: relative; }
         .nav-link::after {
