@@ -46,12 +46,23 @@ jobs:
             largura=$(identify -format "%w" "$f")
             altura=$(identify -format "%h" "$f")
             maior=$(( largura > altura ? largura : altura ))
+            tmp="/tmp/otim_$(basename "$f")"
             if [ "$maior" -gt 1920 ]; then
-              mogrify -auto-orient -resize '1920x1920>' -quality 85 "$f"
+              # política dimensional: sempre aplica
+              convert "$f" -auto-orient -resize '1920x1920>' -quality 85 "$tmp"
+              mv "$tmp" "$f"
               echo "redimensionada: $f (${maior}px -> 1920px)"
             elif [ "$tamanho" -gt 614400 ] && [[ "${f,,}" != *.png ]]; then
-              mogrify -auto-orient -quality 85 "$f"
-              echo "recomprimida: $f ($((tamanho/1024))KB)"
+              # recompressão: só mantém se realmente reduzir
+              convert "$f" -auto-orient -quality 85 "$tmp"
+              novo=$(stat -c%s "$tmp")
+              if [ "$novo" -lt "$tamanho" ]; then
+                mv "$tmp" "$f"
+                echo "recomprimida: $f ($((tamanho/1024))KB -> $((novo/1024))KB)"
+              else
+                rm -f "$tmp"
+                echo "mantida: $f (recompressão não reduziria)"
+              fi
             fi
           done
 
