@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://romavitordev.github.io/romafotografias/sitemap.xml

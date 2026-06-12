@@ -1,0 +1,315 @@
+{
+  "_comentario": "Manifesto das galerias. Gerado/atualizado por scripts/gera-galeria.mjs (e pelo GitHub Action a cada push). Edite os títulos à vontade — eles são preservados. Fotos novas nas pastas entram aqui automaticamente.",
+  "categorias": [
+    {
+      "slug": "retratos",
+      "pagina": "retratos.html",
+      "titulo": "Retratos",
+      "descricao": "Expressões e emoções capturadas de perto.",
+      "capa": "capa_retrato.jpg",
+      "pasta": "RetratosFotos",
+      "fotos": [
+        {
+          "arquivo": "RetratosFotos/ret_pai_bw.jpg",
+          "titulo": "Meu pai em preto e branco",
+          "w": 1488,
+          "h": 1920
+        },
+        {
+          "arquivo": "RetratosFotos/ret_gu_sol.jpg",
+          "titulo": "Meu irmão e o sol",
+          "w": 1920,
+          "h": 1280
+        },
+        {
+          "arquivo": "capa_retrato.jpg",
+          "titulo": "O silêncio das notícias",
+          "w": 1440,
+          "h": 1920
+        },
+        {
+          "arquivo": "RetratosFotos/ret_gut5i.jpg",
+          "titulo": "Primeiro retrato em nova qualidade",
+          "w": 1280,
+          "h": 1920
+        },
+        {
+          "arquivo": "RetratosFotos/ret_gu_bw.jpg",
+          "titulo": "Meu irmão em preto e branco",
+          "w": 1920,
+          "h": 1440
+        },
+        {
+          "arquivo": "RetratosFotos/ret_gu_bw2.jpg",
+          "titulo": "Retrato em preto e branco",
+          "w": 728,
+          "h": 566
+        },
+        {
+          "arquivo": "RetratosFotos/ret_gu.jpg",
+          "titulo": "Retrato do meu irmão",
+          "w": 1043,
+          "h": 1350
+        }
+      ]
+    },
+    {
+      "slug": "natureza",
+      "pagina": "natureza.html",
+      "titulo": "Natureza",
+      "descricao": "Paisagens, bichos e o que a cidade esquece de olhar.",
+      "capa": "capa_natureza.jpg",
+      "pasta": "NaturezaFotos",
+      "fotos": [
+        {
+          "arquivo": "NaturezaFotos/nat_lago.JPG",
+          "titulo": "Lago tranquilo ao entardecer",
+          "w": 1080,
+          "h": 1920
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_amora.jpg",
+          "titulo": "Amora sorrindo",
+          "w": 1920,
+          "h": 1440
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_aranha.jpg",
+          "titulo": "O predador silencioso",
+          "w": 1034,
+          "h": 1350
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_passaro_céu.jpg",
+          "titulo": "Pequeno pássaro observa o céu",
+          "w": 1046,
+          "h": 1350
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_passaros.JPG",
+          "titulo": "Floresta de concreto",
+          "w": 1440,
+          "h": 1920
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_pombo_solitario.jpg",
+          "titulo": "Pássaro solitário",
+          "w": 998,
+          "h": 1350
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_pombo_bw.jpg",
+          "titulo": "Asas urbanas",
+          "w": 1440,
+          "h": 1920
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_passarinho.JPG",
+          "titulo": "Pequeno pássaro se alimentando",
+          "w": 1440,
+          "h": 1920
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_passaro_frio.jpg",
+          "titulo": "Velho pássaro pensa sobre a vida",
+          "w": 1440,
+          "h": 1920
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_beijaflor.jpg",
+          "titulo": "Beija-flor",
+          "w": 478,
+          "h": 628
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_passaro_solitario.jpg",
+          "titulo": "Pequeno e só",
+          "w": 454,
+          "h": 628
+        }
+      ]
+    },
+    {
+      "slug": "arquitetura",
+      "pagina": "arquitetura.html",
+      "titulo": "Arquitetura",
+      "descricao": "Espaços, memórias e o tempo passando pelas construções.",
+      "capa": "capa_arquitetura.jpg",
+      "pasta": "ArquiteturaFotos",
+      "fotos": [
+        {
+          "arquivo": "ArquiteturaFotos/arq_anjo.jpg",
+          "titulo": "Anjo em Sorocaba",
+          "w": 1080,
+          "h": 1341
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_igreja_sorocaba.jpg",
+          "titulo": "Igreja em Sorocaba",
+          "w": 1046,
+          "h": 1350
+        },
+        {
+          "arquivo": "ArquiteturaFotos/Arq_Igreja.JPG",
+          "titulo": "A igreja, de outro olhar",
+          "w": 1440,
+          "h": 1920
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_chamine.jpg",
+          "titulo": "Chaminé ao pôr do sol",
+          "w": 942,
+          "h": 1350
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_poste.jpg",
+          "titulo": "Uma luz na escuridão",
+          "w": 1033,
+          "h": 1350
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_casa.jpg",
+          "titulo": "Janelas contam histórias",
+          "w": 524,
+          "h": 628
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_porta.jpg",
+          "titulo": "Porta em meio à natureza",
+          "w": 480,
+          "h": 628
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_sofa.JPG",
+          "titulo": "Onde uma família se reunia",
+          "w": 1043,
+          "h": 1854
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_banco.JPG",
+          "titulo": "Onde se contavam histórias",
+          "w": 1080,
+          "h": 1920
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_flores.JPG",
+          "titulo": "Antigos amores",
+          "w": 1050,
+          "h": 1895
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_medalha.JPG",
+          "titulo": "Vitória gravada no metal",
+          "w": 977,
+          "h": 1738
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_trofeu.JPG",
+          "titulo": "Uma antiga vitória abandonada",
+          "w": 875,
+          "h": 1556
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_xicara.JPG",
+          "titulo": "Velha xícara em uma velha casa",
+          "w": 1058,
+          "h": 1880
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_shopping.jpg",
+          "titulo": "Desconhecidos no mesmo espaço",
+          "w": 1046,
+          "h": 1350
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_santo.jpg",
+          "titulo": "Para lembrar de um grande homem",
+          "w": 953,
+          "h": 1350
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_lojinha.jpg",
+          "titulo": "Fotografia à venda",
+          "w": 1080,
+          "h": 1208
+        }
+      ]
+    },
+    {
+      "slug": "forza",
+      "pagina": "forza.html",
+      "titulo": "Capturas virtuais",
+      "descricao": "Composição e luz praticadas no Forza Horizon.",
+      "capa": "capa_forza.png",
+      "pasta": "ForzaFotos",
+      "fotos": [
+        {
+          "arquivo": "ForzaFotos/for_acura.png",
+          "titulo": "Acura na pista chuvosa",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "arquivo": "ForzaFotos/for_acura_tras.png",
+          "titulo": "Acura na chuva — traseira",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "arquivo": "ForzaFotos/for_acura_praia.png",
+          "titulo": "Acura na praia",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "arquivo": "ForzaFotos/for_acura_noite.png",
+          "titulo": "Acura à noite",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "arquivo": "ForzaFotos/for_acura_bw.png",
+          "titulo": "Acura em preto e branco",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "arquivo": "ForzaFotos/for_porsheazul.png",
+          "titulo": "Porsche Taycan Turbo S na praia",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "arquivo": "ForzaFotos/for_porsheazul_detalhes.png",
+          "titulo": "Porsche Taycan Turbo S — detalhes",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "arquivo": "ForzaFotos/for_porsheazul_longe.png",
+          "titulo": "Porsche Taycan Turbo S — visão aberta",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "arquivo": "ForzaFotos/for_spyder.png",
+          "titulo": "Porsche 918 Spyder frontal",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "arquivo": "ForzaFotos/for_spyder_detalhe.png",
+          "titulo": "Porsche 918 Spyder — detalhes",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "arquivo": "ForzaFotos/for_barco.png",
+          "titulo": "Pequeno barco diante do vasto mar",
+          "w": 1920,
+          "h": 1080
+        }
+      ]
+    }
+  ]
+}

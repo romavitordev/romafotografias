@@ -1,0 +1,68 @@
+name: Atualiza galeria
+
+# Subiu foto nova em qualquer pasta de categoria? Este workflow:
+#  1. otimiza as imagens (redimensiona pra 1920px e comprime as pesadas)
+#  2. atualiza galeria/fotos.json (títulos existentes são preservados)
+#  3. commita o resultado — e o GitHub Pages republica sozinho.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'ArquiteturaFotos/**'
+      - 'ForzaFotos/**'
+      - 'NaturezaFotos/**'
+      - 'RetratosFotos/**'
+      - 'capa_*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: galeria
+  cancel-in-progress: false
+
+jobs:
+  galeria:
+    # evita loop quando o commit é do próprio bot
+    if: "!contains(github.event.head_commit.message, '[galeria-bot]')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Otimiza imagens (1920px máx., recompressão das pesadas)
+        run: |
+          shopt -s nullglob
+          for f in ArquiteturaFotos/* ForzaFotos/* NaturezaFotos/* RetratosFotos/* capa_*; do
+            case "${f,,}" in
+              *.jpg|*.jpeg|*.png) ;;
+              *) continue ;;
+            esac
+            tamanho=$(stat -c%s "$f")
+            largura=$(identify -format "%w" "$f")
+            altura=$(identify -format "%h" "$f")
+            maior=$(( largura > altura ? largura : altura ))
+            if [ "$maior" -gt 1920 ]; then
+              mogrify -auto-orient -resize '1920x1920>' -quality 85 "$f"
+              echo "redimensionada: $f (${maior}px -> 1920px)"
+            elif [ "$tamanho" -gt 614400 ] && [[ "${f,,}" != *.png ]]; then
+              mogrify -auto-orient -quality 85 "$f"
+              echo "recomprimida: $f ($((tamanho/1024))KB)"
+            fi
+          done
+
+      - name: Atualiza o manifesto da galeria
+        run: node scripts/gera-galeria.mjs
+
+      - name: Commita se houver mudanças
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nada mudou — manifesto já estava em dia."
+          else
+            git commit -m "chore(galeria): otimiza fotos e atualiza manifesto [galeria-bot]"
+            git push
+          fi

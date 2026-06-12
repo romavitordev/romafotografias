@@ -1,896 +1,241 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vitor Roma | Fotografia</title>
+    <title>Vitor Roma — Fotografia | Sorocaba/SP</title>
+    <meta name="description" content="Fotografia autoral em Sorocaba/SP: retratos, ensaios, natureza e cenas urbanas. Sessões com atenção total e investimento acessível. Vamos fotografar?">
+    <link rel="canonical" href="https://romavitordev.github.io/romafotografias/">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-blockquote {
-    font-style: italic;
-    border-left: 4px solid #ccc;
-    padding: 0.5em 1em;
-    background-color: #f9f9f9;
-    color: #222; /* Cor do texto da frase */
-}
 
-cite {
-    display: block;
-    font-style: normal;
-    color: #555; /* Cor do autor */
-    margin-top: 0.5em;
-}
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:url" content="https://romavitordev.github.io/romafotografias/">
+    <meta property="og:site_name" content="Roma Fotografias">
+    <meta property="og:title" content="Vitor Roma — Fotografia">
+    <meta property="og:description" content="Fotografia autoral em Sorocaba/SP: retratos, ensaios, natureza e cenas urbanas.">
+    <meta property="og:image" content="https://romavitordev.github.io/romafotografias/RetratosFotos/ret_gu_sol.jpg">
+    <meta name="twitter:card" content="summary_large_image">
 
-body {
-    background-color: #0B0F14;
-    color: #ffffff;
-    font-family: 'Inter', sans-serif;
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="preload" as="image" href="RetratosFotos/ret_gu_sol.jpg">
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
-}
-
-/* ======================
-MASONRY GRID
-====================== */
-
-.masonry-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    grid-auto-rows: 10px;
-    gap: 16px;
-}
-
-.masonry-item {
-    break-inside: avoid;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.masonry-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-
-
-/* ======================
-NAV LINKS
-====================== */
-
-.nav-link {
-    position: relative;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: #60A5FA;
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-
-/* ======================
-DROPDOWN
-====================== */
-
-.dropdown {
-    position: relative;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #1F2937;
-    min-width: 180px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    z-index: 1000;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-content a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    transition: background 0.3s;
-}
-
-.dropdown-content a:hover {
-    background-color: #2d333b;
-}
-
-
-/* ======================
-ANIMATION
-====================== */
-
-.animate-scroll {
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-
-/* ======================
-CAROUSEL
-====================== */
-
-.carousel-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-}
-
-.carousel-inner {
-    display: flex;
-    align-items: stretch;
-    transition: transform 0.6s ease;
-    will-change: transform;
-}
-
-.slide {
-    flex:0 0 60%;
-    min-width:60%;
-    padding:0 20px;
-    box-sizing:border-box;
-}
-
-.slide a {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.carousel-track-container{
-overflow:hidden;
-position:relative;
-}
-
-
-/* ======================
-INDICATORS
-====================== */
-
-.carousel-indicators {
-    display: none;
-}
-
-@media (min-width: 768px) {
-    .carousel-indicators {
-        display: flex;
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Vitor Roma",
+      "jobTitle": "Fotógrafo",
+      "url": "https://romavitordev.github.io/romafotografias/",
+      "image": "https://romavitordev.github.io/romafotografias/Vitor_foto.jpg",
+      "address": { "@type": "PostalAddress", "addressLocality": "Sorocaba", "addressRegion": "SP", "addressCountry": "BR" },
+      "sameAs": ["https://instagram.com/romart.photos"]
     }
-}
-
-.indicator {
-    transition: all .3s ease;
-}
-
-.indicator.active {
-    background-color: #60A5FA !important;
-    transform: scale(1.2);
-}
-.carousel-wrapper{
-position:relative;
-width:100%;
-}
-
-.carousel-track{
-display:flex;
-transition:transform .6s cubic-bezier(.4,0,.2,1);
-}
-
-.slide{
-flex:0 0 60%;
-padding:0 20px;
-position:relative;
-cursor:pointer;
-}
-
-.slide img{
-width:100%;
-height:420px;
-object-fit:cover;
-border-radius:20px;
-filter:blur(2px) brightness(.7);
-transform:scale(.85);
-transition:all .5s ease;
-}
-
-.slide.active img{
-filter:none;
-transform:scale(1);
-}
-
-.slide-overlay{
-position:absolute;
-bottom:20px;
-left:30px;
-color:white;
-}
-
-.slide-overlay h3{
-font-size:24px;
-font-weight:bold;
-}
-
-.slide-overlay p{
-font-size:14px;
-opacity:.8;
-}
-
-@media(max-width:768px){
-
-.slide{
-flex:0 0 85%;
-}
-
-.slide img{
-height:320px;
-}
-
-}
-    </style>
+    </script>
 </head>
-<body class="min-h-screen">
-    <!-- Navigation -->
-    <nav class="hidden md:flex fixed w-full z-50 bg-dark-bg/95 backdrop-blur-sm border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <a href="index.html" class="text-2xl font-bold text-accent">VR</a>
+<body>
+    <header class="nav">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html" aria-label="Roma Fotografias — início">
+                Roma<small>fotografias</small>
+            </a>
+            <nav class="nav-links" aria-label="Navegação principal">
+                <a href="#portfolio">Portfólio</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero" aria-label="Apresentação">
+            <div class="hero-bg">
+                <img src="RetratosFotos/ret_gu_sol.jpg" alt="Retrato em contraluz dourada ao pôr do sol, por Vitor Roma" fetchpriority="high">
+            </div>
+            <div class="hero-content">
+                <p class="kicker">Fotografia autoral · Sorocaba/SP</p>
+                <h1>Vitor Roma</h1>
+                <p class="tagline">
+                    Retratos, natureza e cenas urbanas — fotografia feita com calma,
+                    pra guardar o que merece ser lembrado.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-solid" href="#portfolio">Ver portfólio</a>
+                    <a class="btn btn-ghost" href="https://wa.me/5515991061471?text=Oi%2C%20Vitor!%20Vi%20seu%20site%20e%20quero%20conversar%20sobre%20uma%20sess%C3%A3o%20de%20fotos." target="_blank" rel="noopener noreferrer">Orçar uma sessão</a>
                 </div>
-                
-                <!-- Menu -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="nav-link text-white hover:text-accent px-3 py-2 rounded-md font-medium">Início</a>
-                        
-                        <!-- Portfolio Dropdown -->
-                        <div class="relative dropdown">
-                            <button class="nav-link text-white hover:text-accent px-3 py-2 rounded-md font-medium">
-                                Portfólio <i class="fas fa-chevron-down text-xs ml-1"></i>
-                            </button>
-                            <div class="dropdown-content">
-                                <a href="arquitetura.html">Arquitetura</a>
-                                <a href="forza.html">Capturas Forza</a>
-                                <a href="retratos.html">Retratos</a>
-                                <a href="natureza.html">Natureza</a>
-                            </div>
-                        </div>
-                        
-                        <a href="#historia" class="nav-link text-white hover:text-accent px-3 py-2 rounded-md font-medium">Quem Sou Eu</a>
-                        <a href="#contato" class="nav-link text-white hover:text-accent px-3 py-2 rounded-md font-medium">Contato</a>
-                    </div>
+            </div>
+            <span class="hero-credit">Foto: acervo autoral</span>
+            <span class="scroll-hint" aria-hidden="true"></span>
+        </section>
+
+        <!-- Portfólio -->
+        <section id="portfolio" class="section">
+            <div class="container">
+                <div class="reveal">
+                    <p class="kicker">Portfólio</p>
+                    <h2 class="section-title">Quatro jeitos de <em>olhar.</em></h2>
+                    <p class="section-sub">
+                        Cada galeria é um exercício diferente de luz e composição —
+                        das ruas de Sorocaba ao mundo virtual.
+                    </p>
+                </div>
+                <div id="grid-categorias" class="portfolio-grid">
+                    <noscript><p>Ative o JavaScript para ver as galerias — ou veja as fotos no
+                    <a href="https://instagram.com/romart.photos">Instagram</a>.</p></noscript>
                 </div>
             </div>
-        </div>
-    </nav>
+        </section>
 
-    <!-- Bottom Navigation for Mobile -->
-    <div class="bottom-nav fixed bottom-0 left-0 right-0 bg-dark-card border-t border-gray-800 md:hidden z-50">
-        <div class="flex justify-around items-center py-2">
-            <a href="index.html" class="flex flex-col items-center text-accent">
-                <i class="fas fa-home text-lg"></i>
-                <span class="text-xs">Início</span>
-            </a>
-            <a href="#portfolio" class="flex flex-col items-center text-white hover:text-accent">
-                <i class="fas fa-camera text-lg"></i>
-                <span class="text-xs">Portfólio</span>
-            </a>
-            <a href="#historia" class="flex flex-col items-center text-white hover:text-accent">
-                <i class="fas fa-book text-lg"></i>
-                <span class="text-xs">História</span>
-            </a>
-            <a href="#contato" class="flex flex-col items-center text-white hover:text-accent">
-                <i class="fas fa-envelope text-lg"></i>
-                <span class="text-xs">Contato</span>
-            </a>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background Image -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1920&q=80" 
-                 alt="Hero Background" 
-                 class="w-full h-full object-cover opacity-40">
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-dark-bg/50 to-dark-bg"></div>
-        </div>
-        
-        <div class="relative z-10 text-center px-4">
-            <p class="text-accent uppercase tracking-[0.3em] mb-4 text-sm sm:text-base">Arte e Fotografia</p>
-            <h1 class="text-5xl sm:text-7xl font-semibold tracking-[0.15em] mb-6">VITOR ROMA</h1>
-            <p class="text-xl sm:text-2xl text-gray-300 max-w-2xl mx-auto mb-8">
-                Capturando memórias através da câmera
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#portfolio" class="bg-accent text-dark-bg px-8 py-3 rounded-full font-semibold hover:bg-white transition duration-300">
-                    Ver Portfólio
-                </a>
-                <a href="#contato" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-dark-bg transition duration-300">
-                    Contato
-                </a>
-            </div>
-        </div>
-        
-        <!-- Scroll Down -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <a href="#portfolio" class="text-white text-2xl">
-                <i class="fas fa-chevron-down"></i>
-            </a>
-        </div>
-    </section>
-
-<section id="portfolio" class="py-20 px-4">
-    <div class="max-w-7xl mx-auto">
-
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold mb-4">Meu Portfólio</h2>
-            <div class="w-24 h-1 bg-accent mx-auto"></div>
-        </div>
-
-    <div class="carousel-wrapper relative">
-
-    <button class="prev absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-dark-card/80 hover:bg-accent text-white p-3 rounded-full transition">
-        <i class="fas fa-chevron-left"></i>
-    </button>
-
-
-    <div class="carousel-track-container overflow-hidden">
-
-    <div class="carousel-track flex items-center">
-
-    <a href="arquitetura.html" class="slide">
-        <img src="capa_arquitetura.jpg" alt="Arquitetura">
-
-        <div class="slide-overlay">
-        <h3>Arquitetura</h3>
-        <p>Espaços urbanos</p>
-        </div>
-
-    </a>
-
-
-        <a href="forza.html" class="slide">
-        <img src="capa_forza.png" alt="Carros e Fotografias Digitais no Forza Horizon">
-
-    <div class="slide-overlay">
-        <h3>Carros Virtuais</h3>
-        <p>Fotografias Forza Horizon</p>
-    </div>
-
-        </a>
-
-
-        <a href="retratos.html" class="slide">
-        <img src="capa_retrato.jpg" alt="Retratos">
-
-    <div class="slide-overlay">
-        <h3>Retratos</h3>
-        <p>Expressões humanas</p>
-    </div>
-
-        </a>
-
-
-        <a href="natureza.html" class="slide">
-        <img src="capa_natureza.jpg" alt="Natureza">
-
-    <div class="slide-overlay">
-        <h3>Natureza</h3>
-        <p>Paisagens naturais</p>
-    </div>
-
-        </a>
-
-    </div>
-
-            </div>
-
-
-            <button class="next absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-dark-card/80 hover:bg-accent text-white p-3 rounded-full transition">
-            <i class="fas fa-chevron-right"></i>
-            </button>
-
-
-            </div>
-
-        </div>
-</section>
-    <!-- Minha História Section -->
-    <section id="historia" class="py-16 md:py-20 px-4 bg-dark-card">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12 md:mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Quem sou Eu</h2>
-                <div class="w-24 h-1 bg-accent mx-auto"></div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                <!-- Foto -->
-                <div class="order-1 lg:order-2">
-                    <div class="relative max-w-sm mx-auto lg:max-w-md">
-                        <img src="Vitor_foto.jpg"
-                             alt="Vitor Roma"
-                             class="w-full rounded-lg shadow-2xl">
-                        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-accent/20 rounded-full flex items-center justify-center">
-                            <i class="fas fa-camera text-accent text-2xl"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Texto -->
-                <div class="order-2 lg:order-1 text-center lg:text-left">
-                    <h3 class="text-xl md:text-2xl font-bold mb-6 text-accent">Olá, eu sou o Vitor Roma</h3>
-
-                    <div class="space-y-4 text-gray-300 leading-relaxed mb-8">
-                        <p>
-                            Sou um fotógrafo e desenvolvedor web <strong>em desenvolvimento</strong>, apaixonado por capturar momentos únicos e transformá-los em memórias que podem ser revividas ao longo do tempo.
-                            </p>
-                        <p>
-                            Estou no início da minha jornada, mas com <b>muita</b> dedicação e criatividade.
-                            Busco criar imagens que transmitam emoção e contem as <em>SUAS</em> histórias.
-                        </p>
-                        <p>
-                            Por estar começando agora, ofereço sessões fotográficas com valores mais acessíveis, sendo uma ótima oportunidade
-                            para quem deseja registrar momentos especiais sem comprometer o orçamento. Meu objetivo é sempre entregar imagens que superem expectativas,
-                            criando conexões e lembranças duradouras através da fotografia.
-                        </p>
-                        <p>
-                            Acredito que cada fotografia tem o poder de despertar os mais profundos da Alma. Seja em retratos, eventos ou projetos autorais. Não basta apenas olhar a imagem, é preciso sentir a emoção que ela transmite. 
-                            A verdadeira arte é aquela que toca o coração de quem a contempla, despertando sentimentos e memórias únicas.
-                        </p>
-                        <blockquote>
-                            A verdadeira arte é só um reflexo dos sentimentos de quem a contempla (...)
-                            <cite>Rafael Lange</cite>
-                        </blockquote>
-                    </div>
-
-                    <!-- Redes Sociais -->
-                    <div class="flex justify-center lg:justify-start gap-6">
-                        <a href="https://instagram.com/romart.photos" target="_blank"
-                           class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent transition-all duration-300">
-                            <i class="fab fa-instagram text-xl"></i>
+        <!-- Sobre -->
+        <section id="sobre" class="section about">
+            <div class="container about-grid">
+                <div class="about-text reveal">
+                    <p class="kicker">Sobre</p>
+                    <h2 class="section-title">Olá, eu sou o <em>Vitor.</em></h2>
+                    <p>
+                        Fotógrafo em Sorocaba/SP, apaixonado por capturar momentos únicos e
+                        transformá-los em memórias que duram. Acredito que uma boa fotografia
+                        não é só vista — <strong>é sentida</strong>.
+                    </p>
+                    <p>
+                        Meu olhar passeia entre retratos, natureza e a arquitetura da cidade,
+                        sempre procurando a luz certa e a história por trás de cada cena.
+                        Também sou desenvolvedor web — este site foi feito à mão, por mim.
+                    </p>
+                    <p>
+                        Estou construindo meu portfólio, e isso joga a seu favor:
+                        <strong>sessões com investimento acessível e atenção total</strong>
+                        a cada projeto. Se você quer registrar um momento especial sem
+                        comprometer o orçamento, essa é a hora.
+                    </p>
+                    <div class="social-row">
+                        <a href="https://instagram.com/romart.photos" target="_blank" rel="noopener noreferrer" aria-label="Instagram @romart.photos">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                         </a>
-                        <a href="https://wa.me/5515991061471"
-                           class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent transition-all duration-300">
-                            <i class="fab fa-whatsapp text-xl"></i>
+                        <a href="https://wa.me/5515991061471" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
                         </a>
-                        <a href="mailto:romavitor@hotmail.com"
-                           class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent transition-all duration-300">
-                            <i class="fas fa-envelope text-xl"></i>
+                        <a href="mailto:romavitor@hotmail.com" aria-label="Enviar e-mail">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-<!-- Contato Section -->
-<section id="contato" class="py-20 px-4">
-    <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold mb-4">Entre em Contato</h2>
-            <div class="w-24 h-1 bg-accent mx-auto"></div>
-            <p class="text-gray-400 mt-4">Vamos criar algo incrível juntos!</p>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- WhatsApp -->
-            <div class="text-center p-6 bg-dark-card rounded-lg">
-                <div class="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-envelope text-accent text-xl"></i>
+                <div class="about-photo reveal">
+                    <img src="Vitor_foto.jpg" alt="Vitor Roma segurando sua câmera" width="828" height="1253" loading="lazy">
                 </div>
-                <h3 class="font-bold mb-2">WhatsApp</h3>
-                <p class="text-gray-400">15 991061471</p>
             </div>
-            
-            <!-- Email -->
-            <div class="text-center p-6 bg-dark-card rounded-lg">
-                <div class="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-envelope text-accent text-xl"></i>
+        </section>
+
+        <!-- Serviços -->
+        <section id="servicos" class="section">
+            <div class="container">
+                <div class="reveal">
+                    <p class="kicker">Serviços</p>
+                    <h2 class="section-title">O que posso fotografar <em>pra você.</em></h2>
                 </div>
-                <h3 class="font-bold mb-2">Email</h3>
-                <p class="text-gray-400">romavitor@hotmail.com</p>
-            </div>
-            
-            <!-- Instagram -->
-            <div class="text-center p-6 bg-dark-card rounded-lg">
-                <div class="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fab fa-instagram text-accent text-xl"></i>
+                <div class="services-grid">
+                    <article class="service-card reveal">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </span>
+                        <h3>Retratos &amp; ensaios</h3>
+                        <p>Sessões individuais ou em dupla, na luz natural — pra perfil
+                        profissional, redes sociais ou só pra guardar uma fase.</p>
+                    </article>
+                    <article class="service-card reveal">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 8v6M23 11h-6M1 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="7" cy="7" r="4"/></svg>
+                        </span>
+                        <h3>Família &amp; momentos</h3>
+                        <p>Aniversários, encontros e registros espontâneos de quem você ama —
+                        incluindo os de quatro patas.</p>
+                    </article>
+                    <article class="service-card reveal">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                        </span>
+                        <h3>Projetos sob medida</h3>
+                        <p>Tem uma ideia diferente — produto, espaço, projeto autoral?
+                        Me conta e a gente constrói o ensaio juntos.</p>
+                    </article>
                 </div>
-                <h3 class="font-bold mb-2">Instagram</h3>
-                <p class="text-gray-400">@romart.photos</p>
             </div>
-        </div>
-        
-        <!-- Formulário de Contato -->
-        <form action="https://formspree.io/f/xzdjebek" method="POST" class="mt-12 space-y-6">
+        </section>
 
-            <div class="grid md:grid-cols-2 gap-6">
-                <input 
-                    type="text" 
-                    name="nome"
-                    placeholder="Seu Nome" 
-                    required
-                    class="w-full px-4 py-3 bg-dark-card border border-gray-700 rounded-lg focus:border-accent focus:outline-none text-white">
+        <!-- Contato -->
+        <section id="contato" class="section" style="padding-top:0">
+            <div class="container">
+                <div class="reveal">
+                    <p class="kicker">Contato</p>
+                    <h2 class="section-title">Vamos criar algo <em>incrível?</em></h2>
+                    <p class="section-sub">Me chama no WhatsApp pra orçar uma sessão, ou manda uma mensagem pelo formulário.</p>
+                </div>
 
-                <input 
-                    type="email" 
-                    name="email"
-                    placeholder="Seu Email" 
-                    required
-                    class="w-full px-4 py-3 bg-dark-card border border-gray-700 rounded-lg focus:border-accent focus:outline-none text-white">
+                <div class="contact-cards">
+                    <a class="contact-card reveal" href="https://wa.me/5515991061471?text=Oi%2C%20Vitor!%20Vi%20seu%20site%20e%20quero%20conversar%20sobre%20uma%20sess%C3%A3o%20de%20fotos." target="_blank" rel="noopener noreferrer">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                        </span>
+                        <span><strong>WhatsApp</strong><span>(15) 99106-1471 — resposta rápida</span></span>
+                    </a>
+                    <a class="contact-card reveal" href="mailto:romavitor@hotmail.com">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                        </span>
+                        <span><strong>E-mail</strong><span>romavitor@hotmail.com</span></span>
+                    </a>
+                    <a class="contact-card reveal" href="https://instagram.com/romart.photos" target="_blank" rel="noopener noreferrer">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </span>
+                        <span><strong>Instagram</strong><span>@romart.photos</span></span>
+                    </a>
+                </div>
+
+                <form id="form-contato" class="form reveal" action="https://formspree.io/f/xzdjebek" method="POST">
+                    <div class="form-row">
+                        <input type="text" name="nome" placeholder="Seu nome" autocomplete="name" required>
+                        <input type="email" name="email" placeholder="Seu e-mail" autocomplete="email" required>
+                    </div>
+                    <input type="text" name="assunto" placeholder="Assunto (ex.: ensaio de casal)" required>
+                    <textarea name="mensagem" placeholder="Conta pra mim o que você imagina…" required></textarea>
+                    <input type="hidden" name="_subject" value="Novo contato do site Roma Fotografias">
+                    <input type="hidden" name="_captcha" value="false">
+                    <button type="submit" class="btn btn-solid">Enviar mensagem</button>
+                    <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+                </form>
             </div>
+        </section>
+    </main>
 
-            <input 
-                type="text" 
-                name="assunto"
-                placeholder="Assunto" 
-                required
-                class="w-full px-4 py-3 bg-dark-card border border-gray-700 rounded-lg focus:border-accent focus:outline-none text-white">
-
-            <textarea 
-                name="mensagem"
-                placeholder="Sua Mensagem" 
-                rows="5" 
-                required
-                class="w-full px-4 py-3 bg-dark-card border border-gray-700 rounded-lg focus:border-accent focus:outline-none text-white"></textarea>
-
-            <!-- Configuração do Formspree -->
-            <input type="hidden" name="_subject" value="Novo contato do site Roma Fotografias">
-            <input type="hidden" name="_captcha" value="false">
-
-            <button type="submit" class="w-full bg-accent text-dark-bg py-3 rounded-lg font-bold hover:bg-white transition duration-300">
-                Enviar Mensagem
-            </button>
-
-            <p id="form-status" class="text-green-400 text-center font-semibold"></p>
-
-        </form>
-    </div>
-</section>
-
-    <!-- Footer -->
-    <footer class="bg-dark-card py-12 px-4 border-t border-gray-800">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
-                <!-- Logo e Descrição -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
                 <div>
-                    <a href="index.html" class="text-2xl font-bold text-accent">VR</a>
-                    <p class="text-gray-400 mt-2">Fotografia profissional capturando momentos únicos.</p>
+                    <a class="brand" href="index.html">Roma<small>fotografias</small></a>
+                    <p style="color:var(--muted);font-size:0.88rem;max-width:20rem;margin:0.8rem 0 0">
+                        Fotografia autoral em Sorocaba/SP — retratos, natureza e cenas urbanas.
+                    </p>
                 </div>
-                
-                <!-- Links Rápidos -->
-                <div>
-                    <h4 class="font-bold mb-4">Links Rápidos</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="index.html" class="hover:text-accent transition">Início</a></li>
-                        <li><a href="#portfolio" class="hover:text-accent transition">Portfólio</a></li>
-                        <li><a href="#historia" class="hover:text-accent transition">Minha História</a></li>
-                        <li><a href="#contato" class="hover:text-accent transition">Contato</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Redes Sociais -->
-                <div>
-                    <h4 class="font-bold mb-4">Siga-me</h4>
-                    <div class="flex gap-4">
-                        <a href="https://instagram.com/romart.photos" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-accent hover:text-dark-bg transition">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/5515991061471" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-accent hover:text-dark-bg transition">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="mailto:romavitor@hotmail.com" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-accent hover:text-dark-bg transition">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
+                <nav aria-label="Links do rodapé">
+                    <a href="#portfolio">Portfólio</a>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#servicos">Serviços</a>
+                    <a href="#contato">Contato</a>
+                </nav>
             </div>
-            
-            <!-- Créditos -->
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-                <p>© 2026 Vitor Roma | Todos os direitos reservados</p>
-                <p class="mt-2">Desenvolvido por: <span class="text-white">Vitor Roma</span> | Sala: <span class="text-white">DS3Q17</span> | RA: <span class="text-white">R8504C4</span></p>
+            <div class="footer-base">
+                <p style="margin:0">© <span data-ano>2026</span> Vitor Roma — Roma Fotografias</p>
+                <p style="margin:0">Site feito à mão — HTML, CSS e JavaScript puros.</p>
             </div>
         </div>
     </footer>
-<script>
-tailwind.config = {
-    theme: {
-        extend: {
-            colors: {
-                'dark-bg': '#0B0F14',
-                'dark-card': '#1F2937',
-                'accent': '#60A5FA',
-            },
-            fontFamily: {
-                'display': ['Space Grotesk', 'sans-serif'],
-                'body': ['Inter', 'sans-serif'],
-            }
-        }
-    }
-};
-</script>
 
-<script>
-
-    // ======================
-    // SMOOTH SCROLL
-    // ======================
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-        anchor.addEventListener("click", function(e){
-
-            e.preventDefault();
-
-            const target = document.querySelector(this.getAttribute("href"));
-
-            if(target){
-
-                target.scrollIntoView({
-                    behavior:"smooth"
-                });
-
-            }
-
-        });
-
-    });
-
-
-    // ======================
-    // NAVBAR EFFECT
-    // ======================
-
-    window.addEventListener("scroll", ()=>{
-
-        const nav = document.querySelector("nav");
-
-        if(!nav) return;
-
-        if(window.scrollY > 50){
-
-            nav.classList.add("bg-dark-bg/98");
-            nav.classList.remove("bg-dark-bg/95");
-
-        } else {
-
-            nav.classList.remove("bg-dark-bg/98");
-            nav.classList.add("bg-dark-bg/95");
-
-        }
-
-    });
-
-
-    // ======================
-    // MOBILE BOTTOM NAV
-    // ======================
-
-    const bottomNav = document.querySelector(".bottom-nav");
-
-    if(bottomNav){
-
-        if(window.innerWidth < 768){
-            bottomNav.classList.add("hidden");
-        }
-
-        window.addEventListener("scroll", ()=>{
-
-            if(window.scrollY > window.innerHeight - 100){
-                bottomNav.classList.remove("hidden");
-            } else {
-                bottomNav.classList.add("hidden");
-            }
-
-        });
-
-    }
-
-
- 
-// ======================
-// CAROUSEL INFINITO
-// ======================
-
-const track = document.querySelector(".carousel-track");
-const slides = document.querySelectorAll(".slide");
-const nextBtn = document.querySelector(".next");
-const prevBtn = document.querySelector(".prev");
-const container = document.querySelector(".carousel-track-container");
-
-if (track && slides.length > 0) {
-    // Clonar primeiro e último slide para efeito infinito
-    const firstSlide = slides[0].cloneNode(true);
-    const lastSlide = slides[slides.length - 1].cloneNode(true);
-    
-    // Adicionar clones no início e fim
-    track.insertBefore(lastSlide, track.firstChild);
-    track.appendChild(firstSlide);
-    
-    // Pegar todos os slides novamente (incluindo clones)
-    const allSlides = document.querySelectorAll(".slide");
-    let currentIndex = 1; // Começar no primeiro slide real (após o clone)
-    let isTransitioning = false;
-    
-    function updateCarousel() {
-        const containerWidth = container.offsetWidth;
-        const slideWidth = allSlides[0].offsetWidth;
-        
-        allSlides.forEach((slide, i) => {
-            slide.classList.remove("active");
-            if (i === currentIndex) {
-                slide.classList.add("active");
-            }
-        });
-        
-        // Calcular offset para centralizar o slide ativo
-        const offset = -(currentIndex * slideWidth) + (containerWidth / 2) - (slideWidth / 2);
-        track.style.transform = `translateX(${offset}px)`;
-    }
-    
-    // Função para próximo slide
-    function goToNext() {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentIndex++;
-        
-        if (currentIndex >= allSlides.length) {
-            // Chegou no final (clone do primeiro), pular para o primeiro real
-            track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-            updateCarousel();
-            
-            setTimeout(() => {
-                isTransitioning = false;
-                track.style.transition = 'none';
-                currentIndex = 1;
-                updateCarousel();
-                // Forçar reflow para aplicar a mudança sem transição
-                track.offsetHeight;
-                track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-            }, 600);
-        } else {
-            updateCarousel();
-            setTimeout(() => {
-                isTransitioning = false;
-            }, 600);
-        }
-    }
-    
-    // Função para slide anterior
-    function goToPrev() {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentIndex--;
-        
-        if (currentIndex < 0) {
-            // Chegou no início (clone do último), pular para o último real
-            track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-            updateCarousel();
-            
-            setTimeout(() => {
-                isTransitioning = false;
-                track.style.transition = 'none';
-                currentIndex = allSlides.length - 2;
-                updateCarousel();
-                // Forçar reflow para aplicar a mudança sem transição
-                track.offsetHeight;
-                track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-            }, 600);
-        } else {
-            updateCarousel();
-            setTimeout(() => {
-                isTransitioning = false;
-            }, 600);
-        }
-    }
-    
-    // Botão próximo
-    if (nextBtn) {
-        nextBtn.addEventListener("click", goToNext);
-    }
-    
-    // Botão anterior
-    if (prevBtn) {
-        prevBtn.addEventListener("click", goToPrev);
-    }
-    
-    // Swipe mobile
-    let startX = 0;
-    
-    track.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
-    });
-    
-    track.addEventListener("touchend", (e) => {
-        let endX = e.changedTouches[0].clientX;
-        
-        if (startX - endX > 50) {
-            goToNext();
-        }
-        
-        if (endX - startX > 50) {
-            goToPrev();
-        }
-    });
-    
-    // Autoplay
-    let autoplayInterval = setInterval(goToNext, 4000);
-    
-    // Pausar autoplay ao interagir
-    function pauseAutoplay() {
-        clearInterval(autoplayInterval);
-    }
-    
-    function resumeAutoplay() {
-        autoplayInterval = setInterval(goToNext, 4000);
-    }
-    
-    nextBtn?.addEventListener("mouseenter", pauseAutoplay);
-    nextBtn?.addEventListener("mouseleave", resumeAutoplay);
-    prevBtn?.addEventListener("mouseenter", pauseAutoplay);
-    prevBtn?.addEventListener("mouseleave", resumeAutoplay);
-    
-    // Iniciar - garantir que a transição esteja ativada
-    window.addEventListener("load", () => {
-        track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-        updateCarousel();
-    });
-    
-    window.addEventListener("resize", updateCarousel);
-}
-    const form = document.querySelector("#contato form");
-    const status = document.getElementById("form-status");
-
-    form.addEventListener("submit", async function(e) {
-        e.preventDefault();
-
-        const data = new FormData(form);
-
-        try {
-            const response = await fetch(form.action, {
-                method: "POST",
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-
-            if (response.ok) {
-                status.innerHTML = "✅ Obrigado pelo contato. Em breve responderei.";
-                form.reset();
-            } else {
-                status.innerHTML = "❌ Ocorreu um erro. Tente novamente.";
-            }
-        } catch (error) {
-            status.innerHTML = "❌ Ocorreu um erro. Tente novamente.";
-        }
-    });
-</script>
+    <script src="assets/main.js" defer></script>
 </body>
 </html>
-
