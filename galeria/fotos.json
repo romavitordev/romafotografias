@@ -537,6 +537,24 @@
           "titulo": "Luzes que trazem notícias",
           "w": 730,
           "h": 566
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_historias_do_passado.jpg",
+          "titulo": "Histórias do passado",
+          "w": 928,
+          "h": 1787
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_historias_do_passado_ii.jpg",
+          "titulo": "Histórias do passado II",
+          "w": 1080,
+          "h": 1620
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_o_ultimo_suspiro_do_dia.jpg",
+          "titulo": "O último suspiro do dia",
+          "w": 907,
+          "h": 1211
         }
       ]
     },
@@ -703,6 +721,30 @@
           "titulo": "Uma árvore mágica — São Paulo",
           "w": 754,
           "h": 566
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_a_beleza_da_natureza_e_o_verde.jpg",
+          "titulo": "A beleza da natureza é o verde",
+          "w": 1440,
+          "h": 1920
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_a_natureza_tambem_consome.jpg",
+          "titulo": "A natureza também consome",
+          "w": 431,
+          "h": 576
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_bem_te_vi_no_muro.jpg",
+          "titulo": "Bem-te-vi no muro",
+          "w": 1440,
+          "h": 1920
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_clareira_na_mata.jpg",
+          "titulo": "Clareira na mata",
+          "w": 1440,
+          "h": 1920
         }
       ]
     },
