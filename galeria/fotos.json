@@ -674,25 +674,13 @@
         },
         {
           "arquivo": "AnimaisFotos/ani_bem_te_vi_no_muro.jpg",
-          "titulo": "Bem-te-vi no muro",
+          "titulo": "Velho pássaro pensa sobre a vida",
           "w": 1440,
           "h": 1920
         },
         {
           "arquivo": "AnimaisFotos/ani_passaro_ceu.jpg",
           "titulo": "Pequeno pássaro observa o céu",
-          "w": 907,
-          "h": 1211
-        },
-        {
-          "arquivo": "AnimaisFotos/ani_passaro_frio.jpg",
-          "titulo": "Velho pássaro pensa sobre a vida",
-          "w": 1440,
-          "h": 1920
-        },
-        {
-          "arquivo": "AnimaisFotos/ani_passaro_azul.jpg",
-          "titulo": "Pássaro contra o céu",
           "w": 907,
           "h": 1211
         },
