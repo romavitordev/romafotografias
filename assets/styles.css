@@ -254,6 +254,8 @@ a { color: inherit; text-decoration: none; }
 .sobre figure img { width: 100%; filter: grayscale(1); }
 .sobre figcaption { margin-top: 10px; }
 .sobre .texto p { margin: 0 0 1.1em; max-width: 36rem; color: #3e3c38; }
+/* nomes de modelo (ex.: DSC-H400) nunca quebram no hífen */
+.inteiro { white-space: nowrap; }
 .sobre .texto p.grande {
   font-family: var(--serif);
   font-weight: 300;
