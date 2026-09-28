@@ -9,17 +9,19 @@ Site estático feito à mão: HTML, CSS e JavaScript puros, sem frameworks e sem
 ## 🖼 Como a exposição funciona
 
 - **Entrada** (`index.html`): a parede de destaques (lista `"destaques"` do manifesto), o índice das salas, o texto de parede (sobre) e o contato.
-- **Salas**: cada categoria do manifesto é uma sala, numerada na ordem em que aparece no JSON.
+- **Salas**: cada categoria do manifesto é uma sala, numerada na ordem em que aparece no JSON. Dentro de cada sala, as obras aparecem na ordem do JSON — elas estão agrupadas por série/tema (ex.: nas capturas virtuais, primeiro The Last of Us, depois outros jogos e por fim Forza).
 
 | Sala | Página | Pasta | Prefixo |
 |---|---|---|---|
 | I. Retratos | `retratos.html` | `RetratosFotos/` | `ret_` |
 | II. Resenha | `resenha.html` | `ResenhaFotos/` | `res_` |
 | III. Fim de tarde | `tarde.html` | `TardeFotos/` | `tar_` |
-| IV. Arquitetura | `arquitetura.html` | `ArquiteturaFotos/` | `arq_` |
-| V. Natureza | `natureza.html` | `NaturezaFotos/` | `nat_` |
-| VI. Máquinas | `maquinas.html` | `CarrosFotos/` | `car_` |
-| VII. Capturas virtuais | `forza.html` | `ForzaFotos/` | `for_` (Forza), `game_` (outros games) |
+| IV. Pelas ruas | `arquitetura.html` | `ArquiteturaFotos/` | `arq_` |
+| V. Uma casa cheia de memórias | `memorias.html` | `MemoriasFotos/` | `mem_` |
+| VI. Natureza | `natureza.html` | `NaturezaFotos/` | `nat_` |
+| VII. Animais | `animais.html` | `AnimaisFotos/` | `ani_` |
+| VIII. Máquinas | `maquinas.html` | `CarrosFotos/` | `car_` |
+| IX. Capturas virtuais | `forza.html` | `ForzaFotos/` | `for_` (Forza), `game_` (outros games) |
 
 ## 📸 Como adicionar fotos (o jeito fácil)
 
