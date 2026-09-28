@@ -1,170 +1,271 @@
 /* ============================================================
-   ROMA FOTOGRAFIAS — scripts
-   Galerias renderizadas a partir de galeria/fotos.json:
-   pra adicionar foto, basta subir o arquivo na pasta da
-   categoria — o manifesto é atualizado pelo GitHub Action.
+   ROMA FOTOGRAFIAS — exposição
+   Tudo sai de galeria/fotos.json: cada categoria é uma "sala",
+   "destaques" é a parede da entrada. Pra adicionar foto, basta
+   subir o arquivo na pasta da sala — o GitHub Action atualiza o
+   manifesto e gera a miniatura.
    ============================================================ */
 
 (() => {
   'use strict';
 
-  /* ---------- Navbar: fundo sólido ao rolar ---------- */
-  const nav = document.querySelector('.nav');
-  const aoRolar = () => nav && nav.classList.toggle('scrolled', window.scrollY > 24);
-  aoRolar();
-  window.addEventListener('scroll', aoRolar, { passive: true });
+  const ROMANOS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
+  const romano = (n) => ROMANOS[n - 1] || String(n);
+  const dois = (n) => String(n).padStart(2, '0');
+  const esc = (s) =>
+    String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
-  /* ---------- Ano do footer ---------- */
+  /** Mesma regra do scripts/gera-galeria.mjs */
+  const miniatura = (arquivo) => `miniaturas/${arquivo.replace(/\.[^.]+$/, '')}.jpg`;
+
+  /* ---------- Ano do rodapé ---------- */
   document.querySelectorAll('[data-ano]').forEach((el) => {
     el.textContent = new Date().getFullYear();
   });
 
-  /* ---------- Reveal on scroll ---------- */
-  const revelar = () => {
-    const els = document.querySelectorAll('.reveal:not(.on)');
-    if (!('IntersectionObserver' in window)) {
-      els.forEach((el) => el.classList.add('on'));
-      return;
-    }
-    const obs = new IntersectionObserver(
-      (entradas) => {
-        entradas.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('on');
-            obs.unobserve(e.target);
-          }
-        });
-      },
-      { rootMargin: '-40px' }
-    );
-    els.forEach((el) => obs.observe(el));
-  };
-  revelar();
+  /* ---------- Aparecer ao rolar ---------- */
+  const observador =
+    'IntersectionObserver' in window
+      ? new IntersectionObserver(
+          (entradas) =>
+            entradas.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('on');
+                observador.unobserve(e.target);
+              }
+            }),
+          { rootMargin: '0px 0px -8% 0px' }
+        )
+      : null;
+  const revelar = (raiz) =>
+    raiz.querySelectorAll('.obra:not(.on)').forEach((el) => (observador ? observador.observe(el) : el.classList.add('on')));
 
-  /* ---------- Carrega o manifesto ---------- */
-  const carregarManifesto = () =>
-    fetch('galeria/fotos.json').then((r) => {
-      if (!r.ok) throw new Error('manifesto indisponível');
-      return r.json();
+  /* ---------- Parede: como cada obra é pendurada ----------
+     Larguras, recuos e respiros variam num ciclo fixo — dá o
+     ritmo de uma parede de galeria sem parecer aleatório. */
+  const PENDURA = [
+    { w: 100, ml: 0, mb: 48 },
+    { w: 74, ml: 26, mb: 70 },
+    { w: 88, ml: 0, mb: 56 },
+    { w: 64, ml: 10, mb: 80 },
+    { w: 94, ml: 6, mb: 44 },
+    { w: 70, ml: 0, mb: 64 },
+    { w: 82, ml: 18, mb: 52 },
+  ];
+
+  function montarParede(el, fotos, rotuloDe) {
+    el.classList.toggle('pequena', fotos.length <= 8);
+    el.innerHTML = fotos
+      .map((f, i) => {
+        const p = PENDURA[i % PENDURA.length];
+        const deitada = f.w > f.h;
+        const w = deitada ? Math.max(p.w, 90) : p.w;
+        const ml = Math.min(p.ml, 100 - w);
+        return `
+        <figure class="obra" style="--w:${w}%;--ml:${ml}%;--mb:${p.mb}px" tabindex="0" role="button"
+                data-indice="${i}" aria-label="Ampliar: ${esc(f.titulo)}">
+          <span class="moldura" style="aspect-ratio:${f.w || 4} / ${f.h || 5}">
+            <img src="${encodeURI(miniatura(f.arquivo))}" alt="${esc(f.titulo)}" width="${f.w}" height="${f.h}"
+                 loading="${i < 4 ? 'eager' : 'lazy'}" decoding="async"
+                 onerror="this.onerror=null;this.src='${encodeURI(f.arquivo)}'">
+          </span>
+          <figcaption><span>${dois(i + 1)}</span><b>${esc(f.titulo)}</b>${rotuloDe ? `<span>${esc(rotuloDe(f))}</span>` : ''}</figcaption>
+        </figure>`;
+      })
+      .join('');
+    revelar(el);
+
+    const abrir = (alvo) => {
+      const fig = alvo.closest('.obra[data-indice]');
+      if (fig) lightbox.abrir(fotos, Number(fig.dataset.indice), rotuloDe);
+    };
+    el.addEventListener('click', (e) => abrir(e.target));
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        abrir(e.target);
+      }
     });
-
-  /* ---------- Home: cards de categoria ---------- */
-  const gridCategorias = document.getElementById('grid-categorias');
-  if (gridCategorias) {
-    carregarManifesto()
-      .then((dados) => {
-        gridCategorias.innerHTML = dados.categorias
-          .map(
-            (cat) => `
-          <a class="cat-card reveal" href="${cat.pagina}">
-            <img src="${encodeURI(cat.capa)}" alt="${cat.titulo}" loading="lazy" decoding="async">
-            <div class="cat-card-info">
-              <div>
-                <h3>${cat.titulo}</h3>
-                <p>${cat.descricao}</p>
-              </div>
-              <span class="cat-card-count">${cat.fotos.length} fotos</span>
-            </div>
-          </a>`
-          )
-          .join('');
-        revelar();
-      })
-      .catch(() => {
-        gridCategorias.innerHTML =
-          '<p style="color:var(--muted)">Não foi possível carregar o portfólio agora.</p>';
-      });
-  }
-
-  /* ---------- Páginas de galeria ---------- */
-  const galeria = document.getElementById('galeria');
-  const slug = document.body.dataset.galeria;
-
-  let fotos = [];
-  let indiceAtual = 0;
-
-  if (galeria && slug) {
-    carregarManifesto()
-      .then((dados) => {
-        const cat = dados.categorias.find((c) => c.slug === slug);
-        if (!cat) throw new Error('categoria não encontrada');
-        fotos = cat.fotos;
-
-        galeria.innerHTML = fotos
-          .map(
-            (f, i) => `
-          <figure class="reveal" tabindex="0" role="button" aria-label="Ampliar: ${f.titulo}" data-indice="${i}">
-            <img src="${encodeURI(f.arquivo)}" alt="${f.titulo}" width="${f.w}" height="${f.h}"
-                 loading="${i < 6 ? 'eager' : 'lazy'}" decoding="async">
-            <figcaption>${f.titulo}</figcaption>
-          </figure>`
-          )
-          .join('');
-        revelar();
-
-        galeria.addEventListener('click', (e) => {
-          const fig = e.target.closest('figure[data-indice]');
-          if (fig) abrirLightbox(Number(fig.dataset.indice));
-        });
-        galeria.addEventListener('keydown', (e) => {
-          const fig = e.target.closest('figure[data-indice]');
-          if (fig && (e.key === 'Enter' || e.key === ' ')) {
-            e.preventDefault();
-            abrirLightbox(Number(fig.dataset.indice));
-          }
-        });
-      })
-      .catch(() => {
-        galeria.innerHTML =
-          '<p style="color:var(--muted)">Não foi possível carregar a galeria agora.</p>';
-      });
   }
 
   /* ---------- Lightbox ---------- */
-  const lightbox = document.getElementById('lightbox');
-  const lbImg = lightbox ? lightbox.querySelector('img') : null;
-  const lbLegenda = lightbox ? lightbox.querySelector('.legenda') : null;
+  const lightbox = (() => {
+    const raiz = document.getElementById('lightbox');
+    if (!raiz) return { abrir() {} };
+    const img = raiz.querySelector('.lb-palco img');
+    const titulo = raiz.querySelector('.lb-legenda b');
+    const info = raiz.querySelector('.lb-legenda span');
+    const contador = raiz.querySelector('.lb-contador');
+    let lista = [];
+    let atual = 0;
+    let rotulo = null;
+    let focoAnterior = null;
 
-  function mostrarFoto(i) {
-    indiceAtual = (i + fotos.length) % fotos.length;
-    const f = fotos[indiceAtual];
-    lbImg.src = encodeURI(f.arquivo);
-    lbImg.alt = f.titulo;
-    lbLegenda.textContent = `${f.titulo} — ${indiceAtual + 1} de ${fotos.length}`;
-  }
+    function mostrar(i) {
+      atual = (i + lista.length) % lista.length;
+      const f = lista[atual];
+      img.classList.add('carregando');
+      img.onload = () => img.classList.remove('carregando');
+      img.src = encodeURI(f.arquivo);
+      img.alt = f.titulo;
+      titulo.textContent = f.titulo;
+      info.textContent = rotulo ? rotulo(f) : '';
+      contador.textContent = `${dois(atual + 1)} / ${dois(lista.length)}`;
+      // pré-carrega a próxima
+      const prox = lista[(atual + 1) % lista.length];
+      if (prox) new Image().src = encodeURI(prox.arquivo);
+    }
 
-  function abrirLightbox(i) {
-    if (!lightbox) return;
-    mostrarFoto(i);
-    lightbox.classList.add('aberto');
-    document.body.style.overflow = 'hidden';
-    lightbox.querySelector('.fechar').focus();
-  }
+    function abrir(fotos, i, rotuloDe) {
+      lista = fotos;
+      rotulo = rotuloDe || null;
+      focoAnterior = document.activeElement;
+      mostrar(i);
+      raiz.classList.add('aberto');
+      raiz.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      raiz.querySelector('.fechar').focus();
+    }
 
-  function fecharLightbox() {
-    lightbox.classList.remove('aberto');
-    document.body.style.overflow = '';
-  }
+    function fechar() {
+      raiz.classList.remove('aberto');
+      raiz.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (focoAnterior) focoAnterior.focus();
+    }
 
-  if (lightbox) {
-    lightbox.querySelector('.fechar').addEventListener('click', fecharLightbox);
-    lightbox.querySelector('.ant').addEventListener('click', () => mostrarFoto(indiceAtual - 1));
-    lightbox.querySelector('.prox').addEventListener('click', () => mostrarFoto(indiceAtual + 1));
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) fecharLightbox();
+    raiz.querySelector('.fechar').addEventListener('click', fechar);
+    raiz.querySelector('.ant').addEventListener('click', () => mostrar(atual - 1));
+    raiz.querySelector('.prox').addEventListener('click', () => mostrar(atual + 1));
+    raiz.querySelector('.lb-palco').addEventListener('click', (e) => {
+      if (e.target !== img) fechar();
     });
     window.addEventListener('keydown', (e) => {
-      if (!lightbox.classList.contains('aberto')) return;
-      if (e.key === 'Escape') fecharLightbox();
-      if (e.key === 'ArrowLeft') mostrarFoto(indiceAtual - 1);
-      if (e.key === 'ArrowRight') mostrarFoto(indiceAtual + 1);
+      if (!raiz.classList.contains('aberto')) return;
+      if (e.key === 'Escape') fechar();
+      if (e.key === 'ArrowLeft') mostrar(atual - 1);
+      if (e.key === 'ArrowRight') mostrar(atual + 1);
     });
+
+    // deslizar no celular
+    let x0 = null;
+    raiz.addEventListener('touchstart', (e) => (x0 = e.touches[0].clientX), { passive: true });
+    raiz.addEventListener('touchend', (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 50) mostrar(atual + (dx < 0 ? 1 : -1));
+      x0 = null;
+    });
+
+    return { abrir };
+  })();
+
+  /* ---------- Manifesto ---------- */
+  const manifesto = fetch('galeria/fotos.json').then((r) => {
+    if (!r.ok) throw new Error('manifesto indisponível');
+    return r.json();
+  });
+
+  const falhou = (el, texto) => {
+    if (el) el.innerHTML = `<p class="rotulo">${texto}</p>`;
+  };
+
+  /* ---------- Entrada: parede de destaques ---------- */
+  const paredeDestaques = document.getElementById('parede-destaques');
+  if (paredeDestaques) {
+    manifesto
+      .then((dados) => {
+        const onde = new Map();
+        dados.categorias.forEach((cat) => cat.fotos.forEach((f) => onde.set(f.arquivo, { f, cat })));
+        const escolhidas = (dados.destaques || []).map((a) => onde.get(a)).filter(Boolean);
+        const salaDe = new Map(escolhidas.map(({ f, cat }) => [f, cat.titulo]));
+        montarParede(
+          paredeDestaques,
+          escolhidas.map(({ f }) => f),
+          (f) => salaDe.get(f)
+        );
+      })
+      .catch(() => falhou(paredeDestaques, 'Não foi possível carregar a exposição agora.'));
+  }
+
+  /* ---------- Entrada: índice das salas ---------- */
+  const indice = document.getElementById('indice-salas');
+  if (indice) {
+    manifesto
+      .then((dados) => {
+        const total = dados.categorias.reduce((s, c) => s + c.fotos.length, 0);
+        const contagem = document.getElementById('contagem-obras');
+        if (contagem) contagem.textContent = `${dados.categorias.length} salas · ${total} obras`;
+
+        indice.innerHTML = dados.categorias
+          .map(
+            (cat, i) => `
+          <li>
+            <a href="${cat.pagina}" data-capa="${encodeURI(miniatura(cat.capa))}">
+              <span class="num">${romano(i + 1)}.</span>
+              <img class="mini" src="${encodeURI(miniatura(cat.capa))}" alt="" loading="lazy">
+              <span><span class="nome">${esc(cat.titulo)}</span><span class="desc">${esc(cat.descricao)}</span></span>
+              <span class="qtd">${cat.fotos.length} obras</span>
+            </a>
+          </li>`
+          )
+          .join('');
+
+        // prévia da capa seguindo o cursor
+        const previa = document.createElement('div');
+        previa.className = 'previa';
+        previa.innerHTML = '<img alt="">';
+        document.body.appendChild(previa);
+        const previaImg = previa.querySelector('img');
+        indice.addEventListener('mouseover', (e) => {
+          const a = e.target.closest('a[data-capa]');
+          if (!a) return;
+          if (previaImg.getAttribute('src') !== a.dataset.capa) previaImg.src = a.dataset.capa;
+          previa.classList.add('on');
+        });
+        indice.addEventListener('mouseleave', () => previa.classList.remove('on'));
+        indice.addEventListener('mousemove', (e) => {
+          const x = Math.min(e.clientX + 28, window.innerWidth - 260);
+          const y = Math.min(Math.max(e.clientY - 150, 12), window.innerHeight - 340);
+          previa.style.transform = `translate(${x}px, ${y}px)`;
+        });
+      })
+      .catch(() => falhou(indice, 'Não foi possível carregar as salas agora.'));
+  }
+
+  /* ---------- Página de sala ---------- */
+  const slug = document.body.dataset.sala;
+  const paredeSala = document.getElementById('parede-sala');
+  if (slug && paredeSala) {
+    manifesto
+      .then((dados) => {
+        const i = dados.categorias.findIndex((c) => c.slug === slug);
+        if (i < 0) throw new Error('sala não encontrada');
+        const cat = dados.categorias[i];
+        const n = dados.categorias.length;
+
+        const numero = document.getElementById('sala-numero');
+        const qtd = document.getElementById('sala-qtd');
+        if (numero) numero.textContent = `Sala ${romano(i + 1)} de ${romano(n)}`;
+        if (qtd) qtd.textContent = `${cat.fotos.length} obras`;
+
+        montarParede(paredeSala, cat.fotos, () => `Sala ${romano(i + 1)} · ${cat.titulo}`);
+
+        const corredor = document.getElementById('corredor');
+        if (corredor) {
+          const ant = dados.categorias[(i - 1 + n) % n];
+          const prox = dados.categorias[(i + 1) % n];
+          corredor.innerHTML = `
+            <a href="${ant.pagina}"><span class="rotulo">← Sala ${romano(((i - 1 + n) % n) + 1)}</span><strong>${esc(ant.titulo)}</strong></a>
+            <a href="${prox.pagina}"><span class="rotulo">Sala ${romano(((i + 1) % n) + 1)} →</span><strong>${esc(prox.titulo)}</strong></a>`;
+        }
+      })
+      .catch(() => falhou(paredeSala, 'Não foi possível carregar esta sala agora.'));
   }
 
   /* ---------- Formulário (Formspree) ---------- */
   const form = document.getElementById('form-contato');
   const status = document.getElementById('form-status');
-
   if (form && status) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -172,23 +273,19 @@
       botao.disabled = true;
       status.className = 'form-status';
       status.textContent = 'Enviando…';
-
       try {
         const resposta = await fetch(form.action, {
           method: 'POST',
           body: new FormData(form),
           headers: { Accept: 'application/json' },
         });
-        if (resposta.ok) {
-          status.className = 'form-status ok';
-          status.textContent = 'Mensagem enviada! Respondo em breve.';
-          form.reset();
-        } else {
-          throw new Error('falha no envio');
-        }
+        if (!resposta.ok) throw new Error('falha no envio');
+        status.className = 'form-status ok';
+        status.textContent = 'Mensagem enviada. Respondo em breve.';
+        form.reset();
       } catch {
         status.className = 'form-status erro';
-        status.textContent = 'Não foi possível enviar. Tente pelo WhatsApp!';
+        status.textContent = 'Não foi possível enviar. Tente pelo WhatsApp.';
       } finally {
         botao.disabled = false;
       }

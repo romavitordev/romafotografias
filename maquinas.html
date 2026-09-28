@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquinas | Vitor Roma — Fotografia</title>
+    <meta name="description" content="Máquinas — Carros de verdade, à noite — luz de evento, reflexo de pintura e faróis na pista. Fotografia de Vitor Roma, Sorocaba/SP.">
+    <link rel="canonical" href="https://romavitordev.github.io/romafotografias/maquinas.html">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Roma Fotografias">
+    <meta property="og:url" content="https://romavitordev.github.io/romafotografias/maquinas.html">
+    <meta property="og:title" content="Máquinas | Vitor Roma — Fotografia">
+    <meta property="og:description" content="Carros de verdade, à noite — luz de evento, reflexo de pintura e faróis na pista.">
+    <meta property="og:image" content="https://romavitordev.github.io/romafotografias/CarrosFotos/car_touro.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="preload" href="galeria/fotos.json" as="fetch" crossorigin>
+    <meta name="theme-color" content="#f6f5f1">
+</head>
+<!-- Página gerada a partir do manifesto; o conteúdo da sala vem de galeria/fotos.json. -->
+<body data-sala="maquinas">
+    <a class="pular" href="#parede-sala">Pular para as obras</a>
+
+    <header class="topo">
+        <a class="assinatura" href="index.html" aria-label="Vitor Roma — início">
+            <strong>Vitor Roma</strong>
+            <span>Fotografia · Sorocaba, SP</span>
+        </a>
+        <nav class="menu" aria-label="Navegação principal">
+            <a href="index.html#obras">Obras</a>
+            <a href="index.html#salas" aria-current="page">Salas</a>
+            <a href="index.html#sobre">Sobre</a>
+            <a href="index.html#contato">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <header class="sala-cabeca">
+            <div>
+                <p class="rotulo" id="sala-numero">Sala</p>
+                <h1>Máquinas</h1>
+            </div>
+            <div>
+                <p class="desc">Carros de verdade, à noite — luz de evento, reflexo de pintura e faróis na pista.</p>
+                <p class="rotulo" id="sala-qtd">4 obras</p>
+            </div>
+        </header>
+
+        <div id="parede-sala" class="parede">
+            <noscript><p class="rotulo">Ative o JavaScript para ver esta sala — ou veja as fotos no
+            <a href="https://instagram.com/romart.photos">Instagram</a>.</p></noscript>
+        </div>
+
+        <nav id="corredor" class="corredor" aria-label="Outras salas"></nav>
+    </main>
+
+    <footer class="rodape">
+        <p class="rotulo">© <span data-ano>2026</span> Vitor Roma — Roma Fotografias</p>
+        <p class="rotulo"><a href="index.html#contato">Agendar uma sessão →</a></p>
+    </footer>
+
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Obra ampliada" aria-hidden="true">
+        <div class="lb-topo">
+            <span class="rotulo lb-contador"></span>
+            <button class="fechar" type="button">Fechar ✕</button>
+        </div>
+        <div class="lb-palco"><img src="" alt=""></div>
+        <div class="lb-base">
+            <p class="rotulo lb-legenda"><b></b><span></span></p>
+            <div class="lb-nav">
+                <button class="ant" type="button">← Anterior</button>
+                <button class="prox" type="button">Próxima →</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/main.js" defer></script>
+</body>
+</html>

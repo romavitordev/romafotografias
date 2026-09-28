@@ -1,5 +1,27 @@
 {
-  "_comentario": "Manifesto das galerias. Gerado/atualizado por scripts/gera-galeria.mjs (e pelo GitHub Action a cada push). Edite os títulos à vontade — eles são preservados. Fotos novas nas pastas entram aqui automaticamente.",
+  "_comentario": "Manifesto da exposição. Cada categoria é uma \"sala\". Gerado/atualizado por scripts/gera-galeria.mjs (e pelo GitHub Action a cada push). Títulos e \"destaques\" editados à mão são preservados.",
+  "destaques": [
+    "RetratosFotos/ret_gu.jpg",
+    "TardeFotos/tar_sorriso.jpg",
+    "ArquiteturaFotos/arq_chamine.jpg",
+    "ResenhaFotos/res_luz_azul.jpg",
+    "ArquiteturaFotos/arq_sinal_aberto.jpg",
+    "NaturezaFotos/nat_passaros.JPG",
+    "ArquiteturaFotos/arq_escadas.jpg",
+    "RetratosFotos/ret_pai_bw.jpg",
+    "TardeFotos/tar_marcacao.jpg",
+    "CarrosFotos/car_touro.jpg",
+    "MariaMariFotos/mm_pela_fresta.jpg",
+    "ArquiteturaFotos/arq_shopping.jpg",
+    "ResenhaFotos/res_olhar.jpg",
+    "NaturezaFotos/nat_ixora_vermelha.jpg",
+    "RetratosFotos/ret_gu_sol.jpg",
+    "ArquiteturaFotos/arq_predios_nuvens.jpg",
+    "TardeFotos/tar_olhar_distante.jpg",
+    "NaturezaFotos/nat_amora.jpg",
+    "ForzaFotos/for_porsheazul.png",
+    "MariaMariFotos/mm_escadaria.jpg"
+  ],
   "categorias": [
     {
       "slug": "retratos",
@@ -12,8 +34,8 @@
         {
           "arquivo": "RetratosFotos/ret_pai_bw.jpg",
           "titulo": "Meu pai em preto e branco",
-          "w": 1488,
-          "h": 1920
+          "w": 1292,
+          "h": 1724
         },
         {
           "arquivo": "RetratosFotos/ret_gu_sol.jpg",
@@ -48,84 +70,230 @@
         {
           "arquivo": "RetratosFotos/ret_gu.jpg",
           "titulo": "Retrato do meu irmão",
-          "w": 1043,
+          "w": 951,
+          "h": 1098
+        },
+        {
+          "arquivo": "RetratosFotos/ret_escadaria.jpg",
+          "titulo": "Um homem espera na escadaria",
+          "w": 929,
+          "h": 1239
+        }
+      ]
+    },
+    {
+      "slug": "maria-e-mari",
+      "pagina": "maria-e-mari.html",
+      "titulo": "Maria e Mari",
+      "descricao": "Duas amigas, duas tardes: a escadaria da igreja e um dia de shopping. Caretas, carinho e cumplicidade.",
+      "capa": "MariaMariFotos/mm_escadaria.jpg",
+      "pasta": "MariaMariFotos",
+      "fotos": [
+        {
+          "arquivo": "MariaMariFotos/mm_escadaria.jpg",
+          "titulo": "Na escadaria",
+          "w": 907,
+          "h": 1211
+        },
+        {
+          "arquivo": "MariaMariFotos/mm_tedio.jpg",
+          "titulo": "Tédio de shopping",
+          "w": 849,
+          "h": 566
+        },
+        {
+          "arquivo": "MariaMariFotos/mm_carinho.jpg",
+          "titulo": "Carinho",
+          "w": 907,
+          "h": 1211
+        },
+        {
+          "arquivo": "MariaMariFotos/mm_pela_fresta.jpg",
+          "titulo": "Pela fresta",
+          "w": 1080,
+          "h": 720
+        },
+        {
+          "arquivo": "MariaMariFotos/mm_maos_no_rosto.jpg",
+          "titulo": "Mãos no rosto",
+          "w": 907,
+          "h": 1211
+        },
+        {
+          "arquivo": "MariaMariFotos/mm_pensando_bem.jpg",
+          "titulo": "Pensando bem",
+          "w": 849,
+          "h": 566
+        }
+      ]
+    },
+    {
+      "slug": "resenha",
+      "pagina": "resenha.html",
+      "titulo": "Resenha",
+      "descricao": "Uma noite no shopping, flash na mão e amigos sem pose. Cor, ruído e intimidade.",
+      "capa": "ResenhaFotos/res_luz_azul.jpg",
+      "pasta": "ResenhaFotos",
+      "fotos": [
+        {
+          "arquivo": "ResenhaFotos/res_olhar.jpg",
+          "titulo": "Olhar direto",
+          "w": 900,
+          "h": 1350
+        },
+        {
+          "arquivo": "ResenhaFotos/res_aprovado.jpg",
+          "titulo": "Aprovado",
+          "w": 760,
+          "h": 1350
+        },
+        {
+          "arquivo": "ResenhaFotos/res_careta.jpg",
+          "titulo": "Careta a dois",
+          "w": 1012,
+          "h": 1350
+        },
+        {
+          "arquivo": "ResenhaFotos/res_luz_azul.jpg",
+          "titulo": "Luz azul",
+          "w": 849,
+          "h": 566
+        },
+        {
+          "arquivo": "ResenhaFotos/res_lingua.jpg",
+          "titulo": "Sem vergonha nenhuma",
+          "w": 994,
+          "h": 1350
+        },
+        {
+          "arquivo": "ResenhaFotos/res_carta.jpg",
+          "titulo": "A carta rara",
+          "w": 900,
+          "h": 1350
+        },
+        {
+          "arquivo": "ResenhaFotos/res_risadas.jpg",
+          "titulo": "Entre risadas",
+          "w": 1080,
+          "h": 1350
+        },
+        {
+          "arquivo": "ResenhaFotos/res_olho_de_peixe.jpg",
+          "titulo": "Olho de peixe",
+          "w": 849,
+          "h": 566
+        },
+        {
+          "arquivo": "ResenhaFotos/res_beijo.jpg",
+          "titulo": "Beijo no corredor",
+          "w": 900,
+          "h": 1350
+        },
+        {
+          "arquivo": "ResenhaFotos/res_abraco.jpg",
+          "titulo": "Abraço apertado",
+          "w": 849,
+          "h": 566
+        },
+        {
+          "arquivo": "ResenhaFotos/res_mae_filho.jpg",
+          "titulo": "Mãe e filho",
+          "w": 900,
+          "h": 1350
+        },
+        {
+          "arquivo": "ResenhaFotos/res_canto_de_olho.jpg",
+          "titulo": "De canto de olho",
+          "w": 900,
+          "h": 1350
+        },
+        {
+          "arquivo": "ResenhaFotos/res_riso.jpg",
+          "titulo": "Riso contido",
+          "w": 900,
+          "h": 1350
+        },
+        {
+          "arquivo": "ResenhaFotos/res_perto.jpg",
+          "titulo": "Perto demais",
+          "w": 849,
+          "h": 566
+        },
+        {
+          "arquivo": "ResenhaFotos/res_atitude.jpg",
+          "titulo": "Atitude",
+          "w": 900,
           "h": 1350
         }
       ]
     },
     {
-      "slug": "natureza",
-      "pagina": "natureza.html",
-      "titulo": "Natureza",
-      "descricao": "Paisagens, bichos e o que a cidade esquece de olhar.",
-      "capa": "capa_natureza.jpg",
-      "pasta": "NaturezaFotos",
+      "slug": "tarde",
+      "pagina": "tarde.html",
+      "titulo": "Fim de tarde",
+      "descricao": "Futebol descalço, um pai e um filho, e a luz dourada descendo pelo barranco.",
+      "capa": "TardeFotos/tar_sorriso.jpg",
+      "pasta": "TardeFotos",
       "fotos": [
         {
-          "arquivo": "NaturezaFotos/nat_lago.JPG",
-          "titulo": "Lago tranquilo ao entardecer",
-          "w": 1080,
+          "arquivo": "TardeFotos/tar_descalco.jpg",
+          "titulo": "Descalço na quadra",
+          "w": 1536,
           "h": 1920
         },
         {
-          "arquivo": "NaturezaFotos/nat_amora.jpg",
-          "titulo": "Amora sorrindo",
-          "w": 1920,
-          "h": 1440
-        },
-        {
-          "arquivo": "NaturezaFotos/nat_aranha.jpg",
-          "titulo": "O predador silencioso",
-          "w": 1034,
-          "h": 1350
-        },
-        {
-          "arquivo": "NaturezaFotos/nat_passaro_céu.jpg",
-          "titulo": "Pequeno pássaro observa o céu",
-          "w": 1046,
-          "h": 1350
-        },
-        {
-          "arquivo": "NaturezaFotos/nat_passaros.JPG",
-          "titulo": "Floresta de concreto",
-          "w": 1440,
+          "arquivo": "TardeFotos/tar_marcacao.jpg",
+          "titulo": "Marcação",
+          "w": 1536,
           "h": 1920
         },
         {
-          "arquivo": "NaturezaFotos/nat_pombo_solitario.jpg",
-          "titulo": "Pássaro solitário",
-          "w": 998,
-          "h": 1350
-        },
-        {
-          "arquivo": "NaturezaFotos/nat_pombo_bw.jpg",
-          "titulo": "Asas urbanas",
-          "w": 1440,
+          "arquivo": "TardeFotos/tar_chute.jpg",
+          "titulo": "O chute",
+          "w": 1280,
           "h": 1920
         },
         {
-          "arquivo": "NaturezaFotos/nat_passarinho.JPG",
-          "titulo": "Pequeno pássaro se alimentando",
-          "w": 1440,
+          "arquivo": "TardeFotos/tar_goleiro.jpg",
+          "titulo": "O goleiro",
+          "w": 1536,
           "h": 1920
         },
         {
-          "arquivo": "NaturezaFotos/nat_passaro_frio.jpg",
-          "titulo": "Velho pássaro pensa sobre a vida",
-          "w": 1440,
+          "arquivo": "TardeFotos/tar_sorriso.jpg",
+          "titulo": "Sorriso de fim de tarde",
+          "w": 1280,
           "h": 1920
         },
         {
-          "arquivo": "NaturezaFotos/nat_beijaflor.jpg",
-          "titulo": "Beija-flor",
-          "w": 478,
-          "h": 628
+          "arquivo": "TardeFotos/tar_cafune.jpg",
+          "titulo": "Cafuné",
+          "w": 1280,
+          "h": 1920
         },
         {
-          "arquivo": "NaturezaFotos/nat_passaro_solitario.jpg",
-          "titulo": "Pequeno e só",
-          "w": 454,
-          "h": 628
+          "arquivo": "TardeFotos/tar_gole.jpg",
+          "titulo": "Um gole d’água",
+          "w": 1280,
+          "h": 1920
+        },
+        {
+          "arquivo": "TardeFotos/tar_cuidado.jpg",
+          "titulo": "Cuidado",
+          "w": 1280,
+          "h": 1920
+        },
+        {
+          "arquivo": "TardeFotos/tar_olhar_distante.jpg",
+          "titulo": "Olhar distante",
+          "w": 1280,
+          "h": 1920
+        },
+        {
+          "arquivo": "TardeFotos/tar_fim_de_tarde.jpg",
+          "titulo": "Quando o sol vai embora",
+          "w": 1280,
+          "h": 1920
         }
       ]
     },
@@ -138,16 +306,22 @@
       "pasta": "ArquiteturaFotos",
       "fotos": [
         {
+          "arquivo": "ArquiteturaFotos/arq_sinal_aberto.jpg",
+          "titulo": "Sinal aberto",
+          "w": 1406,
+          "h": 1758
+        },
+        {
           "arquivo": "ArquiteturaFotos/arq_anjo.jpg",
           "titulo": "Anjo em Sorocaba",
-          "w": 1080,
-          "h": 1341
+          "w": 941,
+          "h": 1203
         },
         {
           "arquivo": "ArquiteturaFotos/arq_igreja_sorocaba.jpg",
           "titulo": "Igreja em Sorocaba",
-          "w": 1046,
-          "h": 1350
+          "w": 907,
+          "h": 1211
         },
         {
           "arquivo": "ArquiteturaFotos/Arq_Igreja.JPG",
@@ -158,26 +332,26 @@
         {
           "arquivo": "ArquiteturaFotos/arq_chamine.jpg",
           "titulo": "Chaminé ao pôr do sol",
-          "w": 942,
-          "h": 1350
+          "w": 803,
+          "h": 1210
         },
         {
           "arquivo": "ArquiteturaFotos/arq_poste.jpg",
           "titulo": "Uma luz na escuridão",
-          "w": 1033,
-          "h": 1350
+          "w": 894,
+          "h": 1211
         },
         {
           "arquivo": "ArquiteturaFotos/arq_casa.jpg",
           "titulo": "Janelas contam histórias",
-          "w": 524,
-          "h": 628
+          "w": 458,
+          "h": 561
         },
         {
           "arquivo": "ArquiteturaFotos/arq_porta.jpg",
           "titulo": "Porta em meio à natureza",
-          "w": 480,
-          "h": 628
+          "w": 413,
+          "h": 561
         },
         {
           "arquivo": "ArquiteturaFotos/arq_sofa.JPG",
@@ -218,20 +392,190 @@
         {
           "arquivo": "ArquiteturaFotos/arq_shopping.jpg",
           "titulo": "Desconhecidos no mesmo espaço",
-          "w": 1046,
-          "h": 1350
+          "w": 907,
+          "h": 1211
         },
         {
           "arquivo": "ArquiteturaFotos/arq_santo.jpg",
           "titulo": "Para lembrar de um grande homem",
-          "w": 953,
-          "h": 1350
+          "w": 814,
+          "h": 1211
         },
         {
           "arquivo": "ArquiteturaFotos/arq_lojinha.jpg",
           "titulo": "Fotografia à venda",
+          "w": 955,
+          "h": 1083
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_escadas.jpg",
+          "titulo": "Escadas gastas por passos que já não vemos",
+          "w": 1012,
+          "h": 1349
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_predios_nuvens.jpg",
+          "titulo": "Prédios sob nuvens",
+          "w": 907,
+          "h": 1210
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_santo_perfil.jpg",
+          "titulo": "O santo de perfil",
+          "w": 907,
+          "h": 1211
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_praca.jpg",
+          "titulo": "A praça e o seu tempo",
+          "w": 968,
+          "h": 904
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_placa.jpg",
+          "titulo": "Devagar",
+          "w": 871,
+          "h": 1211
+        }
+      ]
+    },
+    {
+      "slug": "natureza",
+      "pagina": "natureza.html",
+      "titulo": "Natureza",
+      "descricao": "Paisagens, bichos e o que a cidade esquece de olhar.",
+      "capa": "capa_natureza.jpg",
+      "pasta": "NaturezaFotos",
+      "fotos": [
+        {
+          "arquivo": "NaturezaFotos/nat_lago.JPG",
+          "titulo": "Lago tranquilo ao entardecer",
           "w": 1080,
-          "h": 1208
+          "h": 1920
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_amora.jpg",
+          "titulo": "Amora sorrindo",
+          "w": 1920,
+          "h": 1440
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_aranha.jpg",
+          "titulo": "O predador silencioso",
+          "w": 941,
+          "h": 1257
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_passaro_céu.jpg",
+          "titulo": "Pequeno pássaro observa o céu",
+          "w": 907,
+          "h": 1211
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_passaros.JPG",
+          "titulo": "Floresta de concreto",
+          "w": 1440,
+          "h": 1920
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_pombo_solitario.jpg",
+          "titulo": "Pássaro solitário",
+          "w": 859,
+          "h": 1210
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_pombo_bw.jpg",
+          "titulo": "Asas urbanas",
+          "w": 1440,
+          "h": 1920
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_passarinho.JPG",
+          "titulo": "Pequeno pássaro se alimentando",
+          "w": 1440,
+          "h": 1920
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_passaro_frio.jpg",
+          "titulo": "Velho pássaro pensa sobre a vida",
+          "w": 1440,
+          "h": 1920
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_beijaflor.jpg",
+          "titulo": "Beija-flor",
+          "w": 444,
+          "h": 594
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_passaro_solitario.jpg",
+          "titulo": "Pequeno e só",
+          "w": 419,
+          "h": 592
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_ixora_vermelha.jpg",
+          "titulo": "Ixora vermelha",
+          "w": 1012,
+          "h": 1349
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_ixora_anoitecer.jpg",
+          "titulo": "Ixora ao anoitecer",
+          "w": 1012,
+          "h": 1349
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_folhas.jpg",
+          "titulo": "O chão do outono",
+          "w": 907,
+          "h": 1211
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_anturios.jpg",
+          "titulo": "Antúrios no quintal",
+          "w": 1280,
+          "h": 1920
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_estrada.jpg",
+          "titulo": "Estrada entre os morros",
+          "w": 1920,
+          "h": 1280
+        }
+      ]
+    },
+    {
+      "slug": "maquinas",
+      "pagina": "maquinas.html",
+      "titulo": "Máquinas",
+      "descricao": "Carros de verdade, à noite — luz de evento, reflexo de pintura e faróis na pista.",
+      "capa": "CarrosFotos/car_touro.jpg",
+      "pasta": "CarrosFotos",
+      "fotos": [
+        {
+          "arquivo": "CarrosFotos/car_touro.jpg",
+          "titulo": "O touro",
+          "w": 900,
+          "h": 1350
+        },
+        {
+          "arquivo": "CarrosFotos/car_bmw.jpg",
+          "titulo": "BMW M sob as luzes",
+          "w": 849,
+          "h": 566
+        },
+        {
+          "arquivo": "CarrosFotos/car_gallardo.jpg",
+          "titulo": "Lamborghini Gallardo",
+          "w": 849,
+          "h": 566
+        },
+        {
+          "arquivo": "CarrosFotos/car_farois.jpg",
+          "titulo": "Faróis na curva",
+          "w": 900,
+          "h": 1350
         }
       ]
     },

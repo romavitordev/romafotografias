@@ -4,80 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retratos | Vitor Roma — Fotografia</title>
-    <meta name="description" content="Galeria de retratos por Vitor Roma — expressões e emoções capturadas de perto, em Sorocaba/SP.">
+    <meta name="description" content="Retratos — Expressões e emoções capturadas de perto. Fotografia de Vitor Roma, Sorocaba/SP.">
     <link rel="canonical" href="https://romavitordev.github.io/romafotografias/retratos.html">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="Roma Fotografias">
+    <meta property="og:url" content="https://romavitordev.github.io/romafotografias/retratos.html">
     <meta property="og:title" content="Retratos | Vitor Roma — Fotografia">
     <meta property="og:description" content="Expressões e emoções capturadas de perto.">
     <meta property="og:image" content="https://romavitordev.github.io/romafotografias/capa_retrato.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css">
-    <meta name="theme-color" content="#0c0e11">
+    <link rel="preload" href="galeria/fotos.json" as="fetch" crossorigin>
+    <meta name="theme-color" content="#f6f5f1">
 </head>
-<body data-galeria="retratos">
-    <header class="nav scrolled">
-        <div class="container nav-inner">
-            <a class="brand" href="index.html" aria-label="Roma Fotografias — início">Roma<small>fotografias</small></a>
-            <nav class="nav-links" aria-label="Navegação principal">
-                <a href="index.html#portfolio" aria-current="page">Portfólio</a>
-                <a href="index.html#sobre">Sobre</a>
-                <a href="index.html#contato">Contato</a>
-            </nav>
-        </div>
+<!-- Página gerada a partir do manifesto; o conteúdo da sala vem de galeria/fotos.json. -->
+<body data-sala="retratos">
+    <a class="pular" href="#parede-sala">Pular para as obras</a>
+
+    <header class="topo">
+        <a class="assinatura" href="index.html" aria-label="Vitor Roma — início">
+            <strong>Vitor Roma</strong>
+            <span>Fotografia · Sorocaba, SP</span>
+        </a>
+        <nav class="menu" aria-label="Navegação principal">
+            <a href="index.html#obras">Obras</a>
+            <a href="index.html#salas" aria-current="page">Salas</a>
+            <a href="index.html#sobre">Sobre</a>
+            <a href="index.html#contato">Contato</a>
+        </nav>
     </header>
 
     <main>
-        <header class="gallery-header">
-            <div class="container">
-                <a class="voltar" href="index.html#portfolio">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                    Voltar ao início
-                </a>
+        <header class="sala-cabeca">
+            <div>
+                <p class="rotulo" id="sala-numero">Sala</p>
                 <h1>Retratos</h1>
-                <p>Expressões e emoções capturadas de perto.</p>
-                <nav class="cat-nav" aria-label="Outras galerias">
-                    <a href="retratos.html" aria-current="page">Retratos</a>
-                    <a href="natureza.html">Natureza</a>
-                    <a href="arquitetura.html">Arquitetura</a>
-                    <a href="forza.html">Capturas virtuais</a>
-                </nav>
+            </div>
+            <div>
+                <p class="desc">Expressões e emoções capturadas de perto.</p>
+                <p class="rotulo" id="sala-qtd">8 obras</p>
             </div>
         </header>
 
-        <section class="container">
-            <div id="galeria" class="masonry">
-                <noscript><p>Ative o JavaScript para ver a galeria — ou veja as fotos no
-                <a href="https://instagram.com/romart.photos">Instagram</a>.</p></noscript>
-            </div>
-        </section>
+        <div id="parede-sala" class="parede">
+            <noscript><p class="rotulo">Ative o JavaScript para ver esta sala — ou veja as fotos no
+            <a href="https://instagram.com/romart.photos">Instagram</a>.</p></noscript>
+        </div>
+
+        <nav id="corredor" class="corredor" aria-label="Outras salas"></nav>
     </main>
 
-    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada">
-        <button class="fechar" aria-label="Fechar">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-        </button>
-        <button class="ant" aria-label="Foto anterior">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-        </button>
-        <img src="" alt="">
-        <button class="prox" aria-label="Próxima foto">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-        </button>
-        <p class="legenda"></p>
-    </div>
-
-    <footer class="footer">
-        <div class="container footer-base" style="margin-top:0;padding-top:0;border-top:0">
-            <p style="margin:0">© <span data-ano>2026</span> Vitor Roma — Roma Fotografias</p>
-            <p style="margin:0">Site feito à mão — HTML, CSS e JavaScript puros.</p>
-        </div>
+    <footer class="rodape">
+        <p class="rotulo">© <span data-ano>2026</span> Vitor Roma — Roma Fotografias</p>
+        <p class="rotulo"><a href="index.html#contato">Agendar uma sessão →</a></p>
     </footer>
+
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Obra ampliada" aria-hidden="true">
+        <div class="lb-topo">
+            <span class="rotulo lb-contador"></span>
+            <button class="fechar" type="button">Fechar ✕</button>
+        </div>
+        <div class="lb-palco"><img src="" alt=""></div>
+        <div class="lb-base">
+            <p class="rotulo lb-legenda"><b></b><span></span></p>
+            <div class="lb-nav">
+                <button class="ant" type="button">← Anterior</button>
+                <button class="prox" type="button">Próxima →</button>
+            </div>
+        </div>
+    </div>
 
     <script src="assets/main.js" defer></script>
 </body>

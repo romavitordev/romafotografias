@@ -3,6 +3,7 @@ name: Atualiza galeria
 # Subiu foto nova em qualquer pasta de categoria? Este workflow:
 #  1. otimiza as imagens (redimensiona pra 1920px e comprime as pesadas)
 #  2. atualiza galeria/fotos.json (títulos existentes são preservados)
+#     e gera as miniaturas da parede em miniaturas/
 #  3. commita o resultado — e o GitHub Pages republica sozinho.
 
 on:
@@ -10,9 +11,13 @@ on:
     branches: [main]
     paths:
       - 'ArquiteturaFotos/**'
+      - 'CarrosFotos/**'
       - 'ForzaFotos/**'
+      - 'MariaMariFotos/**'
       - 'NaturezaFotos/**'
+      - 'ResenhaFotos/**'
       - 'RetratosFotos/**'
+      - 'TardeFotos/**'
       - 'capa_*'
   workflow_dispatch:
 
@@ -37,7 +42,7 @@ jobs:
       - name: Otimiza imagens (1920px máx., recompressão das pesadas)
         run: |
           shopt -s nullglob
-          for f in ArquiteturaFotos/* ForzaFotos/* NaturezaFotos/* RetratosFotos/* capa_*; do
+          for f in ArquiteturaFotos/* CarrosFotos/* ForzaFotos/* MariaMariFotos/* NaturezaFotos/* ResenhaFotos/* RetratosFotos/* TardeFotos/* capa_*; do
             case "${f,,}" in
               *.jpg|*.jpeg|*.png) ;;
               *) continue ;;
@@ -66,7 +71,7 @@ jobs:
             fi
           done
 
-      - name: Atualiza o manifesto da galeria
+      - name: Atualiza o manifesto e gera as miniaturas
         run: node scripts/gera-galeria.mjs
 
       - name: Commita se houver mudanças

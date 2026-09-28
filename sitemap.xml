@@ -2,7 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://romavitordev.github.io/romafotografias/</loc><priority>1.0</priority></url>
   <url><loc>https://romavitordev.github.io/romafotografias/retratos.html</loc><priority>0.8</priority></url>
-  <url><loc>https://romavitordev.github.io/romafotografias/natureza.html</loc><priority>0.8</priority></url>
+  <url><loc>https://romavitordev.github.io/romafotografias/maria-e-mari.html</loc><priority>0.8</priority></url>
+  <url><loc>https://romavitordev.github.io/romafotografias/resenha.html</loc><priority>0.8</priority></url>
+  <url><loc>https://romavitordev.github.io/romafotografias/tarde.html</loc><priority>0.8</priority></url>
   <url><loc>https://romavitordev.github.io/romafotografias/arquitetura.html</loc><priority>0.8</priority></url>
+  <url><loc>https://romavitordev.github.io/romafotografias/natureza.html</loc><priority>0.8</priority></url>
+  <url><loc>https://romavitordev.github.io/romafotografias/maquinas.html</loc><priority>0.8</priority></url>
   <url><loc>https://romavitordev.github.io/romafotografias/forza.html</loc><priority>0.8</priority></url>
 </urlset>

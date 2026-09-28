@@ -6,14 +6,16 @@
  *   do nome do arquivo (ex.: "ret_pai_bw.jpg" -> "Pai bw").
  * - Títulos já existentes são SEMPRE preservados (edite à vontade).
  * - Entradas cujo arquivo sumiu são removidas.
+ * - Gera miniaturas (miniaturas/<pasta>/<foto>.jpg, 1000px) usadas
+ *   na parede da exposição; a foto original abre no lightbox.
  *
  * Uso local:  node scripts/gera-galeria.mjs
  * No GitHub:  roda sozinho via Action a cada push com fotos.
  */
 
 import { execSync } from 'node:child_process';
-import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
 
 const RAIZ = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 const MANIFESTO = join(RAIZ, 'galeria', 'fotos.json');
@@ -35,6 +37,31 @@ function dimensoes(caminho) {
     }
   }
   return { w: 0, h: 0 };
+}
+
+/** Caminho da miniatura de uma foto — o main.js usa a mesma regra. */
+const caminhoMiniatura = (arquivo) => `miniaturas/${arquivo.replace(/\.[^.]+$/, '')}.jpg`;
+
+function gerarMiniatura(arquivo) {
+  const origem = join(RAIZ, arquivo);
+  const destino = join(RAIZ, caminhoMiniatura(arquivo));
+  if (existsSync(destino)) return false;
+  mkdirSync(dirname(destino), { recursive: true });
+  const tentativas = [
+    `magick "${origem}" -auto-orient -resize "1000x1000>" -strip -quality 80 "${destino}"`,
+    `convert "${origem}" -auto-orient -resize "1000x1000>" -strip -quality 80 "${destino}"`,
+    `ffmpeg -v error -y -i "${origem}" -vf "scale='if(gt(iw,ih),min(1000,iw),-2)':'if(gt(iw,ih),-2,min(1000,ih))'" -map_metadata -1 -q:v 4 "${destino}"`,
+  ];
+  for (const cmd of tentativas) {
+    try {
+      execSync(cmd, { stdio: 'ignore' });
+      if (existsSync(destino)) return true;
+    } catch {
+      /* tenta a próxima ferramenta */
+    }
+  }
+  console.warn(`! não consegui gerar a miniatura de ${arquivo}`);
+  return false;
 }
 
 function tituloDoArquivo(nome) {
@@ -70,5 +97,19 @@ for (const cat of dados.categorias) {
   }
 }
 
+// Destaques da home: descarta os que apontam pra fotos removidas
+if (Array.isArray(dados.destaques)) {
+  const existentes = new Set(dados.categorias.flatMap((c) => c.fotos.map((f) => f.arquivo)));
+  dados.destaques = dados.destaques.filter((a) => existentes.has(a));
+}
+
+// Miniaturas de todas as fotos e capas
+let miniaturas = 0;
+for (const cat of dados.categorias) {
+  for (const arquivo of [cat.capa, ...cat.fotos.map((f) => f.arquivo)]) {
+    if (arquivo && existsSync(join(RAIZ, arquivo)) && gerarMiniatura(arquivo)) miniaturas++;
+  }
+}
+
 writeFileSync(MANIFESTO, JSON.stringify(dados, null, 2) + '\n', 'utf8');
-console.log(`Manifesto atualizado: ${adicionadas} adicionada(s), ${removidas} removida(s).`);
+console.log(`Manifesto atualizado: ${adicionadas} adicionada(s), ${removidas} removida(s), ${miniaturas} miniatura(s) nova(s).`);
