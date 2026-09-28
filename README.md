@@ -14,13 +14,12 @@ Site estático feito à mão: HTML, CSS e JavaScript puros, sem frameworks e sem
 | Sala | Página | Pasta | Prefixo |
 |---|---|---|---|
 | I. Retratos | `retratos.html` | `RetratosFotos/` | `ret_` |
-| II. Maria e Mari | `maria-e-mari.html` | `MariaMariFotos/` | `mm_` |
-| III. Resenha | `resenha.html` | `ResenhaFotos/` | `res_` |
-| IV. Fim de tarde | `tarde.html` | `TardeFotos/` | `tar_` |
-| V. Arquitetura | `arquitetura.html` | `ArquiteturaFotos/` | `arq_` |
-| VI. Natureza | `natureza.html` | `NaturezaFotos/` | `nat_` |
-| VII. Máquinas | `maquinas.html` | `CarrosFotos/` | `car_` |
-| VIII. Capturas virtuais | `forza.html` | `ForzaFotos/` | `for_` (Forza), `game_` (outros games) |
+| II. Resenha | `resenha.html` | `ResenhaFotos/` | `res_` |
+| III. Fim de tarde | `tarde.html` | `TardeFotos/` | `tar_` |
+| IV. Arquitetura | `arquitetura.html` | `ArquiteturaFotos/` | `arq_` |
+| V. Natureza | `natureza.html` | `NaturezaFotos/` | `nat_` |
+| VI. Máquinas | `maquinas.html` | `CarrosFotos/` | `car_` |
+| VII. Capturas virtuais | `forza.html` | `ForzaFotos/` | `for_` (Forza), `game_` (outros games) |
 
 ## 📸 Como adicionar fotos (o jeito fácil)
 

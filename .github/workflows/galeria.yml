@@ -13,7 +13,6 @@ on:
       - 'ArquiteturaFotos/**'
       - 'CarrosFotos/**'
       - 'ForzaFotos/**'
-      - 'MariaMariFotos/**'
       - 'NaturezaFotos/**'
       - 'ResenhaFotos/**'
       - 'RetratosFotos/**'
@@ -42,7 +41,7 @@ jobs:
       - name: Otimiza imagens (1920px máx., recompressão das pesadas)
         run: |
           shopt -s nullglob
-          for f in ArquiteturaFotos/* CarrosFotos/* ForzaFotos/* MariaMariFotos/* NaturezaFotos/* ResenhaFotos/* RetratosFotos/* TardeFotos/* capa_*; do
+          for f in ArquiteturaFotos/* CarrosFotos/* ForzaFotos/* NaturezaFotos/* ResenhaFotos/* RetratosFotos/* TardeFotos/* capa_*; do
             case "${f,,}" in
               *.jpg|*.jpeg|*.png) ;;
               *) continue ;;

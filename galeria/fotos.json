@@ -11,7 +11,7 @@
     "RetratosFotos/ret_pai_bw.jpg",
     "TardeFotos/tar_marcacao.jpg",
     "CarrosFotos/car_touro.jpg",
-    "MariaMariFotos/mm_pela_fresta.jpg",
+    "RetratosFotos/ret_pela_fresta.jpg",
     "ArquiteturaFotos/arq_shopping.jpg",
     "ResenhaFotos/res_olhar.jpg",
     "NaturezaFotos/nat_ixora_vermelha.jpg",
@@ -119,31 +119,21 @@
           "titulo": "O silêncio dele falou alto",
           "w": 859,
           "h": 1210
-        }
-      ]
-    },
-    {
-      "slug": "maria-e-mari",
-      "pagina": "maria-e-mari.html",
-      "titulo": "Maria e Mari",
-      "descricao": "Fotos no shopping com minhas crianças.",
-      "capa": "MariaMariFotos/mm_pela_fresta.jpg",
-      "pasta": "MariaMariFotos",
-      "fotos": [
+        },
         {
-          "arquivo": "MariaMariFotos/mm_tedio.jpg",
+          "arquivo": "RetratosFotos/ret_tedio.jpg",
           "titulo": "Tédio de shopping",
           "w": 849,
           "h": 566
         },
         {
-          "arquivo": "MariaMariFotos/mm_pela_fresta.jpg",
+          "arquivo": "RetratosFotos/ret_pela_fresta.jpg",
           "titulo": "Pela fresta",
           "w": 1080,
           "h": 720
         },
         {
-          "arquivo": "MariaMariFotos/mm_pensando_bem.jpg",
+          "arquivo": "RetratosFotos/ret_pensando_bem.jpg",
           "titulo": "Pensando bem",
           "w": 849,
           "h": 566
