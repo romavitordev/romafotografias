@@ -149,6 +149,8 @@
                     <label><span class="rotulo">E-mail</span><input type="email" name="email" autocomplete="email" required></label>
                     <label><span class="rotulo">Mensagem</span><textarea name="mensagem" required></textarea></label>
                     <input type="hidden" name="_subject" value="Novo contato do site Roma Fotografias">
+                    <!-- honeypot do Formspree: invisível para pessoas; se vier preenchido, o envio é descartado -->
+                    <input type="text" name="_gotcha" class="isca" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <button type="submit">Enviar mensagem</button>
                     <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
                 </form>
