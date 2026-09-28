@@ -2,36 +2,25 @@
   "_comentario": "Manifesto da exposição. Cada categoria é uma \"sala\". Gerado/atualizado por scripts/gera-galeria.mjs (e pelo GitHub Action a cada push). Títulos e \"destaques\" editados à mão são preservados.",
   "destaques": [
     "RetratosFotos/ret_gu.jpg",
-    "TardeFotos/tar_sorriso.jpg",
-    "ArquiteturaFotos/arq_chamine.jpg",
-    "ResenhaFotos/res_luz_azul.jpg",
-    "ArquiteturaFotos/arq_sinal_aberto.jpg",
     "AnimaisFotos/ani_passaros.jpg",
-    "ArquiteturaFotos/arq_escadas.jpg",
-    "RetratosFotos/ret_pai_bw.jpg",
     "TardeFotos/tar_marcacao.jpg",
-    "CarrosFotos/car_touro.jpg",
-    "RetratosFotos/ret_pela_fresta.jpg",
-    "ArquiteturaFotos/arq_shopping.jpg",
-    "ResenhaFotos/res_olhar.jpg",
-    "NaturezaFotos/nat_ixora_vermelha.jpg",
-    "RetratosFotos/ret_gu_sol.jpg",
-    "TardeFotos/tar_olhar_distante.jpg",
-    "AnimaisFotos/ani_amora.jpg",
-    "ForzaFotos/for_porsheazul.png",
-    "RetratosFotos/ret_passos_que_carregam_historias.jpg",
-    "CarrosFotos/car_ultima_entrega.jpg",
-    "RetratosFotos/ret_riso_de_aniversario.jpg",
-    "RetratosFotos/ret_dois_senhores.jpg",
-    "ForzaFotos/game_01.jpg",
-    "ArquiteturaFotos/arq_trabalho_no_alto.jpg",
-    "RetratosFotos/ret_entre_um_turno_e_outro.jpg",
+    "MemoriasFotos/mem_historias_do_passado.jpg",
     "NaturezaFotos/nat_a_beleza_que_nao_precisa_da_escuridao.jpg",
-    "ArquiteturaFotos/arq_ate_o_silencio_tem_cor.jpg",
+    "ArquiteturaFotos/arq_sinal_aberto.jpg",
     "NaturezaFotos/nat_o_coracao_da_natureza_sangra_o_tempo_tod.jpg",
+    "AnimaisFotos/ani_amora.jpg",
+    "RetratosFotos/ret_dois_senhores.jpg",
+    "ForzaFotos/for_porsheazul.png",
+    "ArquiteturaFotos/arq_chamine.jpg",
+    "RetratosFotos/ret_pai_bw.jpg",
+    "ResenhaFotos/res_luz_azul.jpg",
     "ArquiteturaFotos/arq_as_vezes_a_alegria_esta_perto_e_so_obser.jpg",
-    "ArquiteturaFotos/arq_luzes_que_trazem_noticias.jpg",
-    "ForzaFotos/game_29.jpg"
+    "CarrosFotos/car_touro.jpg",
+    "TardeFotos/tar_sorriso.jpg",
+    "ForzaFotos/game_29.jpg",
+    "capa_retrato.jpg",
+    "RetratosFotos/ret_gu_sol.jpg",
+    "ArquiteturaFotos/arq_luzes_que_trazem_noticias.jpg"
   ],
   "categorias": [
     {
@@ -483,8 +472,8 @@
         {
           "arquivo": "ArquiteturaFotos/arq_luzes_que_trazem_noticias.jpg",
           "titulo": "Luzes que trazem notícias",
-          "w": 730,
-          "h": 566
+          "w": 653,
+          "h": 489
         }
       ]
     },
