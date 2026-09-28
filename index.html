@@ -25,6 +25,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css">
     <link rel="preload" href="galeria/fotos.json" as="fetch" crossorigin>
+    <!-- Abertura: decide antes da primeira pintura (uma vez por sessão).
+         Se o main.js nunca carregar, a tela some sozinha em 6s. -->
+    <script>
+      try {
+        if (!sessionStorage.getItem('roma-intro')) {
+          document.documentElement.classList.add('intro');
+          setTimeout(function () { document.documentElement.classList.remove('intro'); }, 6000);
+        }
+      } catch (e) {}
+    </script>
     <meta name="theme-color" content="#f6f5f1">
 
     <script type="application/ld+json">
@@ -41,6 +51,11 @@
     </script>
 </head>
 <body>
+    <div class="intro-tela" aria-hidden="true">
+        <div class="intro-marca"><span>R</span></div>
+        <div class="intro-barra"><i></i></div>
+    </div>
+
     <a class="pular" href="#obras">Pular para as obras</a>
 
     <header class="topo">

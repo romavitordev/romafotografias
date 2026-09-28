@@ -18,6 +18,71 @@
   /** Mesma regra do scripts/gera-galeria.mjs */
   const miniatura = (arquivo) => `miniaturas/${arquivo.replace(/\.[^.]+$/, '')}.jpg`;
 
+  /* ---------- Abertura ----------
+     Na primeira visita (por sessão) a entrada mostra a marca no centro
+     de uma tela branca enquanto as fotos da parede carregam; depois a
+     tela sobe como uma cortina. O <head> do index.html decide se ela
+     aparece (classe "intro" no <html>) antes de qualquer pintura. */
+  const telaIntro = document.documentElement.classList.contains('intro')
+    ? document.querySelector('.intro-tela')
+    : null;
+  let introFeita;
+  const introPronta = new Promise((ok) => (introFeita = ok));
+  let fecharIntro = () => {};
+  let acompanharIntro = () => {};
+
+  if (!telaIntro) {
+    document.documentElement.classList.remove('intro');
+    introFeita();
+  } else {
+    const inicio = performance.now();
+    const barra = telaIntro.querySelector('.intro-barra');
+    let fechando = false;
+    let terminou = false;
+
+    const terminar = () => {
+      if (terminou) return;
+      terminou = true;
+      document.documentElement.classList.remove('intro');
+      telaIntro.remove();
+      introFeita();
+    };
+
+    fecharIntro = () => {
+      if (fechando) return;
+      fechando = true;
+      try { sessionStorage.setItem('roma-intro', '1'); } catch { /* navegação privada */ }
+      barra.style.setProperty('--p', 1);
+      // tempo mínimo pra marca ser vista, mesmo com tudo em cache
+      const espera = Math.max(0, 1200 - (performance.now() - inicio));
+      setTimeout(() => {
+        telaIntro.classList.add('sai');
+        telaIntro.addEventListener('transitionend', terminar, { once: true });
+        setTimeout(terminar, 1500); // garantia se a transição não disparar
+      }, espera);
+    };
+
+    acompanharIntro = (raiz) => {
+      const imgs = [...raiz.querySelectorAll('img')];
+      if (!imgs.length) return fecharIntro();
+      let prontas = 0;
+      const passo = () => {
+        prontas += 1;
+        barra.style.setProperty('--p', prontas / imgs.length);
+        if (prontas >= imgs.length) fecharIntro();
+      };
+      imgs.forEach((im) => {
+        if (im.complete) passo();
+        else {
+          im.addEventListener('load', passo, { once: true });
+          im.addEventListener('error', passo, { once: true });
+        }
+      });
+    };
+
+    setTimeout(fecharIntro, 4000); // conexão lenta: não prende ninguém
+  }
+
   /* ---------- Ano do rodapé ---------- */
   document.querySelectorAll('[data-ano]').forEach((el) => {
     el.textContent = new Date().getFullYear();
@@ -37,8 +102,11 @@
           { rootMargin: '0px 0px -8% 0px' }
         )
       : null;
+  // Só começa depois da abertura, pra animação das obras acontecer à vista.
   const revelar = (raiz) =>
-    raiz.querySelectorAll('.obra:not(.on)').forEach((el) => (observador ? observador.observe(el) : el.classList.add('on')));
+    introPronta.then(() =>
+      raiz.querySelectorAll('.obra:not(.on)').forEach((el) => (observador ? observador.observe(el) : el.classList.add('on')))
+    );
 
   /* ---------- Parede: como cada obra é pendurada ----------
      Larguras, recuos e respiros variam num ciclo fixo — dá o
@@ -66,7 +134,7 @@
                 data-indice="${i}" aria-label="Ampliar: ${esc(f.titulo)}">
           <span class="moldura" style="aspect-ratio:${f.w || 4} / ${f.h || 5}">
             <img src="${encodeURI(miniatura(f.arquivo))}" alt="${esc(f.titulo)}" width="${f.w}" height="${f.h}"
-                 loading="${i < 4 ? 'eager' : 'lazy'}" decoding="async"
+                 loading="${i < 4 || telaIntro ? 'eager' : 'lazy'}" decoding="async"
                  onerror="this.onerror=null;this.src='${encodeURI(f.arquivo)}'">
           </span>
           <figcaption><span>${dois(i + 1)}</span><b>${esc(f.titulo)}</b>${rotuloDe ? `<span>${esc(rotuloDe(f))}</span>` : ''}</figcaption>
@@ -184,8 +252,12 @@
           escolhidas.map(({ f }) => f),
           (f) => salaDe.get(f)
         );
+        acompanharIntro(paredeDestaques);
       })
-      .catch(() => falhou(paredeDestaques, 'Não foi possível carregar a exposição agora.'));
+      .catch(() => {
+        falhou(paredeDestaques, 'Não foi possível carregar a exposição agora.');
+        fecharIntro();
+      });
   }
 
   /* ---------- Entrada: índice das salas ---------- */

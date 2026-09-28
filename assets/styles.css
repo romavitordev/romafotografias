@@ -459,7 +459,69 @@ a { color: inherit; text-decoration: none; }
 }
 .lb-nav { display: flex; gap: 22px; flex-shrink: 0; }
 
+/* ---------- Abertura (marca no centro → cortina sobe) ---------- */
+.intro-tela { display: none; }
+html.intro body { overflow: hidden; }
+html.intro .intro-tela {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  background: var(--parede);
+  transition: transform 0.95s cubic-bezier(0.76, 0, 0.24, 1);
+  will-change: transform;
+}
+.intro-tela.sai { transform: translateY(-100%); }
+
+/* a mesma marca do favicon: R claro sobre o quadrado da cor da tinta */
+.intro-marca {
+  width: 68px;
+  height: 68px;
+  display: grid;
+  place-items: center;
+  background: var(--tinta);
+  animation: intro-marca 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.intro-marca span {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 50px;
+  line-height: 1;
+  color: var(--parede);
+  transform: translateY(2px);
+  animation: intro-letra 0.7s 0.3s ease both;
+}
+.intro-barra {
+  width: 68px;
+  height: 1px;
+  background: var(--linha);
+  overflow: hidden;
+  animation: intro-letra 0.6s 0.5s ease both;
+}
+.intro-barra i {
+  display: block;
+  height: 100%;
+  background: var(--tinta);
+  transform: scaleX(var(--p, 0));
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+@keyframes intro-marca {
+  from { opacity: 0; transform: scale(0.86); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes intro-letra {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .obra { opacity: 1; transform: none; transition: none; }
+  .intro-marca, .intro-marca span, .intro-barra { animation: none; }
+  html.intro .intro-tela { transition: opacity 0.4s ease; }
+  .intro-tela.sai { transform: none; opacity: 0; }
 }
