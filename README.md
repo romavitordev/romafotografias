@@ -20,7 +20,7 @@ Site estático feito à mão: HTML, CSS e JavaScript puros, sem frameworks e sem
 | V. Arquitetura | `arquitetura.html` | `ArquiteturaFotos/` | `arq_` |
 | VI. Natureza | `natureza.html` | `NaturezaFotos/` | `nat_` |
 | VII. Máquinas | `maquinas.html` | `CarrosFotos/` | `car_` |
-| VIII. Capturas virtuais | `forza.html` | `ForzaFotos/` | `for_` |
+| VIII. Capturas virtuais | `forza.html` | `ForzaFotos/` | `for_` (Forza), `game_` (outros games) |
 
 ## 📸 Como adicionar fotos (o jeito fácil)
 

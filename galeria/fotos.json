@@ -20,7 +20,13 @@
     "TardeFotos/tar_olhar_distante.jpg",
     "NaturezaFotos/nat_amora.jpg",
     "ForzaFotos/for_porsheazul.png",
-    "MariaMariFotos/mm_escadaria.jpg"
+    "MariaMariFotos/mm_escadaria.jpg",
+    "ArquiteturaFotos/arq_passo_firme.jpg",
+    "CarrosFotos/car_caminhao.jpg",
+    "RetratosFotos/ret_riso_de_aniversario.jpg",
+    "RetratosFotos/ret_dois_senhores.jpg",
+    "ForzaFotos/game_01.jpg",
+    "ArquiteturaFotos/arq_trabalho_no_alto.jpg"
   ],
   "categorias": [
     {
@@ -78,6 +84,24 @@
           "titulo": "Um homem espera na escadaria",
           "w": 929,
           "h": 1239
+        },
+        {
+          "arquivo": "RetratosFotos/ret_riso_de_aniversario.jpg",
+          "titulo": "Riso de aniversário",
+          "w": 1536,
+          "h": 1920
+        },
+        {
+          "arquivo": "RetratosFotos/ret_mesa_do_bolo.jpg",
+          "titulo": "A mesa do bolo",
+          "w": 1536,
+          "h": 1920
+        },
+        {
+          "arquivo": "RetratosFotos/ret_dois_senhores.jpg",
+          "titulo": "Os dois senhores",
+          "w": 1536,
+          "h": 1920
         }
       ]
     },
@@ -418,6 +442,18 @@
           "titulo": "Devagar",
           "w": 871,
           "h": 1211
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_trabalho_no_alto.jpg",
+          "titulo": "Trabalho no alto",
+          "w": 1080,
+          "h": 1920
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_passo_firme.jpg",
+          "titulo": "Passo firme",
+          "w": 1536,
+          "h": 1920
         }
       ]
     },
@@ -524,6 +560,18 @@
           "titulo": "Estrada entre os morros",
           "w": 1920,
           "h": 1280
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_passaro_azul.jpg",
+          "titulo": "Pássaro contra o céu",
+          "w": 907,
+          "h": 1211
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_borboleta.jpg",
+          "titulo": "Pouso breve",
+          "w": 1536,
+          "h": 1920
         }
       ]
     },
@@ -558,6 +606,12 @@
           "titulo": "Faróis na curva",
           "w": 900,
           "h": 1350
+        },
+        {
+          "arquivo": "CarrosFotos/car_caminhao.jpg",
+          "titulo": "Caminhão ao entardecer",
+          "w": 1280,
+          "h": 1920
         }
       ]
     },
@@ -565,10 +619,160 @@
       "slug": "forza",
       "pagina": "forza.html",
       "titulo": "Capturas virtuais",
-      "descricao": "Composição e luz praticadas no Forza Horizon.",
-      "capa": "capa_forza.png",
+      "descricao": "Composição e luz praticadas dentro dos games: The Last of Us, Forza Horizon e outros mundos.",
+      "capa": "ForzaFotos/game_01.jpg",
       "pasta": "ForzaFotos",
       "fotos": [
+        {
+          "arquivo": "ForzaFotos/game_01.jpg",
+          "titulo": "Pôr do sol no campo",
+          "w": 1916,
+          "h": 1036
+        },
+        {
+          "arquivo": "ForzaFotos/game_02.jpg",
+          "titulo": "Luz na poeira",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "arquivo": "ForzaFotos/game_03.jpg",
+          "titulo": "Viatura no mato",
+          "w": 1916,
+          "h": 1036
+        },
+        {
+          "arquivo": "ForzaFotos/game_04.jpg",
+          "titulo": "Neon",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "arquivo": "ForzaFotos/game_05.jpg",
+          "titulo": "Silêncio antes",
+          "w": 1812,
+          "h": 1076
+        },
+        {
+          "arquivo": "ForzaFotos/game_06.jpg",
+          "titulo": "Névoa",
+          "w": 1873,
+          "h": 1035
+        },
+        {
+          "arquivo": "ForzaFotos/game_07.jpg",
+          "titulo": "Quarto vermelho",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "arquivo": "ForzaFotos/game_08.jpg",
+          "titulo": "Posto abandonado",
+          "w": 1893,
+          "h": 800
+        },
+        {
+          "arquivo": "ForzaFotos/game_09.jpg",
+          "titulo": "Mira",
+          "w": 1874,
+          "h": 1034
+        },
+        {
+          "arquivo": "ForzaFotos/game_10.jpg",
+          "titulo": "Janela azul",
+          "w": 1916,
+          "h": 800
+        },
+        {
+          "arquivo": "ForzaFotos/game_11.jpg",
+          "titulo": "Mão na cerca",
+          "w": 1862,
+          "h": 800
+        },
+        {
+          "arquivo": "ForzaFotos/game_12.jpg",
+          "titulo": "Roda-gigante ao longe",
+          "w": 1875,
+          "h": 1034
+        },
+        {
+          "arquivo": "ForzaFotos/game_13.jpg",
+          "titulo": "Sala tomada pelo verde",
+          "w": 1916,
+          "h": 1036
+        },
+        {
+          "arquivo": "ForzaFotos/game_14.jpg",
+          "titulo": "Poça de luz",
+          "w": 1839,
+          "h": 1076
+        },
+        {
+          "arquivo": "ForzaFotos/game_15.jpg",
+          "titulo": "Feixes",
+          "w": 1920,
+          "h": 1076
+        },
+        {
+          "arquivo": "ForzaFotos/game_16.jpg",
+          "titulo": "Horizonte",
+          "w": 1916,
+          "h": 800
+        },
+        {
+          "arquivo": "ForzaFotos/game_17.jpg",
+          "titulo": "Luz no balcão",
+          "w": 1916,
+          "h": 800
+        },
+        {
+          "arquivo": "ForzaFotos/game_18.jpg",
+          "titulo": "Cesta esquecida",
+          "w": 1042,
+          "h": 1076
+        },
+        {
+          "arquivo": "ForzaFotos/game_19.jpg",
+          "titulo": "Refúgio",
+          "w": 1639,
+          "h": 694
+        },
+        {
+          "arquivo": "ForzaFotos/game_20.jpg",
+          "titulo": "Mesa verde",
+          "w": 1547,
+          "h": 693
+        },
+        {
+          "arquivo": "ForzaFotos/game_21.jpg",
+          "titulo": "Conversa à meia-luz",
+          "w": 1920,
+          "h": 694
+        },
+        {
+          "arquivo": "ForzaFotos/game_22.jpg",
+          "titulo": "Torre no amarelo",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "arquivo": "ForzaFotos/game_23.jpg",
+          "titulo": "Flores no escuro",
+          "w": 1874,
+          "h": 1034
+        },
+        {
+          "arquivo": "ForzaFotos/game_24.jpg",
+          "titulo": "Templo",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "arquivo": "ForzaFotos/game_25.jpg",
+          "titulo": "Templo, outro ângulo",
+          "w": 1920,
+          "h": 1080
+        },
         {
           "arquivo": "ForzaFotos/for_acura.png",
           "titulo": "Acura na pista chuvosa",
