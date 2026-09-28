@@ -796,7 +796,7 @@
       "slug": "forza",
       "pagina": "forza.html",
       "titulo": "Capturas virtuais",
-      "descricao": "Composição e luz praticadas dentro dos games: The Last of Us, Forza Horizon e outros mundos.",
+      "descricao": "Composição e luz praticadas dentro dos games: The Last of Us Part II, Cyberpunk 2077 e Forza Horizon.",
       "capa": "ForzaFotos/game_01.jpg",
       "pasta": "ForzaFotos",
       "fotos": [
@@ -811,6 +811,12 @@
           "titulo": "Varal ao pôr do sol",
           "w": 1920,
           "h": 800
+        },
+        {
+          "arquivo": "ForzaFotos/game_03.jpg",
+          "titulo": "Viatura no mato",
+          "w": 1916,
+          "h": 1036
         },
         {
           "arquivo": "ForzaFotos/game_10.jpg",
@@ -879,6 +885,30 @@
           "h": 1035
         },
         {
+          "arquivo": "ForzaFotos/game_08.jpg",
+          "titulo": "Posto abandonado",
+          "w": 1893,
+          "h": 800
+        },
+        {
+          "arquivo": "ForzaFotos/game_06.jpg",
+          "titulo": "Névoa",
+          "w": 1873,
+          "h": 1035
+        },
+        {
+          "arquivo": "ForzaFotos/game_26.jpg",
+          "titulo": "Clareira",
+          "w": 1920,
+          "h": 800
+        },
+        {
+          "arquivo": "ForzaFotos/game_27.jpg",
+          "titulo": "Vulto na mata",
+          "w": 1920,
+          "h": 1034
+        },
+        {
           "arquivo": "ForzaFotos/game_13.jpg",
           "titulo": "Sala tomada pelo verde",
           "w": 1916,
@@ -937,36 +967,6 @@
           "titulo": "Conversa à meia-luz",
           "w": 1920,
           "h": 694
-        },
-        {
-          "arquivo": "ForzaFotos/game_03.jpg",
-          "titulo": "Viatura no mato",
-          "w": 1916,
-          "h": 1036
-        },
-        {
-          "arquivo": "ForzaFotos/game_06.jpg",
-          "titulo": "Névoa",
-          "w": 1873,
-          "h": 1035
-        },
-        {
-          "arquivo": "ForzaFotos/game_26.jpg",
-          "titulo": "Clareira",
-          "w": 1920,
-          "h": 800
-        },
-        {
-          "arquivo": "ForzaFotos/game_27.jpg",
-          "titulo": "Vulto na mata",
-          "w": 1920,
-          "h": 1034
-        },
-        {
-          "arquivo": "ForzaFotos/game_08.jpg",
-          "titulo": "Posto abandonado",
-          "w": 1893,
-          "h": 800
         },
         {
           "arquivo": "ForzaFotos/game_04.jpg",
