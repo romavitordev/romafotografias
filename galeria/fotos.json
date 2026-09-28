@@ -80,7 +80,7 @@
         },
         {
           "arquivo": "RetratosFotos/ret_escadaria.jpg",
-          "titulo": "Um homem espera na escadaria",
+          "titulo": "Retrato urbano",
           "w": 929,
           "h": 1239
         },
@@ -98,7 +98,7 @@
         },
         {
           "arquivo": "RetratosFotos/ret_dois_senhores.jpg",
-          "titulo": "Os dois senhores",
+          "titulo": "Noite familiar",
           "w": 1536,
           "h": 1920
         }
@@ -108,7 +108,7 @@
       "slug": "maria-e-mari",
       "pagina": "maria-e-mari.html",
       "titulo": "Maria e Mari",
-      "descricao": "Duas amigas num dia de shopping: caretas, carinho e cumplicidade.",
+      "descricao": "Fotos no shopping com minhas crianças.",
       "capa": "MariaMariFotos/mm_pela_fresta.jpg",
       "pasta": "MariaMariFotos",
       "fotos": [
@@ -218,7 +218,7 @@
       "slug": "tarde",
       "pagina": "tarde.html",
       "titulo": "Fim de tarde",
-      "descricao": "Futebol descalço, um pai e um filho, e a luz dourada descendo pelo barranco.",
+      "descricao": "11/04 foi seu aniversário, pai… e nada melhor do que eternizar o momento que pude viver ao seu lado neste domingo. A fotografia é a arte de guardar memórias e trazê-las de volta sempre que olhamos para elas.",
       "capa": "TardeFotos/tar_sorriso.jpg",
       "pasta": "TardeFotos",
       "fotos": [
@@ -248,7 +248,7 @@
         },
         {
           "arquivo": "TardeFotos/tar_sorriso.jpg",
-          "titulo": "Sorriso de fim de tarde",
+          "titulo": "11/04 foi seu aniversário, pai",
           "w": 1280,
           "h": 1920
         },
@@ -306,7 +306,7 @@
         },
         {
           "arquivo": "ArquiteturaFotos/arq_igreja_sorocaba.jpg",
-          "titulo": "Igreja em Sorocaba",
+          "titulo": "O tempo corrói a matéria. A imagem preserva a memória.",
           "w": 907,
           "h": 1211
         },
@@ -378,7 +378,7 @@
         },
         {
           "arquivo": "ArquiteturaFotos/arq_shopping.jpg",
-          "titulo": "Desconhecidos no mesmo espaço",
+          "titulo": "Um dia com a família",
           "w": 907,
           "h": 1211
         },
@@ -414,7 +414,7 @@
         },
         {
           "arquivo": "ArquiteturaFotos/arq_praca.jpg",
-          "titulo": "A praça e o seu tempo",
+          "titulo": "Quantas histórias podem ter uma única vida?",
           "w": 968,
           "h": 904
         },
@@ -432,7 +432,7 @@
         },
         {
           "arquivo": "ArquiteturaFotos/arq_passo_firme.jpg",
-          "titulo": "Passo firme",
+          "titulo": "Passos que carregam histórias",
           "w": 1536,
           "h": 1920
         }
@@ -550,7 +550,7 @@
         },
         {
           "arquivo": "NaturezaFotos/nat_borboleta.jpg",
-          "titulo": "Pouso breve",
+          "titulo": "Belezas da natureza",
           "w": 1536,
           "h": 1920
         }
