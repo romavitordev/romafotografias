@@ -26,7 +26,11 @@
     "RetratosFotos/ret_dois_senhores.jpg",
     "ForzaFotos/game_01.jpg",
     "ArquiteturaFotos/arq_trabalho_no_alto.jpg",
-    "RetratosFotos/ret_entre_um_turno_e_outro.jpg"
+    "RetratosFotos/ret_entre_um_turno_e_outro.jpg",
+    "NaturezaFotos/nat_a_beleza_que_nao_precisa_da_escuridao.jpg",
+    "ArquiteturaFotos/arq_ate_o_silencio_tem_cor.jpg",
+    "NaturezaFotos/nat_o_coracao_da_natureza_sangra_o_tempo_tod.jpg",
+    "ArquiteturaFotos/arq_as_vezes_a_alegria_esta_perto_e_so_obser.jpg"
   ],
   "categorias": [
     {
@@ -107,6 +111,12 @@
           "arquivo": "RetratosFotos/ret_entre_um_turno_e_outro.jpg",
           "titulo": "Entre um turno e outro",
           "w": 906,
+          "h": 1210
+        },
+        {
+          "arquivo": "RetratosFotos/ret_o_silencio_dele_falou_alto.jpg",
+          "titulo": "O silêncio dele falou alto",
+          "w": 859,
           "h": 1210
         }
       ]
@@ -466,6 +476,60 @@
           "titulo": "O anjo, em sua forma final",
           "w": 1012,
           "h": 1349
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_alguem_estava_acordado.jpg",
+          "titulo": "Alguém estava acordado",
+          "w": 907,
+          "h": 1211
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_apenas_um_banco_de_madeira.jpg",
+          "titulo": "Apenas um banco de madeira",
+          "w": 881,
+          "h": 1211
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_ate_o_silencio_tem_cor.jpg",
+          "titulo": "Até o silêncio tem cor",
+          "w": 944,
+          "h": 1350
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_luzes_da_avenida.jpg",
+          "titulo": "Luzes da avenida",
+          "w": 1038,
+          "h": 1037
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_predio_antigo_nova_perspectiva_ii.jpg",
+          "titulo": "Prédio antigo, nova perspectiva II",
+          "w": 907,
+          "h": 1211
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_predio_antigo_nova_perspectiva.jpg",
+          "titulo": "Prédio antigo, nova perspectiva",
+          "w": 907,
+          "h": 1211
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_sombra_na_esquina.jpg",
+          "titulo": "Sombra na esquina",
+          "w": 1920,
+          "h": 1920
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_um_bom_dia_para_fotografar.jpg",
+          "titulo": "Um bom dia para fotografar",
+          "w": 913,
+          "h": 1211
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_as_vezes_a_alegria_esta_perto_e_so_obser.jpg",
+          "titulo": "Às vezes a alegria está perto, é só observar",
+          "w": 764,
+          "h": 476
         }
       ]
     },
@@ -583,6 +647,42 @@
           "arquivo": "NaturezaFotos/nat_borboleta.jpg",
           "titulo": "Belezas da natureza",
           "w": 1536,
+          "h": 1920
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_a_beleza_que_nao_precisa_da_escuridao.jpg",
+          "titulo": "A beleza que não precisa da escuridão",
+          "w": 907,
+          "h": 1211
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_casal_de_passaros.jpg",
+          "titulo": "Casal de pássaros",
+          "w": 944,
+          "h": 1176
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_lua_sobre_o_morro.jpg",
+          "titulo": "Lua sobre o morro",
+          "w": 1528,
+          "h": 1528
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_o_coracao_da_natureza_sangra_o_tempo_tod.jpg",
+          "titulo": "O coração da natureza sangra o tempo todo",
+          "w": 907,
+          "h": 1211
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_o_pequeno_membro_da_familia.jpg",
+          "titulo": "O pequeno membro da família",
+          "w": 907,
+          "h": 1211
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_passaros_num_dia_de_chuva.jpg",
+          "titulo": "Pássaros num dia de chuva",
+          "w": 1440,
           "h": 1920
         }
       ]
