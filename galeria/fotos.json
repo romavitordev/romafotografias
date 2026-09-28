@@ -21,11 +21,12 @@
     "NaturezaFotos/nat_amora.jpg",
     "ForzaFotos/for_porsheazul.png",
     "ArquiteturaFotos/arq_passo_firme.jpg",
-    "CarrosFotos/car_caminhao.jpg",
+    "CarrosFotos/car_ultima_entrega.jpg",
     "RetratosFotos/ret_riso_de_aniversario.jpg",
     "RetratosFotos/ret_dois_senhores.jpg",
     "ForzaFotos/game_01.jpg",
-    "ArquiteturaFotos/arq_trabalho_no_alto.jpg"
+    "ArquiteturaFotos/arq_trabalho_no_alto.jpg",
+    "RetratosFotos/ret_entre_um_turno_e_outro.jpg"
   ],
   "categorias": [
     {
@@ -101,6 +102,12 @@
           "titulo": "Uma noite familiar",
           "w": 1536,
           "h": 1920
+        },
+        {
+          "arquivo": "RetratosFotos/ret_entre_um_turno_e_outro.jpg",
+          "titulo": "Entre um turno e outro",
+          "w": 906,
+          "h": 1210
         }
       ]
     },
@@ -209,6 +216,24 @@
         {
           "arquivo": "ResenhaFotos/res_atitude.jpg",
           "titulo": "Atitude",
+          "w": 900,
+          "h": 1350
+        },
+        {
+          "arquivo": "ResenhaFotos/res_segredo.jpg",
+          "titulo": "Segredo",
+          "w": 900,
+          "h": 1350
+        },
+        {
+          "arquivo": "ResenhaFotos/res_esse_e_meu.jpg",
+          "titulo": "Esse aqui é meu",
+          "w": 849,
+          "h": 566
+        },
+        {
+          "arquivo": "ResenhaFotos/res_lingua_de_fora.jpg",
+          "titulo": "Língua de fora",
           "w": 900,
           "h": 1350
         }
@@ -435,6 +460,12 @@
           "titulo": "Passos que carregam histórias",
           "w": 1536,
           "h": 1920
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_anjo_forma_final.jpg",
+          "titulo": "O anjo, em sua forma final",
+          "w": 1012,
+          "h": 1349
         }
       ]
     },
@@ -589,8 +620,8 @@
           "h": 1350
         },
         {
-          "arquivo": "CarrosFotos/car_caminhao.jpg",
-          "titulo": "Caminhão ao entardecer",
+          "arquivo": "CarrosFotos/car_ultima_entrega.jpg",
+          "titulo": "A última entrega do dia",
           "w": 1280,
           "h": 1920
         }
@@ -811,6 +842,24 @@
         {
           "arquivo": "ForzaFotos/for_barco.png",
           "titulo": "Pequeno barco diante do vasto mar",
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "arquivo": "ForzaFotos/game_26.jpg",
+          "titulo": "Clareira",
+          "w": 1920,
+          "h": 800
+        },
+        {
+          "arquivo": "ForzaFotos/game_27.jpg",
+          "titulo": "Vulto na mata",
+          "w": 1920,
+          "h": 1034
+        },
+        {
+          "arquivo": "ForzaFotos/game_28.jpg",
+          "titulo": "Luz sobre a sucata",
           "w": 1920,
           "h": 1080
         }
