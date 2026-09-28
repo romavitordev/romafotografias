@@ -30,7 +30,8 @@
     "NaturezaFotos/nat_a_beleza_que_nao_precisa_da_escuridao.jpg",
     "ArquiteturaFotos/arq_ate_o_silencio_tem_cor.jpg",
     "NaturezaFotos/nat_o_coracao_da_natureza_sangra_o_tempo_tod.jpg",
-    "ArquiteturaFotos/arq_as_vezes_a_alegria_esta_perto_e_so_obser.jpg"
+    "ArquiteturaFotos/arq_as_vezes_a_alegria_esta_perto_e_so_obser.jpg",
+    "ArquiteturaFotos/arq_luzes_que_trazem_noticias.jpg"
   ],
   "categorias": [
     {
@@ -530,6 +531,12 @@
           "titulo": "Às vezes a alegria está perto, é só observar",
           "w": 764,
           "h": 476
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_luzes_que_trazem_noticias.jpg",
+          "titulo": "Luzes que trazem notícias",
+          "w": 730,
+          "h": 566
         }
       ]
     },
@@ -684,6 +691,18 @@
           "titulo": "Pássaros num dia de chuva",
           "w": 1440,
           "h": 1920
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_a_natureza_e_bela.jpg",
+          "titulo": "A natureza é bela",
+          "w": 1012,
+          "h": 1349
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_arvore_magica.jpg",
+          "titulo": "Uma árvore mágica — São Paulo",
+          "w": 754,
+          "h": 566
         }
       ]
     },
