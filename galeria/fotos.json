@@ -20,7 +20,6 @@
     "TardeFotos/tar_olhar_distante.jpg",
     "NaturezaFotos/nat_amora.jpg",
     "ForzaFotos/for_porsheazul.png",
-    "MariaMariFotos/mm_escadaria.jpg",
     "ArquiteturaFotos/arq_passo_firme.jpg",
     "CarrosFotos/car_caminhao.jpg",
     "RetratosFotos/ret_riso_de_aniversario.jpg",
@@ -109,16 +108,10 @@
       "slug": "maria-e-mari",
       "pagina": "maria-e-mari.html",
       "titulo": "Maria e Mari",
-      "descricao": "Duas amigas, duas tardes: a escadaria da igreja e um dia de shopping. Caretas, carinho e cumplicidade.",
-      "capa": "MariaMariFotos/mm_escadaria.jpg",
+      "descricao": "Duas amigas num dia de shopping: caretas, carinho e cumplicidade.",
+      "capa": "MariaMariFotos/mm_pela_fresta.jpg",
       "pasta": "MariaMariFotos",
       "fotos": [
-        {
-          "arquivo": "MariaMariFotos/mm_escadaria.jpg",
-          "titulo": "Na escadaria",
-          "w": 907,
-          "h": 1211
-        },
         {
           "arquivo": "MariaMariFotos/mm_tedio.jpg",
           "titulo": "Tédio de shopping",
@@ -126,22 +119,10 @@
           "h": 566
         },
         {
-          "arquivo": "MariaMariFotos/mm_carinho.jpg",
-          "titulo": "Carinho",
-          "w": 907,
-          "h": 1211
-        },
-        {
           "arquivo": "MariaMariFotos/mm_pela_fresta.jpg",
           "titulo": "Pela fresta",
           "w": 1080,
           "h": 720
-        },
-        {
-          "arquivo": "MariaMariFotos/mm_maos_no_rosto.jpg",
-          "titulo": "Mãos no rosto",
-          "w": 907,
-          "h": 1211
         },
         {
           "arquivo": "MariaMariFotos/mm_pensando_bem.jpg",
