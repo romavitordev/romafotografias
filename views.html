@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estatísticas | Roma Fotografias</title>
-    <!-- Página pessoal: fora de menus, buscadores e sitemap. -->
+    <!-- Página pessoal: fora de menus, buscadores e sitemap. Sem a chave de leitura
+         (guardada só no navegador do dono), ela não mostra nenhum número. -->
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
@@ -15,7 +16,7 @@
     <meta name="theme-color" content="#f6f5f1">
     <style>
       .painel { padding: 0 var(--margem) 60px; max-width: 1180px; }
-      .cartoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--linha); border: 1px solid var(--linha); margin: 40px 0 0; }
+      .cartoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; background: var(--linha); border: 1px solid var(--linha); margin: 40px 0 0; }
       .cartao { background: var(--parede); padding: 20px 22px; }
       .cartao b { display: block; font-family: var(--serif); font-weight: 300; font-size: 2.6rem; line-height: 1.1; margin-top: 6px; }
       .grupo { margin-top: 70px; }
@@ -28,13 +29,21 @@
       td .sala { display: block; color: var(--suave); font-size: 12px; }
       .barra { height: 4px; background: var(--tinta); min-width: 1px; }
       .acoes { display: flex; flex-wrap: wrap; gap: 12px 22px; align-items: center; margin-top: 28px; font-size: 13px; }
-      .acoes button { font: inherit; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; background: none; border: 1px solid var(--tinta); color: var(--tinta); padding: 10px 16px; cursor: pointer; }
+      .botao { font: inherit; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; background: none; border: 1px solid var(--tinta); color: var(--tinta); padding: 10px 16px; cursor: pointer; }
+      .botao.cheio { background: var(--tinta); color: var(--parede); }
       .acoes a { text-decoration: underline; text-underline-offset: 4px; }
       .aviso { margin-top: 30px; padding: 16px 18px; border-left: 2px solid var(--tinta); background: #fff; font-size: 14px; max-width: 46rem; }
-      .aviso[hidden] { display: none; }
+      .aviso[hidden], [hidden] { display: none !important; }
       .filtro { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 10px; }
       .filtro button { font: inherit; font-size: 12px; background: none; border: 0; border-bottom: 1px solid transparent; color: var(--suave); cursor: pointer; padding: 4px 0; }
       .filtro button[aria-pressed="true"] { color: var(--tinta); border-bottom-color: var(--tinta); }
+      .chave { margin-top: 40px; max-width: 34rem; display: grid; gap: 14px; }
+      .chave input { font: inherit; font-size: 15px; background: transparent; border: 0; border-bottom: 1px solid var(--linha); padding: 8px 0; width: 100%; }
+      .chave input:focus { outline: none; border-bottom-color: var(--tinta); }
+      .chave ol { margin: 0; padding-left: 1.2em; color: #4a4843; font-size: 14px; line-height: 1.7; }
+      .dias { display: flex; align-items: flex-end; gap: 3px; height: 90px; margin-top: 14px; }
+      .dias span { flex: 1; background: var(--tinta); min-height: 1px; opacity: .85; }
+      .dias-legenda { display: flex; justify-content: space-between; margin-top: 6px; }
     </style>
 </head>
 <body>
@@ -49,143 +58,220 @@
     <main class="painel">
         <header class="sala-cabeca" style="padding-left:0;padding-right:0">
             <div>
-                <p class="rotulo" id="atualizado">Carregando…</p>
+                <p class="rotulo" id="atualizado"></p>
                 <h1>Visitas <em>e olhares</em></h1>
             </div>
             <div>
-                <p class="desc">Acessos ao site e quantas vezes cada foto foi aberta em tela cheia. Números do GoatCounter, sem cookies — atualizados com até 4 horas de atraso. Para ver na hora (e países, origens e dias), use o painel completo.</p>
+                <p class="desc">Acessos ao site e quantas vezes cada foto foi aberta em tela cheia, em tempo real. Dados do GoatCounter, sem cookies.</p>
             </div>
         </header>
 
-        <div class="cartoes">
-            <div class="cartao"><span class="rotulo">Visitas no site (total)</span><b id="t-total">—</b></div>
-            <div class="cartao"><span class="rotulo">Página inicial</span><b id="t-home">—</b></div>
-            <div class="cartao"><span class="rotulo">Fotos abertas</span><b id="t-fotos">—</b></div>
-        </div>
+        <!-- Sem chave: só isso aparece -->
+        <form class="chave" id="form-chave" hidden>
+            <p class="rotulo">Chave de leitura do GoatCounter</p>
+            <ol>
+                <li>Entre em <a href="https://vitorroma.goatcounter.com/user/api" target="_blank" rel="noopener">vitorroma.goatcounter.com → seu e-mail → API</a>.</li>
+                <li>Crie uma chave marcando só <b>“Read statistics”</b>.</li>
+                <li>Cole aqui. Ela fica guardada só neste navegador — não vai para o site.</li>
+            </ol>
+            <label><span class="rotulo">Chave</span><input type="password" id="campo-chave" autocomplete="off" spellcheck="false" required></label>
+            <button type="submit" class="botao cheio" style="justify-self:start">Ver estatísticas</button>
+        </form>
 
-        <div class="acoes">
-            <button type="button" id="eu">Não contar minhas visitas</button>
-            <span id="eu-status" class="rotulo"></span>
-            <a href="https://vitorroma.goatcounter.com" target="_blank" rel="noopener">Painel completo no GoatCounter (países, origens, dias)</a>
+        <div id="dados" hidden>
+            <div class="cartoes">
+                <div class="cartao"><span class="rotulo">Visitas no site</span><b id="t-total">—</b></div>
+                <div class="cartao"><span class="rotulo">Hoje</span><b id="t-hoje">—</b></div>
+                <div class="cartao"><span class="rotulo">Últimos 7 dias</span><b id="t-semana">—</b></div>
+                <div class="cartao"><span class="rotulo">Fotos abertas</span><b id="t-fotos">—</b></div>
+            </div>
+
+            <section class="grupo" style="margin-top:40px">
+                <p class="rotulo">Visitas por dia · últimos 30 dias</p>
+                <div class="dias" id="dias"></div>
+                <div class="dias-legenda rotulo"><span id="dia-ini"></span><span>hoje</span></div>
+            </section>
+
+            <div class="acoes">
+                <button type="button" class="botao" id="eu"></button>
+                <span id="eu-status" class="rotulo"></span>
+                <a href="https://vitorroma.goatcounter.com" target="_blank" rel="noopener">Painel completo (países, origens, aparelhos)</a>
+                <button type="button" class="botao" id="esquecer">Esquecer chave</button>
+            </div>
+
+            <section class="grupo">
+                <h2>Páginas mais visitadas</h2>
+                <table>
+                    <thead><tr><th>Página</th><th class="n">Visitas</th><th style="width:38%"></th></tr></thead>
+                    <tbody id="paginas"></tbody>
+                </table>
+            </section>
+
+            <section class="grupo">
+                <h2>Fotos mais vistas</h2>
+                <div class="filtro" id="filtro"></div>
+                <table>
+                    <thead><tr><th style="width:64px"></th><th>Foto</th><th class="n">Aberturas</th><th style="width:30%"></th></tr></thead>
+                    <tbody id="fotos"></tbody>
+                </table>
+            </section>
         </div>
 
         <p class="aviso" id="aviso" hidden></p>
-
-        <section class="grupo">
-            <h2>Salas mais visitadas</h2>
-            <table>
-                <thead><tr><th>Sala</th><th class="n">Acessos</th><th style="width:38%"></th></tr></thead>
-                <tbody id="salas"></tbody>
-            </table>
-        </section>
-
-        <section class="grupo">
-            <h2>Fotos mais vistas</h2>
-            <div class="filtro" id="filtro"></div>
-            <table>
-                <thead><tr><th style="width:64px"></th><th>Foto</th><th class="n">Aberturas</th><th style="width:30%"></th></tr></thead>
-                <tbody id="fotos"></tbody>
-            </table>
-        </section>
     </main>
 
     <script>
     (() => {
       'use strict';
-      const CODIGO = 'vitorroma'; // https://vitorroma.goatcounter.com
-      const BASE = `https://${CODIGO}.goatcounter.com/counter/`;
+      const API = 'https://vitorroma.goatcounter.com/api/v0';
       const RAIZ = '/romafotografias/';
+      const INICIO = '2026-09-01T00:00:00Z'; // antes do primeiro acesso contado
+      const CHAVE = 'roma-gc-token';
+      const $ = (id) => document.getElementById(id);
       const miniatura = (a) => `miniaturas/${a.replace(/\.[^.]+$/, '')}.jpg`;
       const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
-      const num = (v) => Number(String(v ?? '0').replace(/\D/g, '')) || 0;
-      const fmt = (n) => n.toLocaleString('pt-BR');
-      const $ = (id) => document.getElementById(id);
+      const fmt = (n) => Number(n || 0).toLocaleString('pt-BR');
+      const barra = (v, max) => `<div class="barra" style="width:${max ? Math.max(1, (v / max) * 100) : 0}%"></div>`;
+      const guardar = {
+        ler: () => { try { return localStorage.getItem(CHAVE) || ''; } catch { return ''; } },
+        salvar: (v) => { try { localStorage.setItem(CHAVE, v); } catch {} },
+        apagar: () => { try { localStorage.removeItem(CHAVE); } catch {} },
+      };
 
-      // "Não contar minhas visitas": o GoatCounter ignora este navegador com skipgc
-      const eu = $('eu'), euStatus = $('eu-status');
+      // "Não contar minhas visitas": o script do GoatCounter respeita skipgc
       const ignorado = () => { try { return localStorage.getItem('skipgc') === 't'; } catch { return false; } };
       const pintarEu = () => {
-        eu.textContent = ignorado() ? 'Voltar a contar minhas visitas' : 'Não contar minhas visitas';
-        euStatus.textContent = ignorado() ? 'Este navegador não é contado' : 'Este navegador está sendo contado';
+        $('eu').textContent = ignorado() ? 'Voltar a contar minhas visitas' : 'Não contar minhas visitas';
+        $('eu-status').textContent = ignorado() ? 'Este navegador não é contado' : 'Este navegador está sendo contado';
       };
-      eu.addEventListener('click', () => {
+      $('eu').addEventListener('click', () => {
         try { ignorado() ? localStorage.removeItem('skipgc') : localStorage.setItem('skipgc', 't'); } catch {}
         pintarEu();
       });
       pintarEu();
 
-      // Um contador do GoatCounter (404 = ainda sem visitas)
-      let falhas = 0;
-      async function contador(caminho) {
-        try {
-          const r = await fetch(BASE + encodeURIComponent(caminho) + '.json', { cache: 'no-store' });
-          if (r.status === 404) return { total: 0 };
-          if (!r.ok) throw new Error(r.status);
-          const j = await r.json();
-          return { total: num(j.count) };
-        } catch {
-          falhas++;
-          return { total: 0 };
+      function pedirChave(msg) {
+        $('dados').hidden = true;
+        $('form-chave').hidden = false;
+        $('atualizado').textContent = 'Área restrita';
+        const aviso = $('aviso');
+        aviso.hidden = !msg;
+        aviso.textContent = msg || '';
+      }
+      $('form-chave').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const v = $('campo-chave').value.trim();
+        if (!v) return;
+        guardar.salvar(v);
+        $('campo-chave').value = '';
+        carregar();
+      });
+      $('esquecer').addEventListener('click', () => { guardar.apagar(); pedirChave(''); });
+
+      async function api(caminho, params) {
+        const qs = new URLSearchParams({ start: INICIO, end: fimHora(), ...params });
+        const r = await fetch(`${API}${caminho}?${qs}`, {
+          headers: { Authorization: `Bearer ${guardar.ler()}`, 'Content-Type': 'application/json' },
+          cache: 'no-store',
+        });
+        if (r.status === 401 || r.status === 403) throw new Error('chave');
+        if (!r.ok) throw new Error('api ' + r.status);
+        return r.json();
+      }
+      function fimHora() {
+        const d = new Date(Date.now() + 3600e3);
+        d.setUTCMinutes(0, 0, 0);
+        return d.toISOString().replace('.000', '');
+      }
+
+      async function todosOsCaminhos() {
+        const lista = [];
+        let excluir = [];
+        for (let pagina = 0; pagina < 20; pagina++) {
+          const params = { limit: '100' };
+          if (excluir.length) params.exclude_paths = excluir.join(',');
+          const r = await api('/stats/hits', params);
+          lista.push(...(r.hits || []));
+          excluir = lista.map((h) => h.path_id);
+          if (!r.more) break;
         }
+        return lista;
       }
-      // várias consultas, 6 de cada vez
-      async function emLotes(itens, fn, n = 6) {
-        const saida = new Array(itens.length);
-        let i = 0;
-        await Promise.all(Array.from({ length: n }, async () => {
-          while (i < itens.length) { const k = i++; saida[k] = await fn(itens[k]); }
-        }));
-        return saida;
-      }
-      const barra = (v, max) => `<div class="barra" style="width:${max ? Math.max(1, (v / max) * 100) : 0}%"></div>`;
 
       async function carregar() {
-        const man = await fetch('galeria/fotos.json', { cache: 'no-store' }).then((r) => r.json());
+        if (!guardar.ler()) return pedirChave('');
+        $('form-chave').hidden = true;
+        $('aviso').hidden = true;
+        $('atualizado').textContent = 'Carregando…';
+        try {
+          const [man, total, hits] = await Promise.all([
+            fetch('galeria/fotos.json', { cache: 'no-store' }).then((r) => r.json()),
+            api('/stats/total', {}),
+            todosOsCaminhos(),
+          ]);
+          $('dados').hidden = false;
 
-        const [total, home1, home2] = await Promise.all([
-          fetch(BASE + 'TOTAL.json', { cache: 'no-store' }).then((r) => (r.ok ? r.json() : { count: 0 })).catch(() => { falhas++; return { count: 0 }; }),
-          contador(RAIZ), contador(RAIZ + 'index.html'),
-        ]);
-        $('t-total').textContent = fmt(num(total.count));
-        $('t-home').textContent = fmt(home1.total + home2.total);
+          // totais e dias
+          const dias = new Map((total.stats || []).map((s) => [s.day, s.daily || 0]));
+          const hoje = new Date().toISOString().slice(0, 10);
+          const ultimos = (n) => Array.from({ length: n }, (_, i) => {
+            const d = new Date(Date.now() - (n - 1 - i) * 864e5).toISOString().slice(0, 10);
+            return { d, v: dias.get(d) || 0 };
+          });
+          $('t-total').textContent = fmt(total.total);
+          $('t-hoje').textContent = fmt(dias.get(hoje) || 0);
+          $('t-semana').textContent = fmt(ultimos(7).reduce((s, x) => s + x.v, 0));
+          $('t-fotos').textContent = fmt(total.total_events);
+          const trinta = ultimos(30);
+          const maxDia = Math.max(1, ...trinta.map((x) => x.v));
+          $('dias').innerHTML = trinta.map((x) => `<span title="${x.d}: ${x.v}" style="height:${(x.v / maxDia) * 100}%"></span>`).join('');
+          $('dia-ini').textContent = new Date(trinta[0].d + 'T12:00:00').toLocaleDateString('pt-BR');
 
-        // salas
-        const salas = await emLotes(man.categorias, async (c) => ({ c, v: (await contador(RAIZ + c.pagina)).total }));
-        salas.sort((a, b) => b.v - a.v);
-        const maxS = Math.max(0, ...salas.map((s) => s.v));
-        $('salas').innerHTML = salas.map(({ c, v }) =>
-          `<tr><td><a href="${esc(c.pagina)}">${esc(c.titulo)}</a></td><td class="n">${fmt(v)}</td><td>${barra(v, maxS)}</td></tr>`).join('');
+          // páginas (visitas)
+          const nomePagina = new Map([[RAIZ, 'Entrada'], [RAIZ + 'index.html', 'Entrada'], [RAIZ + 'views', null], [RAIZ + 'views.html', null]]);
+          man.categorias.forEach((c) => nomePagina.set(RAIZ + c.pagina, c.titulo));
+          const porPagina = new Map();
+          hits.filter((h) => !h.event).forEach((h) => {
+            const nome = nomePagina.has(h.path) ? nomePagina.get(h.path) : h.path;
+            if (nome === null) return;
+            porPagina.set(nome, (porPagina.get(nome) || 0) + h.count);
+          });
+          const paginas = [...porPagina].sort((a, b) => b[1] - a[1]);
+          const maxP = Math.max(0, ...paginas.map((p) => p[1]));
+          $('paginas').innerHTML = paginas.length
+            ? paginas.map(([n, v]) => `<tr><td>${esc(n)}</td><td class="n">${fmt(v)}</td><td>${barra(v, maxP)}</td></tr>`).join('')
+            : '<tr><td colspan="3" class="rotulo">Nenhuma visita ainda.</td></tr>';
 
-        // fotos
-        const lista = man.categorias.flatMap((c) => c.fotos.map((f) => ({ f, sala: c.titulo })));
-        const vistos = await emLotes(lista, async (x) => ({ ...x, v: (await contador(`foto/${x.f.arquivo}`)).total }));
-        $('t-fotos').textContent = fmt(vistos.reduce((s, x) => s + x.v, 0));
+          // fotos (eventos foto/<arquivo>)
+          const porFoto = new Map(hits.filter((h) => h.event && h.path.startsWith('foto/')).map((h) => [h.path.slice(5), h.count]));
+          const lista = man.categorias.flatMap((c) => c.fotos.map((f) => ({ f, sala: c.titulo, v: porFoto.get(f.arquivo) || 0 })));
+          const nomes = ['Todas', ...man.categorias.map((c) => c.titulo)];
+          let ativo = 'Todas';
+          const desenhar = () => {
+            const linhas = lista.filter((x) => ativo === 'Todas' || x.sala === ativo).sort((a, b) => b.v - a.v);
+            const maxF = Math.max(0, ...linhas.map((x) => x.v));
+            $('fotos').innerHTML = linhas.map(({ f, sala, v }) =>
+              `<tr><td><img src="${encodeURI(miniatura(f.arquivo))}" alt="" loading="lazy"></td>` +
+              `<td>${esc(f.titulo)}<span class="sala">${esc(sala)}</span></td>` +
+              `<td class="n">${fmt(v)}</td><td>${barra(v, maxF)}</td></tr>`).join('');
+            $('filtro').querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.textContent === ativo)));
+          };
+          $('filtro').innerHTML = nomes.map((n) => `<button type="button">${esc(n)}</button>`).join('');
+          $('filtro').onclick = (e) => { const b = e.target.closest('button'); if (b) { ativo = b.textContent; desenhar(); } };
+          desenhar();
 
-        const filtro = $('filtro');
-        const nomes = ['Todas', ...man.categorias.map((c) => c.titulo)];
-        let ativo = 'Todas';
-        const desenhar = () => {
-          const linhas = vistos.filter((x) => ativo === 'Todas' || x.sala === ativo).sort((a, b) => b.v - a.v);
-          const maxF = Math.max(0, ...linhas.map((x) => x.v));
-          $('fotos').innerHTML = linhas.map(({ f, sala, v }) =>
-            `<tr><td><img src="${encodeURI(miniatura(f.arquivo))}" alt="" loading="lazy"></td>` +
-            `<td>${esc(f.titulo)}<span class="sala">${esc(sala)}</span></td>` +
-            `<td class="n">${fmt(v)}</td><td>${barra(v, maxF)}</td></tr>`).join('');
-          filtro.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.textContent === ativo)));
-        };
-        filtro.innerHTML = nomes.map((n) => `<button type="button">${esc(n)}</button>`).join('');
-        filtro.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) { ativo = b.textContent; desenhar(); } });
-        desenhar();
-
-        $('atualizado').textContent = 'Atualizado ' + new Date().toLocaleString('pt-BR');
-        if (falhas) {
-          const aviso = $('aviso');
-          aviso.hidden = false;
-          aviso.innerHTML = 'Não consegui ler alguns números do GoatCounter. Confira se a conta <b>vitorroma</b> existe e se, em ' +
-            '<i>Settings → Site settings</i>, a opção <b>“Allow adding visitor counts on your website”</b> está ligada.';
+          $('atualizado').textContent = 'Atualizado ' + new Date().toLocaleString('pt-BR');
+        } catch (erro) {
+          if (erro.message === 'chave') {
+            guardar.apagar();
+            return pedirChave('Essa chave não foi aceita pelo GoatCounter. Confira se ela tem a permissão “Read statistics” e cole de novo.');
+          }
+          $('atualizado').textContent = 'Não foi possível carregar agora.';
+          $('aviso').hidden = false;
+          $('aviso').textContent = 'O GoatCounter não respondeu. Tente de novo em alguns segundos.';
         }
       }
-      carregar().catch(() => { $('atualizado').textContent = 'Não foi possível carregar agora.'; });
+      carregar();
     })();
     </script>
 </body>
