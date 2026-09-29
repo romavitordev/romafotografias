@@ -62,7 +62,7 @@
                 <h1>Visitas <em>e olhares</em></h1>
             </div>
             <div>
-                <p class="desc">Acessos ao site e quantas vezes cada foto foi aberta em tela cheia, em tempo real. Dados do GoatCounter, sem cookies.</p>
+                <p class="desc">Uma visita = alguém abrindo o site (conta uma vez por sessão, não importa quantas salas ou fotos a pessoa veja). As fotos contam à parte, quando abertas em tela cheia. Em tempo real, pelo GoatCounter, sem cookies.</p>
             </div>
         </header>
 
@@ -211,17 +211,19 @@
           ]);
           $('dados').hidden = false;
 
-          // totais e dias
-          const dias = new Map((total.stats || []).map((s) => [s.day, s.daily || 0]));
+          // Visitas = evento "visita", registrado uma vez por sessão (ver main.js).
+          const visita = hits.find((h) => h.event && h.path === 'visita');
+          const dias = new Map(((visita && visita.stats) || []).map((s) => [s.day, s.daily || 0]));
           const hoje = new Date().toISOString().slice(0, 10);
           const ultimos = (n) => Array.from({ length: n }, (_, i) => {
             const d = new Date(Date.now() - (n - 1 - i) * 864e5).toISOString().slice(0, 10);
             return { d, v: dias.get(d) || 0 };
           });
-          $('t-total').textContent = fmt(total.total);
+          const fotosAbertas = hits.filter((h) => h.event && h.path.startsWith('foto/')).reduce((s, h) => s + h.count, 0);
+          $('t-total').textContent = fmt(visita ? visita.count : 0);
           $('t-hoje').textContent = fmt(dias.get(hoje) || 0);
           $('t-semana').textContent = fmt(ultimos(7).reduce((s, x) => s + x.v, 0));
-          $('t-fotos').textContent = fmt(total.total_events);
+          $('t-fotos').textContent = fmt(fotosAbertas);
           const trinta = ultimos(30);
           const maxDia = Math.max(1, ...trinta.map((x) => x.v));
           $('dias').innerHTML = trinta.map((x) => `<span title="${x.d}: ${x.v}" style="height:${(x.v / maxDia) * 100}%"></span>`).join('');

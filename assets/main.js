@@ -161,6 +161,21 @@
      contado uma vez por foto a cada visita. A página views.html lê
      esses números. Sem cookies; se o GoatCounter não carregar, nada
      quebra. */
+  // Uma "visita" por sessão (aba): conta na primeira página aberta e não
+  // repete ao navegar por salas ou fotos; abrir o site de novo conta outra.
+  (function contarVisita() {
+    try { if (sessionStorage.getItem('roma-visita')) return; } catch { return; }
+    const contar = (tentativa = 0) => {
+      if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+        window.goatcounter.count({ path: 'visita', title: 'Visita ao site', event: true });
+        try { sessionStorage.setItem('roma-visita', '1'); } catch {}
+      } else if (tentativa < 10) {
+        setTimeout(() => contar(tentativa + 1), 500); // o script do GoatCounter é assíncrono
+      }
+    };
+    contar();
+  })();
+
   const jaContadas = new Set();
   function contarVisualizacao(f) {
     if (jaContadas.has(f.arquivo)) return;
