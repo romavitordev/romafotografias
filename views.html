@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estatísticas | Roma Fotografias</title>
+    <!-- Página pessoal: fora de menus, buscadores e sitemap. -->
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <meta name="theme-color" content="#f6f5f1">
+    <style>
+      .painel { padding: 0 var(--margem) 60px; max-width: 1180px; }
+      .cartoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--linha); border: 1px solid var(--linha); margin: 40px 0 0; }
+      .cartao { background: var(--parede); padding: 20px 22px; }
+      .cartao b { display: block; font-family: var(--serif); font-weight: 300; font-size: 2.6rem; line-height: 1.1; margin-top: 6px; }
+      .grupo { margin-top: 70px; }
+      .grupo h2 { font-family: var(--serif); font-weight: 300; font-size: 2rem; margin: 0 0 14px; }
+      table { width: 100%; border-collapse: collapse; font-size: 14px; }
+      th { text-align: left; font-weight: 400; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--suave); padding: 8px 10px 8px 0; border-bottom: 1px solid var(--linha); }
+      td { padding: 8px 10px 8px 0; border-bottom: 1px solid var(--linha); vertical-align: middle; }
+      td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+      td img { width: 56px; height: 56px; object-fit: cover; display: block; background: #e9e7e1; }
+      td .sala { display: block; color: var(--suave); font-size: 12px; }
+      .barra { height: 4px; background: var(--tinta); min-width: 1px; }
+      .acoes { display: flex; flex-wrap: wrap; gap: 12px 22px; align-items: center; margin-top: 28px; font-size: 13px; }
+      .acoes button { font: inherit; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; background: none; border: 1px solid var(--tinta); color: var(--tinta); padding: 10px 16px; cursor: pointer; }
+      .acoes a { text-decoration: underline; text-underline-offset: 4px; }
+      .aviso { margin-top: 30px; padding: 16px 18px; border-left: 2px solid var(--tinta); background: #fff; font-size: 14px; max-width: 46rem; }
+      .aviso[hidden] { display: none; }
+      .filtro { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 10px; }
+      .filtro button { font: inherit; font-size: 12px; background: none; border: 0; border-bottom: 1px solid transparent; color: var(--suave); cursor: pointer; padding: 4px 0; }
+      .filtro button[aria-pressed="true"] { color: var(--tinta); border-bottom-color: var(--tinta); }
+    </style>
+</head>
+<body>
+    <header class="topo">
+        <a class="assinatura" href="index.html">
+            <strong>Vitor Roma</strong>
+            <span>Estatísticas · só pra você</span>
+        </a>
+        <nav class="menu"><a href="index.html">Voltar ao site</a></nav>
+    </header>
+
+    <main class="painel">
+        <header class="sala-cabeca" style="padding-left:0;padding-right:0">
+            <div>
+                <p class="rotulo" id="atualizado">Carregando…</p>
+                <h1>Visitas <em>e olhares</em></h1>
+            </div>
+            <div>
+                <p class="desc">Acessos ao site e quantas vezes cada foto foi aberta em tela cheia. Números do GoatCounter, sem cookies.</p>
+            </div>
+        </header>
+
+        <div class="cartoes">
+            <div class="cartao"><span class="rotulo">Visitas no site (total)</span><b id="t-total">—</b></div>
+            <div class="cartao"><span class="rotulo">Visitantes únicos</span><b id="t-unicos">—</b></div>
+            <div class="cartao"><span class="rotulo">Página inicial</span><b id="t-home">—</b></div>
+            <div class="cartao"><span class="rotulo">Fotos abertas</span><b id="t-fotos">—</b></div>
+        </div>
+
+        <div class="acoes">
+            <button type="button" id="eu">Não contar minhas visitas</button>
+            <span id="eu-status" class="rotulo"></span>
+            <a href="https://romafotografias.goatcounter.com" target="_blank" rel="noopener">Painel completo no GoatCounter (países, origens, dias)</a>
+        </div>
+
+        <p class="aviso" id="aviso" hidden></p>
+
+        <section class="grupo">
+            <h2>Salas mais visitadas</h2>
+            <table>
+                <thead><tr><th>Sala</th><th class="n">Acessos</th><th style="width:38%"></th></tr></thead>
+                <tbody id="salas"></tbody>
+            </table>
+        </section>
+
+        <section class="grupo">
+            <h2>Fotos mais vistas</h2>
+            <div class="filtro" id="filtro"></div>
+            <table>
+                <thead><tr><th style="width:64px"></th><th>Foto</th><th class="n">Aberturas</th><th style="width:30%"></th></tr></thead>
+                <tbody id="fotos"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script>
+    (() => {
+      'use strict';
+      const CODIGO = 'romafotografias'; // https://romafotografias.goatcounter.com
+      const BASE = `https://${CODIGO}.goatcounter.com/counter/`;
+      const RAIZ = '/romafotografias/';
+      const miniatura = (a) => `miniaturas/${a.replace(/\.[^.]+$/, '')}.jpg`;
+      const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+      const num = (v) => Number(String(v ?? '0').replace(/\D/g, '')) || 0;
+      const fmt = (n) => n.toLocaleString('pt-BR');
+      const $ = (id) => document.getElementById(id);
+
+      // "Não contar minhas visitas": o GoatCounter ignora este navegador com skipgc
+      const eu = $('eu'), euStatus = $('eu-status');
+      const ignorado = () => { try { return localStorage.getItem('skipgc') === 't'; } catch { return false; } };
+      const pintarEu = () => {
+        eu.textContent = ignorado() ? 'Voltar a contar minhas visitas' : 'Não contar minhas visitas';
+        euStatus.textContent = ignorado() ? 'Este navegador não é contado' : 'Este navegador está sendo contado';
+      };
+      eu.addEventListener('click', () => {
+        try { ignorado() ? localStorage.removeItem('skipgc') : localStorage.setItem('skipgc', 't'); } catch {}
+        pintarEu();
+      });
+      pintarEu();
+
+      // Um contador do GoatCounter (404 = ainda sem visitas)
+      let falhas = 0;
+      async function contador(caminho) {
+        try {
+          const r = await fetch(BASE + encodeURIComponent(caminho) + '.json', { cache: 'no-store' });
+          if (r.status === 404) return { total: 0, unicos: 0 };
+          if (!r.ok) throw new Error(r.status);
+          const j = await r.json();
+          return { total: num(j.count), unicos: num(j.count_unique) };
+        } catch {
+          falhas++;
+          return { total: 0, unicos: 0 };
+        }
+      }
+      // várias consultas, 6 de cada vez
+      async function emLotes(itens, fn, n = 6) {
+        const saida = new Array(itens.length);
+        let i = 0;
+        await Promise.all(Array.from({ length: n }, async () => {
+          while (i < itens.length) { const k = i++; saida[k] = await fn(itens[k]); }
+        }));
+        return saida;
+      }
+      const barra = (v, max) => `<div class="barra" style="width:${max ? Math.max(1, (v / max) * 100) : 0}%"></div>`;
+
+      async function carregar() {
+        const man = await fetch('galeria/fotos.json', { cache: 'no-store' }).then((r) => r.json());
+
+        const [total, home1, home2] = await Promise.all([
+          fetch(BASE + 'TOTAL.json', { cache: 'no-store' }).then((r) => (r.ok ? r.json() : { count: 0 })).catch(() => { falhas++; return { count: 0 }; }),
+          contador(RAIZ), contador(RAIZ + 'index.html'),
+        ]);
+        $('t-total').textContent = fmt(num(total.count));
+        $('t-unicos').textContent = total.count_unique != null ? fmt(num(total.count_unique)) : '—';
+        $('t-home').textContent = fmt(home1.total + home2.total);
+
+        // salas
+        const salas = await emLotes(man.categorias, async (c) => ({ c, v: (await contador(RAIZ + c.pagina)).total }));
+        salas.sort((a, b) => b.v - a.v);
+        const maxS = Math.max(0, ...salas.map((s) => s.v));
+        $('salas').innerHTML = salas.map(({ c, v }) =>
+          `<tr><td><a href="${esc(c.pagina)}">${esc(c.titulo)}</a></td><td class="n">${fmt(v)}</td><td>${barra(v, maxS)}</td></tr>`).join('');
+
+        // fotos
+        const lista = man.categorias.flatMap((c) => c.fotos.map((f) => ({ f, sala: c.titulo })));
+        const vistos = await emLotes(lista, async (x) => ({ ...x, v: (await contador(`foto/${x.f.arquivo}`)).total }));
+        $('t-fotos').textContent = fmt(vistos.reduce((s, x) => s + x.v, 0));
+
+        const filtro = $('filtro');
+        const nomes = ['Todas', ...man.categorias.map((c) => c.titulo)];
+        let ativo = 'Todas';
+        const desenhar = () => {
+          const linhas = vistos.filter((x) => ativo === 'Todas' || x.sala === ativo).sort((a, b) => b.v - a.v);
+          const maxF = Math.max(0, ...linhas.map((x) => x.v));
+          $('fotos').innerHTML = linhas.map(({ f, sala, v }) =>
+            `<tr><td><img src="${encodeURI(miniatura(f.arquivo))}" alt="" loading="lazy"></td>` +
+            `<td>${esc(f.titulo)}<span class="sala">${esc(sala)}</span></td>` +
+            `<td class="n">${fmt(v)}</td><td>${barra(v, maxF)}</td></tr>`).join('');
+          filtro.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.textContent === ativo)));
+        };
+        filtro.innerHTML = nomes.map((n) => `<button type="button">${esc(n)}</button>`).join('');
+        filtro.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) { ativo = b.textContent; desenhar(); } });
+        desenhar();
+
+        $('atualizado').textContent = 'Atualizado ' + new Date().toLocaleString('pt-BR');
+        if (falhas) {
+          const aviso = $('aviso');
+          aviso.hidden = false;
+          aviso.innerHTML = 'Não consegui ler alguns números do GoatCounter. Confira se a conta <b>romafotografias</b> existe e se, em ' +
+            '<i>Settings → Site settings</i>, a opção <b>“Allow adding visitor counts on your website”</b> está ligada.';
+        }
+      }
+      carregar().catch(() => { $('atualizado').textContent = 'Não foi possível carregar agora.'; });
+    })();
+    </script>
+</body>
+</html>

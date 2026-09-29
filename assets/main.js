@@ -156,6 +156,23 @@
     });
   }
 
+  /* ---------- Estatísticas (GoatCounter) ----------
+     Cada foto aberta em tela cheia vira um evento "foto/<arquivo>",
+     contado uma vez por foto a cada visita. A página views.html lê
+     esses números. Sem cookies; se o GoatCounter não carregar, nada
+     quebra. */
+  const jaContadas = new Set();
+  function contarVisualizacao(f) {
+    if (jaContadas.has(f.arquivo)) return;
+    const contar = () => {
+      if (!window.goatcounter || typeof window.goatcounter.count !== 'function') return false;
+      window.goatcounter.count({ path: `foto/${f.arquivo}`, title: f.titulo, event: true });
+      jaContadas.add(f.arquivo);
+      return true;
+    };
+    if (!contar()) setTimeout(contar, 1500); // o script do GoatCounter carrega de forma assíncrona
+  }
+
   /* ---------- Lightbox ---------- */
   const lightbox = (() => {
     const raiz = document.getElementById('lightbox');
@@ -182,6 +199,7 @@
       // pré-carrega a próxima
       const prox = lista[(atual + 1) % lista.length];
       if (prox) new Image().src = encodeURI(prox.arquivo);
+      contarVisualizacao(f);
     }
 
     function abrir(fotos, i, rotuloDe) {
