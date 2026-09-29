@@ -53,13 +53,12 @@
                 <h1>Visitas <em>e olhares</em></h1>
             </div>
             <div>
-                <p class="desc">Acessos ao site e quantas vezes cada foto foi aberta em tela cheia. Números do GoatCounter, sem cookies.</p>
+                <p class="desc">Acessos ao site e quantas vezes cada foto foi aberta em tela cheia. Números do GoatCounter, sem cookies — atualizados com até 4 horas de atraso. Para ver na hora (e países, origens e dias), use o painel completo.</p>
             </div>
         </header>
 
         <div class="cartoes">
             <div class="cartao"><span class="rotulo">Visitas no site (total)</span><b id="t-total">—</b></div>
-            <div class="cartao"><span class="rotulo">Visitantes únicos</span><b id="t-unicos">—</b></div>
             <div class="cartao"><span class="rotulo">Página inicial</span><b id="t-home">—</b></div>
             <div class="cartao"><span class="rotulo">Fotos abertas</span><b id="t-fotos">—</b></div>
         </div>
@@ -120,13 +119,13 @@
       async function contador(caminho) {
         try {
           const r = await fetch(BASE + encodeURIComponent(caminho) + '.json', { cache: 'no-store' });
-          if (r.status === 404) return { total: 0, unicos: 0 };
+          if (r.status === 404) return { total: 0 };
           if (!r.ok) throw new Error(r.status);
           const j = await r.json();
-          return { total: num(j.count), unicos: num(j.count_unique) };
+          return { total: num(j.count) };
         } catch {
           falhas++;
-          return { total: 0, unicos: 0 };
+          return { total: 0 };
         }
       }
       // várias consultas, 6 de cada vez
@@ -148,7 +147,6 @@
           contador(RAIZ), contador(RAIZ + 'index.html'),
         ]);
         $('t-total').textContent = fmt(num(total.count));
-        $('t-unicos').textContent = total.count_unique != null ? fmt(num(total.count_unique)) : '—';
         $('t-home').textContent = fmt(home1.total + home2.total);
 
         // salas
