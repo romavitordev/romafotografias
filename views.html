@@ -67,7 +67,7 @@
         <div class="acoes">
             <button type="button" id="eu">Não contar minhas visitas</button>
             <span id="eu-status" class="rotulo"></span>
-            <a href="https://romafotografias.goatcounter.com" target="_blank" rel="noopener">Painel completo no GoatCounter (países, origens, dias)</a>
+            <a href="https://vitorroma.goatcounter.com" target="_blank" rel="noopener">Painel completo no GoatCounter (países, origens, dias)</a>
         </div>
 
         <p class="aviso" id="aviso" hidden></p>
@@ -93,7 +93,7 @@
     <script>
     (() => {
       'use strict';
-      const CODIGO = 'romafotografias'; // https://romafotografias.goatcounter.com
+      const CODIGO = 'romafotografias'; // https://vitorroma.goatcounter.com
       const BASE = `https://${CODIGO}.goatcounter.com/counter/`;
       const RAIZ = '/romafotografias/';
       const miniatura = (a) => `miniaturas/${a.replace(/\.[^.]+$/, '')}.jpg`;
@@ -183,7 +183,7 @@
         if (falhas) {
           const aviso = $('aviso');
           aviso.hidden = false;
-          aviso.innerHTML = 'Não consegui ler alguns números do GoatCounter. Confira se a conta <b>romafotografias</b> existe e se, em ' +
+          aviso.innerHTML = 'Não consegui ler alguns números do GoatCounter. Confira se a conta <b>vitorroma</b> existe e se, em ' +
             '<i>Settings → Site settings</i>, a opção <b>“Allow adding visitor counts on your website”</b> está ligada.';
         }
       }
