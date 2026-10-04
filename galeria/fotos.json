@@ -32,40 +32,40 @@
       "pasta": "RetratosFotos",
       "fotos": [
         {
-          "arquivo": "RetratosFotos/ret_gu.jpg",
-          "titulo": "Retrato do meu irmão",
-          "w": 951,
-          "h": 1098
+          "arquivo": "RetratosFotos/ret_o_silencio_dele_falou_alto.jpg",
+          "titulo": "O silêncio dele falou alto",
+          "w": 859,
+          "h": 1210
         },
         {
-          "arquivo": "RetratosFotos/ret_gut5i.jpg",
-          "titulo": "Primeiro retrato em nova qualidade",
-          "w": 1280,
+          "arquivo": "RetratosFotos/ret_entre_um_turno_e_outro.jpg",
+          "titulo": "Entre um turno e outro",
+          "w": 906,
+          "h": 1210
+        },
+        {
+          "arquivo": "RetratosFotos/ret_riso_de_aniversario.jpg",
+          "titulo": "Riso de aniversário",
+          "w": 1536,
           "h": 1920
         },
         {
-          "arquivo": "RetratosFotos/ret_gu_sol.jpg",
-          "titulo": "Meu irmão e o sol",
-          "w": 1920,
-          "h": 1280
+          "arquivo": "RetratosFotos/ret_mesa_do_bolo.jpg",
+          "titulo": "A mesa do bolo",
+          "w": 1536,
+          "h": 1920
         },
         {
-          "arquivo": "RetratosFotos/ret_gu_bw.jpg",
-          "titulo": "Meu irmão em preto e branco",
-          "w": 1920,
-          "h": 1440
+          "arquivo": "RetratosFotos/ret_dois_senhores.jpg",
+          "titulo": "Uma noite familiar",
+          "w": 1536,
+          "h": 1920
         },
         {
-          "arquivo": "RetratosFotos/ret_gu_bw2.jpg",
-          "titulo": "Retrato em preto e branco",
-          "w": 728,
-          "h": 566
-        },
-        {
-          "arquivo": "RetratosFotos/ret_pai_bw.jpg",
-          "titulo": "Meu pai em preto e branco",
-          "w": 1292,
-          "h": 1724
+          "arquivo": "RetratosFotos/ret_passos_que_carregam_historias.jpg",
+          "titulo": "Passos que carregam histórias",
+          "w": 1536,
+          "h": 1920
         },
         {
           "arquivo": "RetratosFotos/ret_tedio.jpg",
@@ -92,51 +92,51 @@
           "h": 1350
         },
         {
-          "arquivo": "RetratosFotos/ret_riso_de_aniversario.jpg",
-          "titulo": "Riso de aniversário",
-          "w": 1536,
-          "h": 1920
-        },
-        {
-          "arquivo": "RetratosFotos/ret_mesa_do_bolo.jpg",
-          "titulo": "A mesa do bolo",
-          "w": 1536,
-          "h": 1920
-        },
-        {
-          "arquivo": "RetratosFotos/ret_dois_senhores.jpg",
-          "titulo": "Uma noite familiar",
-          "w": 1536,
-          "h": 1920
-        },
-        {
-          "arquivo": "capa_retrato.jpg",
-          "titulo": "O silêncio das notícias",
-          "w": 1440,
-          "h": 1920
-        },
-        {
           "arquivo": "RetratosFotos/ret_escadaria.jpg",
           "titulo": "Retrato urbano",
           "w": 929,
           "h": 1239
         },
         {
-          "arquivo": "RetratosFotos/ret_entre_um_turno_e_outro.jpg",
-          "titulo": "Entre um turno e outro",
-          "w": 906,
-          "h": 1210
+          "arquivo": "RetratosFotos/ret_gu.jpg",
+          "titulo": "Retrato do meu irmão",
+          "w": 951,
+          "h": 1098
         },
         {
-          "arquivo": "RetratosFotos/ret_o_silencio_dele_falou_alto.jpg",
-          "titulo": "O silêncio dele falou alto",
-          "w": 859,
-          "h": 1210
+          "arquivo": "RetratosFotos/ret_gu_sol.jpg",
+          "titulo": "Meu irmão e o sol",
+          "w": 1920,
+          "h": 1280
         },
         {
-          "arquivo": "RetratosFotos/ret_passos_que_carregam_historias.jpg",
-          "titulo": "Passos que carregam histórias",
-          "w": 1536,
+          "arquivo": "RetratosFotos/ret_gu_bw2.jpg",
+          "titulo": "Retrato em preto e branco",
+          "w": 728,
+          "h": 566
+        },
+        {
+          "arquivo": "RetratosFotos/ret_pai_bw.jpg",
+          "titulo": "Meu pai em preto e branco",
+          "w": 1292,
+          "h": 1724
+        },
+        {
+          "arquivo": "RetratosFotos/ret_gut5i.jpg",
+          "titulo": "Primeiro retrato em nova qualidade",
+          "w": 1280,
+          "h": 1920
+        },
+        {
+          "arquivo": "RetratosFotos/ret_gu_bw.jpg",
+          "titulo": "Meu irmão em preto e branco",
+          "w": 1920,
+          "h": 1440
+        },
+        {
+          "arquivo": "capa_retrato.jpg",
+          "titulo": "O silêncio das notícias",
+          "w": 1440,
           "h": 1920
         }
       ]
@@ -149,6 +149,24 @@
       "capa": "ResenhaFotos/res_luz_azul.jpg",
       "pasta": "ResenhaFotos",
       "fotos": [
+        {
+          "arquivo": "ResenhaFotos/res_lingua_de_fora.jpg",
+          "titulo": "Língua de fora",
+          "w": 900,
+          "h": 1350
+        },
+        {
+          "arquivo": "ResenhaFotos/res_segredo.jpg",
+          "titulo": "Segredo",
+          "w": 900,
+          "h": 1350
+        },
+        {
+          "arquivo": "ResenhaFotos/res_esse_e_meu.jpg",
+          "titulo": "Esse aqui é meu",
+          "w": 849,
+          "h": 566
+        },
         {
           "arquivo": "ResenhaFotos/res_olhar.jpg",
           "titulo": "Olhar direto",
@@ -170,12 +188,6 @@
         {
           "arquivo": "ResenhaFotos/res_atitude.jpg",
           "titulo": "Atitude",
-          "w": 900,
-          "h": 1350
-        },
-        {
-          "arquivo": "ResenhaFotos/res_lingua_de_fora.jpg",
-          "titulo": "Língua de fora",
           "w": 900,
           "h": 1350
         },
@@ -204,22 +216,10 @@
           "h": 1350
         },
         {
-          "arquivo": "ResenhaFotos/res_segredo.jpg",
-          "titulo": "Segredo",
-          "w": 900,
-          "h": 1350
-        },
-        {
           "arquivo": "ResenhaFotos/res_beijo.jpg",
           "titulo": "Beijo no corredor",
           "w": 900,
           "h": 1350
-        },
-        {
-          "arquivo": "ResenhaFotos/res_esse_e_meu.jpg",
-          "titulo": "Esse aqui é meu",
-          "w": 849,
-          "h": 566
         },
         {
           "arquivo": "ResenhaFotos/res_mae_filho.jpg",
@@ -314,76 +314,34 @@
       "pasta": "ArquiteturaFotos",
       "fotos": [
         {
-          "arquivo": "ArquiteturaFotos/arq_igreja_sorocaba.jpg",
-          "titulo": "O tempo corrói a matéria. A imagem preserva a memória.",
+          "arquivo": "ArquiteturaFotos/apenas um lugar.jpg",
+          "titulo": "Apenas mais um assento",
+          "w": 755,
+          "h": 566
+        },
+        {
+          "arquivo": "ArquiteturaFotos/homem em seu caminhao.jpg",
+          "titulo": "Homem em seu caminhão",
+          "w": 755,
+          "h": 566
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_o_ultimo_suspiro_do_dia.jpg",
+          "titulo": "O último suspiro do dia",
           "w": 907,
           "h": 1211
         },
         {
-          "arquivo": "ArquiteturaFotos/Arq_Igreja.JPG",
-          "titulo": "A igreja, de outro olhar",
-          "w": 1440,
-          "h": 1920
-        },
-        {
-          "arquivo": "ArquiteturaFotos/arq_anjo.jpg",
-          "titulo": "Anjo em Sorocaba",
-          "w": 941,
-          "h": 1203
-        },
-        {
-          "arquivo": "ArquiteturaFotos/arq_santo.jpg",
-          "titulo": "Para lembrar de um grande homem",
-          "w": 814,
-          "h": 1211
-        },
-        {
-          "arquivo": "ArquiteturaFotos/arq_santo_perfil.jpg",
-          "titulo": "O santo de perfil",
-          "w": 907,
-          "h": 1211
-        },
-        {
-          "arquivo": "ArquiteturaFotos/arq_praca.jpg",
-          "titulo": "Quantas histórias podem ter uma única vida?",
-          "w": 968,
-          "h": 904
-        },
-        {
-          "arquivo": "ArquiteturaFotos/arq_escadas.jpg",
-          "titulo": "Escadas gastas por passos que já não vemos",
-          "w": 1012,
-          "h": 1349
-        },
-        {
-          "arquivo": "ArquiteturaFotos/arq_shopping.jpg",
-          "titulo": "Um dia com a família",
-          "w": 907,
-          "h": 1211
-        },
-        {
-          "arquivo": "ArquiteturaFotos/arq_lojinha.jpg",
-          "titulo": "Fotografia à venda",
-          "w": 955,
-          "h": 1083
+          "arquivo": "ArquiteturaFotos/arq_luzes_que_trazem_noticias.jpg",
+          "titulo": "Luzes que trazem notícias",
+          "w": 653,
+          "h": 489
         },
         {
           "arquivo": "ArquiteturaFotos/arq_alguem_estava_acordado.jpg",
           "titulo": "Alguém estava acordado",
           "w": 907,
           "h": 1211
-        },
-        {
-          "arquivo": "ArquiteturaFotos/arq_sinal_aberto.jpg",
-          "titulo": "Sinal aberto",
-          "w": 1406,
-          "h": 1758
-        },
-        {
-          "arquivo": "ArquiteturaFotos/arq_trabalho_no_alto.jpg",
-          "titulo": "Trabalho no alto",
-          "w": 1080,
-          "h": 1920
         },
         {
           "arquivo": "ArquiteturaFotos/arq_ate_o_silencio_tem_cor.jpg",
@@ -410,18 +368,6 @@
           "h": 1211
         },
         {
-          "arquivo": "ArquiteturaFotos/arq_casa.jpg",
-          "titulo": "Janelas contam histórias",
-          "w": 458,
-          "h": 561
-        },
-        {
-          "arquivo": "ArquiteturaFotos/arq_porta.jpg",
-          "titulo": "Porta em meio à natureza",
-          "w": 413,
-          "h": 561
-        },
-        {
           "arquivo": "ArquiteturaFotos/arq_apenas_um_banco_de_madeira.jpg",
           "titulo": "Apenas um banco de madeira",
           "w": 881,
@@ -440,10 +386,94 @@
           "h": 1920
         },
         {
+          "arquivo": "ArquiteturaFotos/arq_luzes_da_avenida.jpg",
+          "titulo": "Luzes da avenida",
+          "w": 1038,
+          "h": 1037
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_trabalho_no_alto.jpg",
+          "titulo": "Trabalho no alto",
+          "w": 1080,
+          "h": 1920
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_santo_perfil.jpg",
+          "titulo": "O santo de perfil",
+          "w": 907,
+          "h": 1211
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_praca.jpg",
+          "titulo": "Quantas histórias podem ter uma única vida?",
+          "w": 968,
+          "h": 904
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_escadas.jpg",
+          "titulo": "Escadas gastas por passos que já não vemos",
+          "w": 1012,
+          "h": 1349
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_sinal_aberto.jpg",
+          "titulo": "Sinal aberto",
+          "w": 1406,
+          "h": 1758
+        },
+        {
           "arquivo": "ArquiteturaFotos/arq_placa.jpg",
           "titulo": "Devagar",
           "w": 871,
           "h": 1211
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_santo.jpg",
+          "titulo": "Para lembrar de um grande homem",
+          "w": 814,
+          "h": 1211
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_shopping.jpg",
+          "titulo": "Um dia com a família",
+          "w": 907,
+          "h": 1211
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_lojinha.jpg",
+          "titulo": "Fotografia à venda",
+          "w": 955,
+          "h": 1083
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_igreja_sorocaba.jpg",
+          "titulo": "O tempo corrói a matéria. A imagem preserva a memória.",
+          "w": 907,
+          "h": 1211
+        },
+        {
+          "arquivo": "ArquiteturaFotos/Arq_Igreja.JPG",
+          "titulo": "A igreja, de outro olhar",
+          "w": 1440,
+          "h": 1920
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_anjo.jpg",
+          "titulo": "Anjo em Sorocaba",
+          "w": 941,
+          "h": 1203
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_casa.jpg",
+          "titulo": "Janelas contam histórias",
+          "w": 458,
+          "h": 561
+        },
+        {
+          "arquivo": "ArquiteturaFotos/arq_porta.jpg",
+          "titulo": "Porta em meio à natureza",
+          "w": 413,
+          "h": 561
         },
         {
           "arquivo": "ArquiteturaFotos/arq_chamine.jpg",
@@ -452,40 +482,10 @@
           "h": 1210
         },
         {
-          "arquivo": "ArquiteturaFotos/arq_o_ultimo_suspiro_do_dia.jpg",
-          "titulo": "O último suspiro do dia",
-          "w": 907,
-          "h": 1211
-        },
-        {
           "arquivo": "ArquiteturaFotos/arq_poste.jpg",
           "titulo": "Uma luz na escuridão",
           "w": 894,
           "h": 1211
-        },
-        {
-          "arquivo": "ArquiteturaFotos/arq_luzes_da_avenida.jpg",
-          "titulo": "Luzes da avenida",
-          "w": 1038,
-          "h": 1037
-        },
-        {
-          "arquivo": "ArquiteturaFotos/arq_luzes_que_trazem_noticias.jpg",
-          "titulo": "Luzes que trazem notícias",
-          "w": 653,
-          "h": 489
-        },
-        {
-          "arquivo": "ArquiteturaFotos/apenas um lugar.jpg",
-          "titulo": "Apenas mais um assento",
-          "w": 755,
-          "h": 566
-        },
-        {
-          "arquivo": "ArquiteturaFotos/homem em seu caminhao.jpg",
-          "titulo": "Homem em seu caminhão",
-          "w": 755,
-          "h": 566
         }
       ]
     },
@@ -497,6 +497,18 @@
       "capa": "MemoriasFotos/mem_sofa.jpg",
       "pasta": "MemoriasFotos",
       "fotos": [
+        {
+          "arquivo": "MemoriasFotos/mem_historias_do_passado.jpg",
+          "titulo": "Histórias do passado",
+          "w": 928,
+          "h": 1787
+        },
+        {
+          "arquivo": "MemoriasFotos/mem_historias_do_passado_ii.jpg",
+          "titulo": "Histórias do passado II",
+          "w": 1080,
+          "h": 1620
+        },
         {
           "arquivo": "MemoriasFotos/mem_sofa.jpg",
           "titulo": "Onde uma família se reunia",
@@ -522,18 +534,6 @@
           "h": 1895
         },
         {
-          "arquivo": "MemoriasFotos/mem_historias_do_passado.jpg",
-          "titulo": "Histórias do passado",
-          "w": 928,
-          "h": 1787
-        },
-        {
-          "arquivo": "MemoriasFotos/mem_historias_do_passado_ii.jpg",
-          "titulo": "Histórias do passado II",
-          "w": 1080,
-          "h": 1620
-        },
-        {
           "arquivo": "MemoriasFotos/mem_medalha.jpg",
           "titulo": "Vitória gravada no metal",
           "w": 977,
@@ -556,16 +556,28 @@
       "pasta": "NaturezaFotos",
       "fotos": [
         {
-          "arquivo": "NaturezaFotos/nat_lago.JPG",
-          "titulo": "Lago tranquilo ao entardecer",
-          "w": 1080,
+          "arquivo": "NaturezaFotos/nat_clareira_na_mata.jpg",
+          "titulo": "Clareira na mata",
+          "w": 1440,
           "h": 1920
         },
         {
-          "arquivo": "NaturezaFotos/nat_estrada.jpg",
-          "titulo": "Estrada entre os morros",
-          "w": 1920,
-          "h": 1280
+          "arquivo": "NaturezaFotos/nat_a_natureza_tambem_consome.jpg",
+          "titulo": "A natureza também consome",
+          "w": 431,
+          "h": 576
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_arvore_magica.jpg",
+          "titulo": "Uma árvore mágica — São Paulo",
+          "w": 754,
+          "h": 566
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_a_natureza_e_bela.jpg",
+          "titulo": "A natureza é bela",
+          "w": 1012,
+          "h": 1349
         },
         {
           "arquivo": "NaturezaFotos/nat_lua_sobre_o_morro.jpg",
@@ -580,28 +592,16 @@
           "h": 1211
         },
         {
-          "arquivo": "NaturezaFotos/nat_arvore_magica.jpg",
-          "titulo": "Uma árvore mágica — São Paulo",
-          "w": 754,
-          "h": 566
-        },
-        {
-          "arquivo": "NaturezaFotos/nat_clareira_na_mata.jpg",
-          "titulo": "Clareira na mata",
-          "w": 1440,
-          "h": 1920
-        },
-        {
           "arquivo": "NaturezaFotos/nat_o_coracao_da_natureza_sangra_o_tempo_tod.jpg",
           "titulo": "O coração da natureza sangra o tempo todo",
           "w": 907,
           "h": 1211
         },
         {
-          "arquivo": "NaturezaFotos/nat_a_natureza_e_bela.jpg",
-          "titulo": "A natureza é bela",
-          "w": 1012,
-          "h": 1349
+          "arquivo": "NaturezaFotos/nat_estrada.jpg",
+          "titulo": "Estrada entre os morros",
+          "w": 1920,
+          "h": 1280
         },
         {
           "arquivo": "NaturezaFotos/nat_ixora_vermelha.jpg",
@@ -622,16 +622,16 @@
           "h": 1920
         },
         {
-          "arquivo": "NaturezaFotos/nat_a_natureza_tambem_consome.jpg",
-          "titulo": "A natureza também consome",
-          "w": 431,
-          "h": 576
-        },
-        {
           "arquivo": "NaturezaFotos/nat_folhas.jpg",
           "titulo": "O chão do outono",
           "w": 907,
           "h": 1211
+        },
+        {
+          "arquivo": "NaturezaFotos/nat_lago.JPG",
+          "titulo": "Lago tranquilo ao entardecer",
+          "w": 1080,
+          "h": 1920
         }
       ]
     },
@@ -644,38 +644,20 @@
       "pasta": "AnimaisFotos",
       "fotos": [
         {
-          "arquivo": "AnimaisFotos/ani_amora.jpg",
-          "titulo": "Amora sorrindo",
-          "w": 1920,
-          "h": 1440
-        },
-        {
-          "arquivo": "AnimaisFotos/ani_o_pequeno_membro_da_familia.jpg",
-          "titulo": "O pequeno membro da família",
-          "w": 907,
-          "h": 1211
-        },
-        {
-          "arquivo": "AnimaisFotos/ani_passarinho.jpg",
-          "titulo": "Pequeno pássaro se alimentando",
-          "w": 1440,
-          "h": 1920
-        },
-        {
-          "arquivo": "AnimaisFotos/ani_beijaflor.jpg",
-          "titulo": "Beija-flor",
-          "w": 444,
-          "h": 594
-        },
-        {
           "arquivo": "AnimaisFotos/ani_bem_te_vi_no_muro.jpg",
           "titulo": "Velho pássaro pensa sobre a vida",
           "w": 1440,
           "h": 1920
         },
         {
-          "arquivo": "AnimaisFotos/ani_passaro_ceu.jpg",
-          "titulo": "Pequeno pássaro observa o céu",
+          "arquivo": "AnimaisFotos/ani_a_beleza_da_natureza_e_o_verde.jpg",
+          "titulo": "A beleza da natureza é o verde",
+          "w": 1440,
+          "h": 1920
+        },
+        {
+          "arquivo": "AnimaisFotos/ani_o_pequeno_membro_da_familia.jpg",
+          "titulo": "O pequeno membro da família",
           "w": 907,
           "h": 1211
         },
@@ -690,6 +672,36 @@
           "titulo": "Casal de pássaros",
           "w": 944,
           "h": 1176
+        },
+        {
+          "arquivo": "AnimaisFotos/ani_borboleta.jpg",
+          "titulo": "Belezas da natureza",
+          "w": 1536,
+          "h": 1920
+        },
+        {
+          "arquivo": "AnimaisFotos/ani_amora.jpg",
+          "titulo": "Amora sorrindo",
+          "w": 1920,
+          "h": 1440
+        },
+        {
+          "arquivo": "AnimaisFotos/ani_passarinho.jpg",
+          "titulo": "Pequeno pássaro se alimentando",
+          "w": 1440,
+          "h": 1920
+        },
+        {
+          "arquivo": "AnimaisFotos/ani_beijaflor.jpg",
+          "titulo": "Beija-flor",
+          "w": 444,
+          "h": 594
+        },
+        {
+          "arquivo": "AnimaisFotos/ani_passaro_ceu.jpg",
+          "titulo": "Pequeno pássaro observa o céu",
+          "w": 907,
+          "h": 1211
         },
         {
           "arquivo": "AnimaisFotos/ani_passaros.jpg",
@@ -716,22 +728,10 @@
           "h": 592
         },
         {
-          "arquivo": "AnimaisFotos/ani_borboleta.jpg",
-          "titulo": "Belezas da natureza",
-          "w": 1536,
-          "h": 1920
-        },
-        {
           "arquivo": "AnimaisFotos/ani_aranha.jpg",
           "titulo": "O predador silencioso",
           "w": 941,
           "h": 1257
-        },
-        {
-          "arquivo": "AnimaisFotos/ani_a_beleza_da_natureza_e_o_verde.jpg",
-          "titulo": "A beleza da natureza é o verde",
-          "w": 1440,
-          "h": 1920
         }
       ]
     },
@@ -743,6 +743,12 @@
       "capa": "CarrosFotos/car_touro.jpg",
       "pasta": "CarrosFotos",
       "fotos": [
+        {
+          "arquivo": "CarrosFotos/car_ultima_entrega.jpg",
+          "titulo": "A última entrega do dia",
+          "w": 1280,
+          "h": 1920
+        },
         {
           "arquivo": "CarrosFotos/car_touro.jpg",
           "titulo": "O touro",
@@ -766,12 +772,6 @@
           "titulo": "Faróis na curva",
           "w": 900,
           "h": 1350
-        },
-        {
-          "arquivo": "CarrosFotos/car_ultima_entrega.jpg",
-          "titulo": "A última entrega do dia",
-          "w": 1280,
-          "h": 1920
         }
       ]
     },
@@ -782,6 +782,7 @@
       "descricao": "Composição e luz praticadas dentro dos games: The Last of Us Part II, Cyberpunk 2077 e Forza Horizon.",
       "capa": "ForzaFotos/game_01.jpg",
       "pasta": "ForzaFotos",
+      "ordem": "serie",
       "fotos": [
         {
           "arquivo": "ForzaFotos/game_01.jpg",

@@ -4,6 +4,9 @@
  *
  * - Fotos NOVAS nas pastas entram no manifesto com título derivado
  *   do nome do arquivo (ex.: "ret_pai_bw.jpg" -> "Pai bw").
+ * - Por padrão as novas entram no TOPO da sala (mais recentes primeiro).
+ *   Salas com "ordem": "serie" (ex.: capturas virtuais) recebem as
+ *   novas no fim, pra não quebrar os grupos por jogo.
  * - Títulos já existentes são SEMPRE preservados (edite à vontade).
  * - Entradas cujo arquivo sumiu são removidas.
  * - Gera miniaturas (miniaturas/<pasta>/<foto>.jpg, 1000px) usadas
@@ -87,14 +90,17 @@ for (const cat of dados.categorias) {
   const conhecidos = new Set(cat.fotos.map((f) => f.arquivo.toLowerCase()));
   const arquivos = readdirSync(pasta).filter((n) => EXTENSOES.test(n)).sort();
 
+  const novas = [];
   for (const nome of arquivos) {
     const rel = `${cat.pasta}/${nome}`;
     if (conhecidos.has(rel.toLowerCase())) continue;
     const { w, h } = dimensoes(join(pasta, nome));
-    cat.fotos.push({ arquivo: rel, titulo: tituloDoArquivo(nome), w, h });
+    novas.push({ arquivo: rel, titulo: tituloDoArquivo(nome), w, h });
     adicionadas++;
     console.log(`+ ${rel}`);
   }
+  if (cat.ordem === 'serie') cat.fotos.push(...novas);
+  else cat.fotos.unshift(...novas);
 }
 
 // Destaques da home: descarta os que apontam pra fotos removidas
