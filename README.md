@@ -9,7 +9,8 @@ Site estático feito à mão: HTML, CSS e JavaScript puros, sem frameworks e sem
 ## 🖼 Como a exposição funciona
 
 - **Entrada** (`index.html`): a parede de destaques (lista `"destaques"` do manifesto), o índice das salas, o texto de parede (sobre) e o contato.
-- **Salas**: cada categoria do manifesto é uma sala, numerada na ordem em que aparece no JSON. Dentro de cada sala, as obras aparecem na ordem do JSON — elas estão agrupadas por série/tema (ex.: nas capturas virtuais, primeiro The Last of Us, depois outros jogos e por fim Forza).
+- **Salas**: cada categoria do manifesto é uma sala, numerada na ordem em que aparece no JSON. Dentro de cada sala, as obras aparecem na ordem do JSON: **as mais recentes primeiro** — foto nova entra no topo da sala. A exceção são as capturas virtuais (`"ordem": "serie"` no manifesto), agrupadas por jogo (primeiro The Last of Us, depois outros jogos e por fim Forza); lá a foto nova entra no fim.
+- **Link direto pra foto**: cada foto tem um link próprio, `<sala>.html#<nome-do-arquivo>` (sem o prefixo, com hífens — ex.: `arquitetura.html#sombra-na-esquina`). Quem abre o link cai na sala com a foto já ampliada. Na foto ampliada, o botão **Copiar link** copia esse endereço (no celular, abre o compartilhar). O link vem do nome do arquivo, então editar o título não quebra links já divulgados — mas renomear o arquivo quebra.
 
 | Sala | Página | Pasta | Prefixo |
 |---|---|---|---|
@@ -33,7 +34,7 @@ Site estático feito à mão: HTML, CSS e JavaScript puros, sem frameworks e sem
    - gera as **miniaturas** (`miniaturas/`, 1000px) usadas na parede; a foto original abre no lightbox;
    - o GitHub Pages republica o site.
 
-A foto entra na sala com um título derivado do nome do arquivo (`ret_ensaio_ana.jpg` → "Ensaio ana"). Quer um título melhor? Edite o campo `"titulo"` dela em `galeria/fotos.json`: títulos editados **nunca** são sobrescritos.
+A foto entra no topo da sala com um título derivado do nome do arquivo (`ret_ensaio_ana.jpg` → "Ensaio ana"). Quer um título melhor? Edite o campo `"titulo"` dela em `galeria/fotos.json`: títulos editados **nunca** são sobrescritos.
 
 **Parede de destaques:** para escolher o que aparece na entrada, edite a lista `"destaques"` no manifesto (caminhos das fotos, na ordem de exibição).
 

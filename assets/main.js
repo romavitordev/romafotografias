@@ -18,6 +18,20 @@
   /** Mesma regra do scripts/gera-galeria.mjs */
   const miniatura = (arquivo) => `miniaturas/${arquivo.replace(/\.[^.]+$/, '')}.jpg`;
 
+  /** Âncora do link direto de uma foto: vem do NOME DO ARQUIVO (não do
+      título), pra que editar o título não quebre links já compartilhados.
+      "ArquiteturaFotos/arq_sombra_na_esquina.jpg" -> "sombra-na-esquina" */
+  const ancora = (arquivo) =>
+    arquivo
+      .replace(/^.*\//, '')
+      .replace(/\.[^.]+$/, '')
+      .replace(/^(arq|ret|res|tar|mem|nat|ani|car|for|game|capa)[_-]/i, '')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+
   /* ---------- Abertura ----------
      Na primeira visita (por sessão) a entrada mostra a marca no centro
      de uma tela branca enquanto as fotos da parede carregam; depois a
@@ -121,7 +135,8 @@
     { w: 82, ml: 18, mb: 52 },
   ];
 
-  function montarParede(el, fotos, rotuloDe) {
+  // comLink: na sala, a foto aberta vira link direto (página.html#foto)
+  function montarParede(el, fotos, rotuloDe, comLink = false) {
     el.classList.toggle('pequena', fotos.length <= 8);
     el.innerHTML = fotos
       .map((f, i) => {
@@ -145,7 +160,7 @@
 
     const abrir = (alvo) => {
       const fig = alvo.closest('.obra[data-indice]');
-      if (fig) lightbox.abrir(fotos, Number(fig.dataset.indice), rotuloDe);
+      if (fig) lightbox.abrir(fotos, Number(fig.dataset.indice), rotuloDe, comLink);
     };
     el.addEventListener('click', (e) => abrir(e.target));
     el.addEventListener('keydown', (e) => {
@@ -191,7 +206,7 @@
   /* ---------- Lightbox ---------- */
   const lightbox = (() => {
     const raiz = document.getElementById('lightbox');
-    if (!raiz) return { abrir() {} };
+    if (!raiz) return { abrir() {}, fechar() {} };
     const img = raiz.querySelector('.lb-palco img');
     const titulo = raiz.querySelector('.lb-legenda b');
     const info = raiz.querySelector('.lb-legenda span');
@@ -200,6 +215,35 @@
     let atual = 0;
     let rotulo = null;
     let focoAnterior = null;
+    let comLink = false;
+
+    // Botão de compartilhar: só nas salas, onde cada foto tem link próprio.
+    const fecharBtn = raiz.querySelector('.fechar');
+    const linkBtn = document.createElement('button');
+    linkBtn.type = 'button';
+    linkBtn.className = 'lb-link';
+    linkBtn.textContent = 'Copiar link';
+    linkBtn.hidden = true;
+    fecharBtn.before(linkBtn);
+    const avisar = (texto) => {
+      linkBtn.textContent = texto;
+      setTimeout(() => (linkBtn.textContent = 'Copiar link'), 1800);
+    };
+    linkBtn.addEventListener('click', async () => {
+      const url = location.href;
+      if (navigator.share && matchMedia('(pointer: coarse)').matches) {
+        try { await navigator.share({ title: lista[atual].titulo, url }); } catch { /* cancelado */ }
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(url);
+        avisar('Link copiado ✓');
+      } catch {
+        window.prompt('Copie o link:', url);
+      }
+    });
+
+    const urlSemFoto = () => location.pathname + location.search;
 
     function mostrar(i) {
       atual = (i + lista.length) % lista.length;
@@ -211,15 +255,18 @@
       titulo.textContent = f.titulo;
       info.textContent = rotulo ? rotulo(f) : '';
       contador.textContent = `${dois(atual + 1)} / ${dois(lista.length)}`;
+      if (comLink) history.replaceState(null, '', `${urlSemFoto()}#${ancora(f.arquivo)}`);
       // pré-carrega a próxima
       const prox = lista[(atual + 1) % lista.length];
       if (prox) new Image().src = encodeURI(prox.arquivo);
       contarVisualizacao(f);
     }
 
-    function abrir(fotos, i, rotuloDe) {
+    function abrir(fotos, i, rotuloDe, link = false) {
       lista = fotos;
       rotulo = rotuloDe || null;
+      comLink = link;
+      linkBtn.hidden = !link;
       focoAnterior = document.activeElement;
       mostrar(i);
       raiz.classList.add('aberto');
@@ -229,13 +276,15 @@
     }
 
     function fechar() {
+      if (!raiz.classList.contains('aberto')) return;
+      if (comLink) history.replaceState(null, '', urlSemFoto());
       raiz.classList.remove('aberto');
       raiz.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
       if (focoAnterior) focoAnterior.focus();
     }
 
-    raiz.querySelector('.fechar').addEventListener('click', fechar);
+    fecharBtn.addEventListener('click', fechar);
     raiz.querySelector('.ant').addEventListener('click', () => mostrar(atual - 1));
     raiz.querySelector('.prox').addEventListener('click', () => mostrar(atual + 1));
     raiz.querySelector('.lb-palco').addEventListener('click', (e) => {
@@ -258,7 +307,7 @@
       x0 = null;
     });
 
-    return { abrir };
+    return { abrir, fechar };
   })();
 
   /* ---------- Manifesto ---------- */
@@ -354,7 +403,24 @@
         if (numero) numero.textContent = `Sala ${romano(i + 1)} de ${romano(n)}`;
         if (qtd) qtd.textContent = `${cat.fotos.length} obras`;
 
-        montarParede(paredeSala, cat.fotos, () => `Sala ${romano(i + 1)} · ${cat.titulo}`);
+        const rotuloSala = () => `Sala ${romano(i + 1)} · ${cat.titulo}`;
+        montarParede(paredeSala, cat.fotos, rotuloSala, true);
+
+        // Link direto (sala.html#nome-da-foto): abre a foto já ampliada e
+        // deixa a parede posicionada nela pra quando fecharem.
+        const abrirDoLink = () => {
+          const alvo = decodeURIComponent(location.hash.slice(1));
+          const k = alvo ? cat.fotos.findIndex((f) => ancora(f.arquivo) === alvo) : -1;
+          if (k < 0) return;
+          const fig = paredeSala.querySelector(`.obra[data-indice="${k}"]`);
+          if (fig) {
+            fig.classList.add('on');
+            fig.scrollIntoView({ block: 'center' });
+          }
+          lightbox.abrir(cat.fotos, k, rotuloSala, true);
+        };
+        abrirDoLink();
+        window.addEventListener('hashchange', () => (location.hash ? abrirDoLink() : lightbox.fechar()));
 
         const corredor = document.getElementById('corredor');
         if (corredor) {
