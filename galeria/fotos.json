@@ -474,6 +474,18 @@
           "titulo": "Luzes que trazem notícias",
           "w": 653,
           "h": 489
+        },
+        {
+          "arquivo": "ArquiteturaFotos/apenas um lugar.jpg",
+          "titulo": "Apenas um lugar",
+          "w": 755,
+          "h": 566
+        },
+        {
+          "arquivo": "ArquiteturaFotos/homem em seu caminhao.jpg",
+          "titulo": "Homem em seu caminhao",
+          "w": 755,
+          "h": 566
         }
       ]
     },
