@@ -29,8 +29,8 @@ Site estático feito à mão: HTML, CSS e JavaScript puros, sem frameworks e sem
 O menu de cima tem **PT | EN**. O idioma é escolhido assim: `?lang=pt` ou `?lang=en` na URL → a última escolha do visitante → o idioma do navegador (português vê PT; qualquer outro vê EN). Robôs de busca sempre leem o português; a versão em inglês é anunciada a eles com `hreflang` (`<página>?lang=en`).
 
 - **Textos fixos** (menu, sobre, contato, botões): o HTML é escrito em português e o inglês fica no dicionário de [`assets/idioma.js`](assets/idioma.js). Elementos com `data-i18n="chave"` (ou `data-i18n-attr="atributo:chave"`) são trocados.
-- **Salas**: no manifesto, `titulo_en` e `descricao_en` em cada sala. Sala nova sem essas chaves aparece em português.
-- **Fotos**: os títulos são obra do autor e ficam **sempre no original**, em qualquer idioma (não há `titulo_en` nas fotos).
+- **Salas**: só a descrição é traduzida, pelo campo `descricao_en` no manifesto. Sala nova sem ele mostra a descrição em português.
+- **Nomes das fotos e das salas** são obra do autor e ficam **sempre no original**, em qualquer idioma.
 - A página de estatísticas (`views.html`) é só para o dono do site e continua só em português.
 
 ## 📸 Como adicionar fotos (o jeito fácil)

@@ -18,7 +18,8 @@
   };
   I18N.aplicar(); // antes de tudo: os textos traduzidos recriam os [data-ano]
   const { t } = I18N;
-  // Títulos das fotos são obra do autor: ficam sempre no original, em qualquer idioma.
+  // Nomes das fotos e das salas são obra do autor: ficam sempre no original.
+  // Só a interface e a descrição das salas mudam de idioma.
   const titulo = (f) => f.titulo;
 
   const ROMANOS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
@@ -340,7 +341,7 @@
         const onde = new Map();
         dados.categorias.forEach((cat) => cat.fotos.forEach((f) => onde.set(f.arquivo, { f, cat })));
         const escolhidas = (dados.destaques || []).map((a) => onde.get(a)).filter(Boolean);
-        const salaDe = new Map(escolhidas.map(({ f, cat }) => [f, I18N.campo(cat, 'titulo')]));
+        const salaDe = new Map(escolhidas.map(({ f, cat }) => [f, cat.titulo]));
         montarParede(
           paredeDestaques,
           escolhidas.map(({ f }) => f),
@@ -370,7 +371,7 @@
             <a href="${cat.pagina}" data-capa="${encodeURI(miniatura(cat.capa))}">
               <span class="num">${romano(i + 1)}.</span>
               <img class="mini" src="${encodeURI(miniatura(cat.capa))}" alt="" loading="lazy">
-              <span><span class="nome">${esc(I18N.campo(cat, 'titulo'))}</span><span class="desc">${esc(I18N.campo(cat, 'descricao'))}</span></span>
+              <span><span class="nome">${esc(cat.titulo)}</span><span class="desc">${esc(I18N.campo(cat, 'descricao'))}</span></span>
               <span class="qtd">${t('obras', { n: cat.fotos.length })}</span>
             </a>
           </li>`
@@ -412,13 +413,11 @@
 
         const numero = document.getElementById('sala-numero');
         const qtd = document.getElementById('sala-qtd');
-        const nomeSala = I18N.campo(cat, 'titulo');
+        const nomeSala = cat.titulo;
         if (numero) numero.textContent = t('salaDe', { i: romano(i + 1), n: romano(n) });
         if (qtd) qtd.textContent = t('obras', { n: cat.fotos.length });
         if (I18N.idioma !== 'pt') {
-          const h1 = document.querySelector('.sala-cabeca h1');
           const desc = document.querySelector('.sala-cabeca .desc');
-          if (h1) h1.textContent = nomeSala;
           if (desc) desc.textContent = I18N.campo(cat, 'descricao');
           document.title = t('tituloSala', { t: nomeSala });
           document.querySelector('meta[name="description"]')?.setAttribute('content', I18N.campo(cat, 'descricao'));
@@ -449,8 +448,8 @@
           const ant = dados.categorias[(i - 1 + n) % n];
           const prox = dados.categorias[(i + 1) % n];
           corredor.innerHTML = `
-            <a href="${ant.pagina}"><span class="rotulo">← ${t('sala', { i: romano(((i - 1 + n) % n) + 1) })}</span><strong>${esc(I18N.campo(ant, 'titulo'))}</strong></a>
-            <a href="${prox.pagina}"><span class="rotulo">${t('sala', { i: romano(((i + 1) % n) + 1) })} →</span><strong>${esc(I18N.campo(prox, 'titulo'))}</strong></a>`;
+            <a href="${ant.pagina}"><span class="rotulo">← ${t('sala', { i: romano(((i - 1 + n) % n) + 1) })}</span><strong>${esc(ant.titulo)}</strong></a>
+            <a href="${prox.pagina}"><span class="rotulo">${t('sala', { i: romano(((i + 1) % n) + 1) })} →</span><strong>${esc(prox.titulo)}</strong></a>`;
         }
       })
       .catch(() => {
