@@ -18,7 +18,8 @@
   };
   I18N.aplicar(); // antes de tudo: os textos traduzidos recriam os [data-ano]
   const { t } = I18N;
-  const titulo = (f) => I18N.campo(f, 'titulo');
+  // Títulos das fotos são obra do autor: ficam sempre no original, em qualquer idioma.
+  const titulo = (f) => f.titulo;
 
   const ROMANOS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
   const romano = (n) => ROMANOS[n - 1] || String(n);

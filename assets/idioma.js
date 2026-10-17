@@ -9,7 +9,8 @@
    O HTML continua escrito em português (é a fonte). Elementos com
    data-i18n="chave" recebem o texto em inglês do dicionário abaixo;
    data-i18n-attr="atributo:chave;outro:chave" faz o mesmo em atributos.
-   Títulos de salas e fotos vêm do manifesto (titulo_en / descricao_en).
+   Nome e descrição das salas vêm do manifesto (titulo_en / descricao_en).
+   Os títulos das fotos são originais do autor e não são traduzidos.
    ============================================================ */
 
 (function () {
