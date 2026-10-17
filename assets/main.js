@@ -9,6 +9,17 @@
 (() => {
   'use strict';
 
+  // Idioma (assets/idioma.js). Se ele não carregar, o site segue em português.
+  const I18N = window.ROMA_I18N || {
+    idioma: 'pt',
+    t: (c, v) => c,
+    campo: (o, n) => (o ? o[n] || '' : ''),
+    aplicar() {},
+  };
+  I18N.aplicar(); // antes de tudo: os textos traduzidos recriam os [data-ano]
+  const { t } = I18N;
+  const titulo = (f) => I18N.campo(f, 'titulo');
+
   const ROMANOS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
   const romano = (n) => ROMANOS[n - 1] || String(n);
   const dois = (n) => String(n).padStart(2, '0');
@@ -146,13 +157,13 @@
         const ml = Math.min(p.ml, 100 - w);
         return `
         <figure class="obra" style="--w:${w}%;--ml:${ml}%;--mb:${p.mb}px" tabindex="0" role="button"
-                data-indice="${i}" aria-label="Ampliar: ${esc(f.titulo)}">
+                data-indice="${i}" aria-label="${esc(t('ampliar', { t: titulo(f) }))}">
           <span class="moldura" style="aspect-ratio:${f.w || 4} / ${f.h || 5}">
-            <img src="${encodeURI(miniatura(f.arquivo))}" alt="${esc(f.titulo)}" width="${f.w}" height="${f.h}"
+            <img src="${encodeURI(miniatura(f.arquivo))}" alt="${esc(titulo(f))}" width="${f.w}" height="${f.h}"
                  loading="${i < 4 || telaIntro ? 'eager' : 'lazy'}" decoding="async"
                  onerror="this.onerror=null;this.src='${encodeURI(f.arquivo)}'">
           </span>
-          <figcaption><span>${dois(i + 1)}</span><b>${esc(f.titulo)}</b>${rotuloDe ? `<span>${esc(rotuloDe(f))}</span>` : ''}</figcaption>
+          <figcaption><span>${dois(i + 1)}</span><b>${esc(titulo(f))}</b>${rotuloDe ? `<span>${esc(rotuloDe(f))}</span>` : ''}</figcaption>
         </figure>`;
       })
       .join('');
@@ -208,7 +219,7 @@
     const raiz = document.getElementById('lightbox');
     if (!raiz) return { abrir() {}, fechar() {} };
     const img = raiz.querySelector('.lb-palco img');
-    const titulo = raiz.querySelector('.lb-legenda b');
+    const legenda = raiz.querySelector('.lb-legenda b');
     const info = raiz.querySelector('.lb-legenda span');
     const contador = raiz.querySelector('.lb-contador');
     let lista = [];
@@ -222,24 +233,24 @@
     const linkBtn = document.createElement('button');
     linkBtn.type = 'button';
     linkBtn.className = 'lb-link';
-    linkBtn.textContent = 'Copiar link';
+    linkBtn.textContent = t('copiar');
     linkBtn.hidden = true;
     fecharBtn.before(linkBtn);
     const avisar = (texto) => {
       linkBtn.textContent = texto;
-      setTimeout(() => (linkBtn.textContent = 'Copiar link'), 1800);
+      setTimeout(() => (linkBtn.textContent = t('copiar')), 1800);
     };
     linkBtn.addEventListener('click', async () => {
       const url = location.href;
       if (navigator.share && matchMedia('(pointer: coarse)').matches) {
-        try { await navigator.share({ title: lista[atual].titulo, url }); } catch { /* cancelado */ }
+        try { await navigator.share({ title: titulo(lista[atual]), url }); } catch { /* cancelado */ }
         return;
       }
       try {
         await navigator.clipboard.writeText(url);
-        avisar('Link copiado ✓');
+        avisar(t('copiado'));
       } catch {
-        window.prompt('Copie o link:', url);
+        window.prompt(t('copieAqui'), url);
       }
     });
 
@@ -251,8 +262,8 @@
       img.classList.add('carregando');
       img.onload = () => img.classList.remove('carregando');
       img.src = encodeURI(f.arquivo);
-      img.alt = f.titulo;
-      titulo.textContent = f.titulo;
+      img.alt = titulo(f);
+      legenda.textContent = titulo(f);
       info.textContent = rotulo ? rotulo(f) : '';
       contador.textContent = `${dois(atual + 1)} / ${dois(lista.length)}`;
       if (comLink) history.replaceState(null, '', `${urlSemFoto()}#${ancora(f.arquivo)}`);
@@ -328,7 +339,7 @@
         const onde = new Map();
         dados.categorias.forEach((cat) => cat.fotos.forEach((f) => onde.set(f.arquivo, { f, cat })));
         const escolhidas = (dados.destaques || []).map((a) => onde.get(a)).filter(Boolean);
-        const salaDe = new Map(escolhidas.map(({ f, cat }) => [f, cat.titulo]));
+        const salaDe = new Map(escolhidas.map(({ f, cat }) => [f, I18N.campo(cat, 'titulo')]));
         montarParede(
           paredeDestaques,
           escolhidas.map(({ f }) => f),
@@ -337,7 +348,7 @@
         acompanharIntro(paredeDestaques);
       })
       .catch(() => {
-        falhou(paredeDestaques, 'Não foi possível carregar a exposição agora.');
+        falhou(paredeDestaques, t('erroExpo'));
         fecharIntro();
       });
   }
@@ -349,7 +360,7 @@
       .then((dados) => {
         const total = dados.categorias.reduce((s, c) => s + c.fotos.length, 0);
         const contagem = document.getElementById('contagem-obras');
-        if (contagem) contagem.textContent = `${dados.categorias.length} salas · ${total} obras`;
+        if (contagem) contagem.textContent = t('salasObras', { s: dados.categorias.length, o: total });
 
         indice.innerHTML = dados.categorias
           .map(
@@ -358,8 +369,8 @@
             <a href="${cat.pagina}" data-capa="${encodeURI(miniatura(cat.capa))}">
               <span class="num">${romano(i + 1)}.</span>
               <img class="mini" src="${encodeURI(miniatura(cat.capa))}" alt="" loading="lazy">
-              <span><span class="nome">${esc(cat.titulo)}</span><span class="desc">${esc(cat.descricao)}</span></span>
-              <span class="qtd">${cat.fotos.length} obras</span>
+              <span><span class="nome">${esc(I18N.campo(cat, 'titulo'))}</span><span class="desc">${esc(I18N.campo(cat, 'descricao'))}</span></span>
+              <span class="qtd">${t('obras', { n: cat.fotos.length })}</span>
             </a>
           </li>`
           )
@@ -384,7 +395,7 @@
           previa.style.transform = `translate(${x}px, ${y}px)`;
         });
       })
-      .catch(() => falhou(indice, 'Não foi possível carregar as salas agora.'));
+      .catch(() => falhou(indice, t('erroSalas')));
   }
 
   /* ---------- Página de sala ---------- */
@@ -400,10 +411,20 @@
 
         const numero = document.getElementById('sala-numero');
         const qtd = document.getElementById('sala-qtd');
-        if (numero) numero.textContent = `Sala ${romano(i + 1)} de ${romano(n)}`;
-        if (qtd) qtd.textContent = `${cat.fotos.length} obras`;
+        const nomeSala = I18N.campo(cat, 'titulo');
+        if (numero) numero.textContent = t('salaDe', { i: romano(i + 1), n: romano(n) });
+        if (qtd) qtd.textContent = t('obras', { n: cat.fotos.length });
+        if (I18N.idioma !== 'pt') {
+          const h1 = document.querySelector('.sala-cabeca h1');
+          const desc = document.querySelector('.sala-cabeca .desc');
+          if (h1) h1.textContent = nomeSala;
+          if (desc) desc.textContent = I18N.campo(cat, 'descricao');
+          document.title = t('tituloSala', { t: nomeSala });
+          document.querySelector('meta[name="description"]')?.setAttribute('content', I18N.campo(cat, 'descricao'));
+        }
+        document.querySelector('.sala-cabeca')?.classList.add('traduzida');
 
-        const rotuloSala = () => `Sala ${romano(i + 1)} · ${cat.titulo}`;
+        const rotuloSala = () => `${t('sala', { i: romano(i + 1) })} · ${nomeSala}`;
         montarParede(paredeSala, cat.fotos, rotuloSala, true);
 
         // Link direto (sala.html#nome-da-foto): abre a foto já ampliada e
@@ -427,11 +448,14 @@
           const ant = dados.categorias[(i - 1 + n) % n];
           const prox = dados.categorias[(i + 1) % n];
           corredor.innerHTML = `
-            <a href="${ant.pagina}"><span class="rotulo">← Sala ${romano(((i - 1 + n) % n) + 1)}</span><strong>${esc(ant.titulo)}</strong></a>
-            <a href="${prox.pagina}"><span class="rotulo">Sala ${romano(((i + 1) % n) + 1)} →</span><strong>${esc(prox.titulo)}</strong></a>`;
+            <a href="${ant.pagina}"><span class="rotulo">← ${t('sala', { i: romano(((i - 1 + n) % n) + 1) })}</span><strong>${esc(I18N.campo(ant, 'titulo'))}</strong></a>
+            <a href="${prox.pagina}"><span class="rotulo">${t('sala', { i: romano(((i + 1) % n) + 1) })} →</span><strong>${esc(I18N.campo(prox, 'titulo'))}</strong></a>`;
         }
       })
-      .catch(() => falhou(paredeSala, 'Não foi possível carregar esta sala agora.'));
+      .catch(() => {
+        document.querySelector('.sala-cabeca')?.classList.add('traduzida');
+        falhou(paredeSala, t('erroSala'));
+      });
   }
 
   /* ---------- Formulário (Formspree) ---------- */
@@ -443,7 +467,7 @@
       const botao = form.querySelector('button[type="submit"]');
       botao.disabled = true;
       status.className = 'form-status';
-      status.textContent = 'Enviando…';
+      status.textContent = t('enviando');
       try {
         const resposta = await fetch(form.action, {
           method: 'POST',
@@ -452,11 +476,11 @@
         });
         if (!resposta.ok) throw new Error('falha no envio');
         status.className = 'form-status ok';
-        status.textContent = 'Mensagem enviada. Respondo em breve.';
+        status.textContent = t('enviado');
         form.reset();
       } catch {
         status.className = 'form-status erro';
-        status.textContent = 'Não foi possível enviar. Tente pelo WhatsApp.';
+        status.textContent = t('erroEnvio');
       } finally {
         botao.disabled = false;
       }

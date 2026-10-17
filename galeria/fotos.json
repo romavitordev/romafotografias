@@ -27,115 +27,135 @@
       "slug": "retratos",
       "pagina": "retratos.html",
       "titulo": "Retratos",
+      "titulo_en": "Portraits",
       "descricao": "Expressões e emoções capturadas de perto.",
+      "descricao_en": "Expressions and emotions captured up close.",
       "capa": "capa_retrato.jpg",
       "pasta": "RetratosFotos",
       "fotos": [
         {
           "arquivo": "RetratosFotos/ret_o_silencio_dele_falou_alto.jpg",
           "titulo": "O silêncio dele falou alto",
+          "titulo_en": "His silence spoke loudly",
           "w": 859,
           "h": 1210
         },
         {
           "arquivo": "RetratosFotos/ret_entre_um_turno_e_outro.jpg",
           "titulo": "Entre um turno e outro",
+          "titulo_en": "Between one shift and the next",
           "w": 906,
           "h": 1210
         },
         {
           "arquivo": "RetratosFotos/ret_riso_de_aniversario.jpg",
           "titulo": "Riso de aniversário",
+          "titulo_en": "Birthday laughter",
           "w": 1536,
           "h": 1920
         },
         {
           "arquivo": "RetratosFotos/ret_mesa_do_bolo.jpg",
           "titulo": "A mesa do bolo",
+          "titulo_en": "The cake table",
           "w": 1536,
           "h": 1920
         },
         {
           "arquivo": "RetratosFotos/ret_dois_senhores.jpg",
           "titulo": "Uma noite familiar",
+          "titulo_en": "A family night",
           "w": 1536,
           "h": 1920
         },
         {
           "arquivo": "RetratosFotos/ret_passos_que_carregam_historias.jpg",
           "titulo": "Passos que carregam histórias",
+          "titulo_en": "Steps that carry stories",
           "w": 1536,
           "h": 1920
         },
         {
           "arquivo": "RetratosFotos/ret_tedio.jpg",
           "titulo": "Tédio de shopping",
+          "titulo_en": "Mall boredom",
           "w": 849,
           "h": 566
         },
         {
           "arquivo": "RetratosFotos/ret_pela_fresta.jpg",
           "titulo": "Pela fresta",
+          "titulo_en": "Through the gap",
           "w": 1080,
           "h": 720
         },
         {
           "arquivo": "RetratosFotos/ret_pensando_bem.jpg",
           "titulo": "Pensando bem",
+          "titulo_en": "On second thought",
           "w": 849,
           "h": 566
         },
         {
           "arquivo": "RetratosFotos/ret_riso_contido.jpg",
           "titulo": "Riso contido",
+          "titulo_en": "Held-back laughter",
           "w": 900,
           "h": 1350
         },
         {
           "arquivo": "RetratosFotos/ret_escadaria.jpg",
           "titulo": "Retrato urbano",
+          "titulo_en": "Urban portrait",
           "w": 929,
           "h": 1239
         },
         {
           "arquivo": "RetratosFotos/ret_gu.jpg",
           "titulo": "Retrato do meu irmão",
+          "titulo_en": "Portrait of my brother",
           "w": 951,
           "h": 1098
         },
         {
           "arquivo": "RetratosFotos/ret_gu_sol.jpg",
           "titulo": "Meu irmão e o sol",
+          "titulo_en": "My brother and the sun",
           "w": 1920,
           "h": 1280
         },
         {
           "arquivo": "RetratosFotos/ret_gu_bw2.jpg",
           "titulo": "Retrato em preto e branco",
+          "titulo_en": "Black and white portrait",
           "w": 728,
           "h": 566
         },
         {
           "arquivo": "RetratosFotos/ret_pai_bw.jpg",
           "titulo": "Meu pai em preto e branco",
+          "titulo_en": "My father in black and white",
           "w": 1292,
           "h": 1724
         },
         {
           "arquivo": "RetratosFotos/ret_gut5i.jpg",
           "titulo": "Primeiro retrato em nova qualidade",
+          "titulo_en": "First portrait in new quality",
           "w": 1280,
           "h": 1920
         },
         {
           "arquivo": "RetratosFotos/ret_gu_bw.jpg",
           "titulo": "Meu irmão em preto e branco",
+          "titulo_en": "My brother in black and white",
           "w": 1920,
           "h": 1440
         },
         {
           "arquivo": "capa_retrato.jpg",
           "titulo": "O silêncio das notícias",
+          "titulo_en": "The silence of the news",
           "w": 1440,
           "h": 1920
         }
@@ -145,91 +165,107 @@
       "slug": "resenha",
       "pagina": "resenha.html",
       "titulo": "Resenha",
+      "titulo_en": "Hanging Out",
       "descricao": "Uma noite no shopping, flash na mão e amigos sem pose. Cor, ruído e intimidade.",
+      "descricao_en": "A night at the mall, flash in hand and friends who don’t pose. Color, grain and intimacy.",
       "capa": "ResenhaFotos/res_luz_azul.jpg",
       "pasta": "ResenhaFotos",
       "fotos": [
         {
           "arquivo": "ResenhaFotos/res_lingua_de_fora.jpg",
           "titulo": "Língua de fora",
+          "titulo_en": "Tongue out",
           "w": 900,
           "h": 1350
         },
         {
           "arquivo": "ResenhaFotos/res_segredo.jpg",
           "titulo": "Segredo",
+          "titulo_en": "Secret",
           "w": 900,
           "h": 1350
         },
         {
           "arquivo": "ResenhaFotos/res_esse_e_meu.jpg",
           "titulo": "Esse aqui é meu",
+          "titulo_en": "This one’s mine",
           "w": 849,
           "h": 566
         },
         {
           "arquivo": "ResenhaFotos/res_olhar.jpg",
           "titulo": "Olhar direto",
+          "titulo_en": "Straight look",
           "w": 900,
           "h": 1350
         },
         {
           "arquivo": "ResenhaFotos/res_careta.jpg",
           "titulo": "Careta a dois",
+          "titulo_en": "Faces for two",
           "w": 1012,
           "h": 1350
         },
         {
           "arquivo": "ResenhaFotos/res_lingua.jpg",
           "titulo": "Sem vergonha nenhuma",
+          "titulo_en": "No shame at all",
           "w": 994,
           "h": 1350
         },
         {
           "arquivo": "ResenhaFotos/res_atitude.jpg",
           "titulo": "Atitude",
+          "titulo_en": "Attitude",
           "w": 900,
           "h": 1350
         },
         {
           "arquivo": "ResenhaFotos/res_luz_azul.jpg",
           "titulo": "Luz azul",
+          "titulo_en": "Blue light",
           "w": 849,
           "h": 566
         },
         {
           "arquivo": "ResenhaFotos/res_olho_de_peixe.jpg",
           "titulo": "Olho de peixe",
+          "titulo_en": "Fisheye",
           "w": 849,
           "h": 566
         },
         {
           "arquivo": "ResenhaFotos/res_perto.jpg",
           "titulo": "Perto demais",
+          "titulo_en": "Too close",
           "w": 849,
           "h": 566
         },
         {
           "arquivo": "ResenhaFotos/res_carta.jpg",
           "titulo": "A carta rara",
+          "titulo_en": "The rare card",
           "w": 900,
           "h": 1350
         },
         {
           "arquivo": "ResenhaFotos/res_beijo.jpg",
           "titulo": "Beijo no corredor",
+          "titulo_en": "Kiss in the hallway",
           "w": 900,
           "h": 1350
         },
         {
           "arquivo": "ResenhaFotos/res_mae_filho.jpg",
           "titulo": "Mãe e filho",
+          "titulo_en": "Mother and son",
           "w": 900,
           "h": 1350
         },
         {
           "arquivo": "ResenhaFotos/res_canto_de_olho.jpg",
           "titulo": "De canto de olho",
+          "titulo_en": "From the corner of the eye",
           "w": 900,
           "h": 1350
         }
@@ -239,67 +275,79 @@
       "slug": "tarde",
       "pagina": "tarde.html",
       "titulo": "Fim de tarde",
+      "titulo_en": "Late Afternoon",
       "descricao": "11/04 foi seu aniversário, pai… e nada melhor do que eternizar o momento que pude viver ao seu lado neste domingo. A fotografia é a arte de guardar memórias e trazê-las de volta sempre que olhamos para elas.",
+      "descricao_en": "April 11 was your birthday, Dad… and nothing better than holding on to the moment I got to share with you that Sunday. Photography is the art of keeping memories and bringing them back every time we look at them.",
       "capa": "TardeFotos/tar_sorriso.jpg",
       "pasta": "TardeFotos",
       "fotos": [
         {
           "arquivo": "TardeFotos/tar_descalco.jpg",
           "titulo": "Descalço na quadra",
+          "titulo_en": "Barefoot on the court",
           "w": 1536,
           "h": 1920
         },
         {
           "arquivo": "TardeFotos/tar_marcacao.jpg",
           "titulo": "Marcação",
+          "titulo_en": "Marking",
           "w": 1536,
           "h": 1920
         },
         {
           "arquivo": "TardeFotos/tar_chute.jpg",
           "titulo": "O chute",
+          "titulo_en": "The kick",
           "w": 1280,
           "h": 1920
         },
         {
           "arquivo": "TardeFotos/tar_goleiro.jpg",
           "titulo": "O goleiro",
+          "titulo_en": "The goalkeeper",
           "w": 1536,
           "h": 1920
         },
         {
           "arquivo": "TardeFotos/tar_sorriso.jpg",
           "titulo": "11/04 foi seu aniversário, pai",
+          "titulo_en": "April 11 was your birthday, Dad",
           "w": 1280,
           "h": 1920
         },
         {
           "arquivo": "TardeFotos/tar_cafune.jpg",
           "titulo": "Cafuné",
+          "titulo_en": "Gentle touch",
           "w": 1280,
           "h": 1920
         },
         {
           "arquivo": "TardeFotos/tar_gole.jpg",
           "titulo": "Um gole d’água",
+          "titulo_en": "A sip of water",
           "w": 1280,
           "h": 1920
         },
         {
           "arquivo": "TardeFotos/tar_cuidado.jpg",
           "titulo": "Cuidado",
+          "titulo_en": "Care",
           "w": 1280,
           "h": 1920
         },
         {
           "arquivo": "TardeFotos/tar_olhar_distante.jpg",
           "titulo": "Olhar distante",
+          "titulo_en": "Distant gaze",
           "w": 1280,
           "h": 1920
         },
         {
           "arquivo": "TardeFotos/tar_fim_de_tarde.jpg",
           "titulo": "Quando o sol vai embora",
+          "titulo_en": "When the sun goes away",
           "w": 1280,
           "h": 1920
         }
@@ -309,181 +357,212 @@
       "slug": "arquitetura",
       "pagina": "arquitetura.html",
       "titulo": "Pelas ruas",
+      "titulo_en": "Through the Streets",
       "descricao": "Sorocaba a pé: igrejas, praças, prédios, esquinas e quem atravessa tudo isso sem perceber.",
+      "descricao_en": "Sorocaba on foot: churches, squares, buildings, corners, and the people who walk through it all without noticing.",
       "capa": "ArquiteturaFotos/arq_sinal_aberto.jpg",
       "pasta": "ArquiteturaFotos",
       "fotos": [
         {
           "arquivo": "ArquiteturaFotos/apenas um lugar.jpg",
           "titulo": "Apenas mais um assento",
+          "titulo_en": "Just another seat",
           "w": 755,
           "h": 566
         },
         {
           "arquivo": "ArquiteturaFotos/homem em seu caminhao.jpg",
           "titulo": "Homem em seu caminhão",
+          "titulo_en": "Man in his truck",
           "w": 755,
           "h": 566
         },
         {
           "arquivo": "ArquiteturaFotos/arq_o_ultimo_suspiro_do_dia.jpg",
           "titulo": "O último suspiro do dia",
+          "titulo_en": "The day’s last breath",
           "w": 907,
           "h": 1211
         },
         {
           "arquivo": "ArquiteturaFotos/arq_luzes_que_trazem_noticias.jpg",
           "titulo": "Luzes que trazem notícias",
+          "titulo_en": "Lights that bring news",
           "w": 653,
           "h": 489
         },
         {
           "arquivo": "ArquiteturaFotos/arq_alguem_estava_acordado.jpg",
           "titulo": "Alguém estava acordado",
+          "titulo_en": "Someone was awake",
           "w": 907,
           "h": 1211
         },
         {
           "arquivo": "ArquiteturaFotos/arq_ate_o_silencio_tem_cor.jpg",
           "titulo": "Até o silêncio tem cor",
+          "titulo_en": "Even silence has color",
           "w": 944,
           "h": 1350
         },
         {
           "arquivo": "ArquiteturaFotos/arq_um_bom_dia_para_fotografar.jpg",
           "titulo": "Um bom dia para fotografar",
+          "titulo_en": "A good day to take photos",
           "w": 913,
           "h": 1211
         },
         {
           "arquivo": "ArquiteturaFotos/arq_predio_antigo_nova_perspectiva.jpg",
           "titulo": "Prédio antigo, nova perspectiva",
+          "titulo_en": "Old building, new perspective",
           "w": 907,
           "h": 1211
         },
         {
           "arquivo": "ArquiteturaFotos/arq_predio_antigo_nova_perspectiva_ii.jpg",
           "titulo": "Prédio antigo, nova perspectiva II",
+          "titulo_en": "Old building, new perspective II",
           "w": 907,
           "h": 1211
         },
         {
           "arquivo": "ArquiteturaFotos/arq_apenas_um_banco_de_madeira.jpg",
           "titulo": "Apenas um banco de madeira",
+          "titulo_en": "Just a wooden bench",
           "w": 881,
           "h": 1211
         },
         {
           "arquivo": "ArquiteturaFotos/arq_as_vezes_a_alegria_esta_perto_e_so_obser.jpg",
           "titulo": "Às vezes a alegria está perto, é só observar",
+          "titulo_en": "Sometimes joy is close, you just have to look",
           "w": 764,
           "h": 476
         },
         {
           "arquivo": "ArquiteturaFotos/arq_sombra_na_esquina.jpg",
           "titulo": "Sombra na esquina",
+          "titulo_en": "Shadow on the corner",
           "w": 1920,
           "h": 1920
         },
         {
           "arquivo": "ArquiteturaFotos/arq_luzes_da_avenida.jpg",
           "titulo": "Luzes da avenida",
+          "titulo_en": "Avenue lights",
           "w": 1038,
           "h": 1037
         },
         {
           "arquivo": "ArquiteturaFotos/arq_trabalho_no_alto.jpg",
           "titulo": "Trabalho no alto",
+          "titulo_en": "Working up high",
           "w": 1080,
           "h": 1920
         },
         {
           "arquivo": "ArquiteturaFotos/arq_santo_perfil.jpg",
           "titulo": "O santo de perfil",
+          "titulo_en": "The saint in profile",
           "w": 907,
           "h": 1211
         },
         {
           "arquivo": "ArquiteturaFotos/arq_praca.jpg",
           "titulo": "Quantas histórias podem ter uma única vida?",
+          "titulo_en": "How many stories can a single life hold?",
           "w": 968,
           "h": 904
         },
         {
           "arquivo": "ArquiteturaFotos/arq_escadas.jpg",
           "titulo": "Escadas gastas por passos que já não vemos",
+          "titulo_en": "Stairs worn by steps we no longer see",
           "w": 1012,
           "h": 1349
         },
         {
           "arquivo": "ArquiteturaFotos/arq_sinal_aberto.jpg",
           "titulo": "Sinal aberto",
+          "titulo_en": "Green light",
           "w": 1406,
           "h": 1758
         },
         {
           "arquivo": "ArquiteturaFotos/arq_placa.jpg",
           "titulo": "Devagar",
+          "titulo_en": "Slow",
           "w": 871,
           "h": 1211
         },
         {
           "arquivo": "ArquiteturaFotos/arq_santo.jpg",
           "titulo": "Para lembrar de um grande homem",
+          "titulo_en": "To remember a great man",
           "w": 814,
           "h": 1211
         },
         {
           "arquivo": "ArquiteturaFotos/arq_shopping.jpg",
           "titulo": "Um dia com a família",
+          "titulo_en": "A day with the family",
           "w": 907,
           "h": 1211
         },
         {
           "arquivo": "ArquiteturaFotos/arq_lojinha.jpg",
           "titulo": "Fotografia à venda",
+          "titulo_en": "Photograph for sale",
           "w": 955,
           "h": 1083
         },
         {
           "arquivo": "ArquiteturaFotos/arq_igreja_sorocaba.jpg",
           "titulo": "O tempo corrói a matéria. A imagem preserva a memória.",
+          "titulo_en": "Time wears away matter. The image preserves memory.",
           "w": 907,
           "h": 1211
         },
         {
           "arquivo": "ArquiteturaFotos/Arq_Igreja.JPG",
           "titulo": "A igreja, de outro olhar",
+          "titulo_en": "The church, from another view",
           "w": 1440,
           "h": 1920
         },
         {
           "arquivo": "ArquiteturaFotos/arq_anjo.jpg",
           "titulo": "Anjo em Sorocaba",
+          "titulo_en": "Angel in Sorocaba",
           "w": 941,
           "h": 1203
         },
         {
           "arquivo": "ArquiteturaFotos/arq_casa.jpg",
           "titulo": "Janelas contam histórias",
+          "titulo_en": "Windows tell stories",
           "w": 458,
           "h": 561
         },
         {
           "arquivo": "ArquiteturaFotos/arq_porta.jpg",
           "titulo": "Porta em meio à natureza",
+          "titulo_en": "A door amid nature",
           "w": 413,
           "h": 561
         },
         {
           "arquivo": "ArquiteturaFotos/arq_chamine.jpg",
           "titulo": "Chaminé ao pôr do sol",
+          "titulo_en": "Chimney at sunset",
           "w": 803,
           "h": 1210
         },
         {
           "arquivo": "ArquiteturaFotos/arq_poste.jpg",
           "titulo": "Uma luz na escuridão",
+          "titulo_en": "A light in the darkness",
           "w": 894,
           "h": 1211
         }
@@ -493,55 +572,65 @@
       "slug": "memorias",
       "pagina": "memorias.html",
       "titulo": "Uma casa cheia de memórias",
+      "titulo_en": "A House Full of Memories",
       "descricao": "Uma casa abandonada que virou museu: móveis, troféus e brinquedos ainda guardando histórias do passado.",
+      "descricao_en": "An abandoned house turned museum: furniture, trophies and toys still holding stories from the past.",
       "capa": "MemoriasFotos/mem_sofa.jpg",
       "pasta": "MemoriasFotos",
       "fotos": [
         {
           "arquivo": "MemoriasFotos/mem_historias_do_passado.jpg",
           "titulo": "Histórias do passado",
+          "titulo_en": "Stories from the past",
           "w": 928,
           "h": 1787
         },
         {
           "arquivo": "MemoriasFotos/mem_historias_do_passado_ii.jpg",
           "titulo": "Histórias do passado II",
+          "titulo_en": "Stories from the past II",
           "w": 1080,
           "h": 1620
         },
         {
           "arquivo": "MemoriasFotos/mem_sofa.jpg",
           "titulo": "Onde uma família se reunia",
+          "titulo_en": "Where a family used to gather",
           "w": 1043,
           "h": 1854
         },
         {
           "arquivo": "MemoriasFotos/mem_banco.jpg",
           "titulo": "Onde se contavam histórias",
+          "titulo_en": "Where stories were told",
           "w": 1080,
           "h": 1920
         },
         {
           "arquivo": "MemoriasFotos/mem_xicara.jpg",
           "titulo": "Velha xícara em uma velha casa",
+          "titulo_en": "Old cup in an old house",
           "w": 1058,
           "h": 1880
         },
         {
           "arquivo": "MemoriasFotos/mem_flores.jpg",
           "titulo": "Antigos amores",
+          "titulo_en": "Old loves",
           "w": 1050,
           "h": 1895
         },
         {
           "arquivo": "MemoriasFotos/mem_medalha.jpg",
           "titulo": "Vitória gravada no metal",
+          "titulo_en": "Victory engraved in metal",
           "w": 977,
           "h": 1738
         },
         {
           "arquivo": "MemoriasFotos/mem_trofeu.jpg",
           "titulo": "Uma antiga vitória abandonada",
+          "titulo_en": "An old, abandoned victory",
           "w": 875,
           "h": 1556
         }
@@ -551,85 +640,100 @@
       "slug": "natureza",
       "pagina": "natureza.html",
       "titulo": "Natureza",
+      "titulo_en": "Nature",
       "descricao": "Paisagens, céus, flores e o verde que a cidade esquece de olhar.",
+      "descricao_en": "Landscapes, skies, flowers and the green the city forgets to look at.",
       "capa": "NaturezaFotos/nat_lago.JPG",
       "pasta": "NaturezaFotos",
       "fotos": [
         {
           "arquivo": "NaturezaFotos/nat_clareira_na_mata.jpg",
           "titulo": "Clareira na mata",
+          "titulo_en": "Clearing in the woods",
           "w": 1440,
           "h": 1920
         },
         {
           "arquivo": "NaturezaFotos/nat_a_natureza_tambem_consome.jpg",
           "titulo": "A natureza também consome",
+          "titulo_en": "Nature also consumes",
           "w": 431,
           "h": 576
         },
         {
           "arquivo": "NaturezaFotos/nat_arvore_magica.jpg",
           "titulo": "Uma árvore mágica — São Paulo",
+          "titulo_en": "A magical tree — São Paulo",
           "w": 754,
           "h": 566
         },
         {
           "arquivo": "NaturezaFotos/nat_a_natureza_e_bela.jpg",
           "titulo": "A natureza é bela",
+          "titulo_en": "Nature is beautiful",
           "w": 1012,
           "h": 1349
         },
         {
           "arquivo": "NaturezaFotos/nat_lua_sobre_o_morro.jpg",
           "titulo": "Lua sobre o morro",
+          "titulo_en": "Moon over the hill",
           "w": 1528,
           "h": 1528
         },
         {
           "arquivo": "NaturezaFotos/nat_a_beleza_que_nao_precisa_da_escuridao.jpg",
           "titulo": "A beleza que não precisa da escuridão",
+          "titulo_en": "Beauty that doesn’t need the dark",
           "w": 907,
           "h": 1211
         },
         {
           "arquivo": "NaturezaFotos/nat_o_coracao_da_natureza_sangra_o_tempo_tod.jpg",
           "titulo": "O coração da natureza sangra o tempo todo",
+          "titulo_en": "Nature’s heart bleeds all the time",
           "w": 907,
           "h": 1211
         },
         {
           "arquivo": "NaturezaFotos/nat_estrada.jpg",
           "titulo": "Estrada entre os morros",
+          "titulo_en": "Road between the hills",
           "w": 1920,
           "h": 1280
         },
         {
           "arquivo": "NaturezaFotos/nat_ixora_vermelha.jpg",
           "titulo": "Ixora vermelha",
+          "titulo_en": "Red ixora",
           "w": 1012,
           "h": 1349
         },
         {
           "arquivo": "NaturezaFotos/nat_ixora_anoitecer.jpg",
           "titulo": "Ixora ao anoitecer",
+          "titulo_en": "Ixora at nightfall",
           "w": 1012,
           "h": 1349
         },
         {
           "arquivo": "NaturezaFotos/nat_anturios.jpg",
           "titulo": "Antúrios no quintal",
+          "titulo_en": "Anthuriums in the backyard",
           "w": 1280,
           "h": 1920
         },
         {
           "arquivo": "NaturezaFotos/nat_folhas.jpg",
           "titulo": "O chão do outono",
+          "titulo_en": "Autumn ground",
           "w": 907,
           "h": 1211
         },
         {
           "arquivo": "NaturezaFotos/nat_lago.JPG",
           "titulo": "Lago tranquilo ao entardecer",
+          "titulo_en": "Calm lake at dusk",
           "w": 1080,
           "h": 1920
         }
@@ -639,97 +743,114 @@
       "slug": "animais",
       "pagina": "animais.html",
       "titulo": "Animais",
+      "titulo_en": "Animals",
       "descricao": "Pássaros nos fios, cachorros no portão e os pequenos bichos que dividem a cidade com a gente.",
+      "descricao_en": "Birds on the wires, dogs at the gate and the small creatures that share the city with us.",
       "capa": "AnimaisFotos/ani_passarinho.jpg",
       "pasta": "AnimaisFotos",
       "fotos": [
         {
           "arquivo": "AnimaisFotos/ani_bem_te_vi_no_muro.jpg",
           "titulo": "Velho pássaro pensa sobre a vida",
+          "titulo_en": "Old bird thinks about life",
           "w": 1440,
           "h": 1920
         },
         {
           "arquivo": "AnimaisFotos/ani_a_beleza_da_natureza_e_o_verde.jpg",
           "titulo": "A beleza da natureza é o verde",
+          "titulo_en": "Nature’s beauty is green",
           "w": 1440,
           "h": 1920
         },
         {
           "arquivo": "AnimaisFotos/ani_o_pequeno_membro_da_familia.jpg",
           "titulo": "O pequeno membro da família",
+          "titulo_en": "The little family member",
           "w": 907,
           "h": 1211
         },
         {
           "arquivo": "AnimaisFotos/ani_passaros_num_dia_de_chuva.jpg",
           "titulo": "Pássaros num dia de chuva",
+          "titulo_en": "Birds on a rainy day",
           "w": 1440,
           "h": 1920
         },
         {
           "arquivo": "AnimaisFotos/ani_casal_de_passaros.jpg",
           "titulo": "Casal de pássaros",
+          "titulo_en": "A pair of birds",
           "w": 944,
           "h": 1176
         },
         {
           "arquivo": "AnimaisFotos/ani_borboleta.jpg",
           "titulo": "Belezas da natureza",
+          "titulo_en": "Beauties of nature",
           "w": 1536,
           "h": 1920
         },
         {
           "arquivo": "AnimaisFotos/ani_amora.jpg",
           "titulo": "Amora sorrindo",
+          "titulo_en": "Amora smiling",
           "w": 1920,
           "h": 1440
         },
         {
           "arquivo": "AnimaisFotos/ani_passarinho.jpg",
           "titulo": "Pequeno pássaro se alimentando",
+          "titulo_en": "Little bird feeding",
           "w": 1440,
           "h": 1920
         },
         {
           "arquivo": "AnimaisFotos/ani_beijaflor.jpg",
           "titulo": "Beija-flor",
+          "titulo_en": "Hummingbird",
           "w": 444,
           "h": 594
         },
         {
           "arquivo": "AnimaisFotos/ani_passaro_ceu.jpg",
           "titulo": "Pequeno pássaro observa o céu",
+          "titulo_en": "Little bird watches the sky",
           "w": 907,
           "h": 1211
         },
         {
           "arquivo": "AnimaisFotos/ani_passaros.jpg",
           "titulo": "Floresta de concreto",
+          "titulo_en": "Concrete jungle",
           "w": 1440,
           "h": 1920
         },
         {
           "arquivo": "AnimaisFotos/ani_pombo_bw.jpg",
           "titulo": "Asas urbanas",
+          "titulo_en": "Urban wings",
           "w": 1440,
           "h": 1920
         },
         {
           "arquivo": "AnimaisFotos/ani_pombo_solitario.jpg",
           "titulo": "Pássaro solitário",
+          "titulo_en": "Lonely bird",
           "w": 859,
           "h": 1210
         },
         {
           "arquivo": "AnimaisFotos/ani_passaro_solitario.jpg",
           "titulo": "Pequeno e só",
+          "titulo_en": "Small and alone",
           "w": 419,
           "h": 592
         },
         {
           "arquivo": "AnimaisFotos/ani_aranha.jpg",
           "titulo": "O predador silencioso",
+          "titulo_en": "The silent predator",
           "w": 941,
           "h": 1257
         }
@@ -739,37 +860,44 @@
       "slug": "maquinas",
       "pagina": "maquinas.html",
       "titulo": "Máquinas",
+      "titulo_en": "Machines",
       "descricao": "Carros de verdade, à noite — luz de evento, reflexo de pintura e faróis na pista.",
+      "descricao_en": "Real cars, at night — event lights, paint reflections and headlights on the track.",
       "capa": "CarrosFotos/car_touro.jpg",
       "pasta": "CarrosFotos",
       "fotos": [
         {
           "arquivo": "CarrosFotos/car_ultima_entrega.jpg",
           "titulo": "A última entrega do dia",
+          "titulo_en": "The last delivery of the day",
           "w": 1280,
           "h": 1920
         },
         {
           "arquivo": "CarrosFotos/car_touro.jpg",
           "titulo": "O touro",
+          "titulo_en": "The bull",
           "w": 900,
           "h": 1350
         },
         {
           "arquivo": "CarrosFotos/car_bmw.jpg",
           "titulo": "BMW M sob as luzes",
+          "titulo_en": "BMW M under the lights",
           "w": 849,
           "h": 566
         },
         {
           "arquivo": "CarrosFotos/car_gallardo.jpg",
           "titulo": "Lamborghini Gallardo",
+          "titulo_en": "Lamborghini Gallardo",
           "w": 849,
           "h": 566
         },
         {
           "arquivo": "CarrosFotos/car_farois.jpg",
           "titulo": "Faróis na curva",
+          "titulo_en": "Headlights on the curve",
           "w": 900,
           "h": 1350
         }
@@ -779,7 +907,9 @@
       "slug": "forza",
       "pagina": "forza.html",
       "titulo": "Capturas virtuais",
+      "titulo_en": "Virtual Captures",
       "descricao": "Composição e luz praticadas dentro dos games: The Last of Us Part II, Cyberpunk 2077 e Forza Horizon.",
+      "descricao_en": "Composition and light practiced inside games: The Last of Us Part II, Cyberpunk 2077 and Forza Horizon.",
       "capa": "ForzaFotos/game_01.jpg",
       "pasta": "ForzaFotos",
       "ordem": "serie",
@@ -787,252 +917,294 @@
         {
           "arquivo": "ForzaFotos/game_01.jpg",
           "titulo": "Pôr do sol no campo",
+          "titulo_en": "Sunset in the field",
           "w": 1916,
           "h": 1036
         },
         {
           "arquivo": "ForzaFotos/game_29.jpg",
           "titulo": "Varal ao pôr do sol",
+          "titulo_en": "Clothesline at sunset",
           "w": 1920,
           "h": 800
         },
         {
           "arquivo": "ForzaFotos/game_03.jpg",
           "titulo": "Viatura no mato",
+          "titulo_en": "Patrol car in the brush",
           "w": 1916,
           "h": 1036
         },
         {
           "arquivo": "ForzaFotos/game_10.jpg",
           "titulo": "Janela azul",
+          "titulo_en": "Blue window",
           "w": 1916,
           "h": 800
         },
         {
           "arquivo": "ForzaFotos/game_30.jpg",
           "titulo": "Janela, em preto e branco",
+          "titulo_en": "Window, in black and white",
           "w": 1920,
           "h": 800
         },
         {
           "arquivo": "ForzaFotos/game_11.jpg",
           "titulo": "Mão na cerca",
+          "titulo_en": "Hand on the fence",
           "w": 1862,
           "h": 800
         },
         {
           "arquivo": "ForzaFotos/game_02.jpg",
           "titulo": "Luz na poeira",
+          "titulo_en": "Light in the dust",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/game_05.jpg",
           "titulo": "Silêncio antes",
+          "titulo_en": "Silence before",
           "w": 1812,
           "h": 1076
         },
         {
           "arquivo": "ForzaFotos/game_09.jpg",
           "titulo": "Mira",
+          "titulo_en": "Aim",
           "w": 1874,
           "h": 1034
         },
         {
           "arquivo": "ForzaFotos/game_16.jpg",
           "titulo": "Horizonte",
+          "titulo_en": "Horizon",
           "w": 1916,
           "h": 800
         },
         {
           "arquivo": "ForzaFotos/game_14.jpg",
           "titulo": "Poça de luz",
+          "titulo_en": "Pool of light",
           "w": 1839,
           "h": 1076
         },
         {
           "arquivo": "ForzaFotos/game_15.jpg",
           "titulo": "Feixes",
+          "titulo_en": "Beams",
           "w": 1920,
           "h": 1076
         },
         {
           "arquivo": "ForzaFotos/game_28.jpg",
           "titulo": "Luz sobre a sucata",
+          "titulo_en": "Light on the scrap",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/game_31.jpg",
           "titulo": "Cardume suspenso",
+          "titulo_en": "Suspended school of fish",
           "w": 1920,
           "h": 1035
         },
         {
           "arquivo": "ForzaFotos/game_08.jpg",
           "titulo": "Posto abandonado",
+          "titulo_en": "Abandoned gas station",
           "w": 1893,
           "h": 800
         },
         {
           "arquivo": "ForzaFotos/game_06.jpg",
           "titulo": "Névoa",
+          "titulo_en": "Fog",
           "w": 1873,
           "h": 1035
         },
         {
           "arquivo": "ForzaFotos/game_26.jpg",
           "titulo": "Clareira",
+          "titulo_en": "Clearing",
           "w": 1920,
           "h": 800
         },
         {
           "arquivo": "ForzaFotos/game_27.jpg",
           "titulo": "Vulto na mata",
+          "titulo_en": "Figure in the woods",
           "w": 1920,
           "h": 1034
         },
         {
           "arquivo": "ForzaFotos/game_13.jpg",
           "titulo": "Sala tomada pelo verde",
+          "titulo_en": "Room taken by green",
           "w": 1916,
           "h": 1036
         },
         {
           "arquivo": "ForzaFotos/game_18.jpg",
           "titulo": "Cesta esquecida",
+          "titulo_en": "Forgotten basket",
           "w": 1042,
           "h": 1076
         },
         {
           "arquivo": "ForzaFotos/game_19.jpg",
           "titulo": "Refúgio",
+          "titulo_en": "Refuge",
           "w": 1639,
           "h": 694
         },
         {
           "arquivo": "ForzaFotos/game_20.jpg",
           "titulo": "Mesa verde",
+          "titulo_en": "Green table",
           "w": 1547,
           "h": 693
         },
         {
           "arquivo": "ForzaFotos/game_23.jpg",
           "titulo": "Flores no escuro",
+          "titulo_en": "Flowers in the dark",
           "w": 1874,
           "h": 1034
         },
         {
           "arquivo": "ForzaFotos/game_22.jpg",
           "titulo": "Torre no amarelo",
+          "titulo_en": "Tower in yellow",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/game_25.jpg",
           "titulo": "O Templo",
+          "titulo_en": "The Temple",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/game_12.jpg",
           "titulo": "Roda-gigante ao longe",
+          "titulo_en": "Ferris wheel in the distance",
           "w": 1875,
           "h": 1034
         },
         {
           "arquivo": "ForzaFotos/game_17.jpg",
           "titulo": "Luz no balcão",
+          "titulo_en": "Light on the counter",
           "w": 1916,
           "h": 800
         },
         {
           "arquivo": "ForzaFotos/game_21.jpg",
           "titulo": "Conversa à meia-luz",
+          "titulo_en": "Conversation in half-light",
           "w": 1920,
           "h": 694
         },
         {
           "arquivo": "ForzaFotos/game_04.jpg",
           "titulo": "Neon",
+          "titulo_en": "Neon",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/game_07.jpg",
           "titulo": "Quarto vermelho",
+          "titulo_en": "Red room",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/for_acura.png",
           "titulo": "Acura na pista chuvosa",
+          "titulo_en": "Acura on the wet track",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/for_acura_tras.png",
           "titulo": "Acura na chuva — traseira",
+          "titulo_en": "Acura in the rain — rear",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/for_acura_noite.png",
           "titulo": "Acura à noite",
+          "titulo_en": "Acura at night",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/for_acura_chuva.jpg",
           "titulo": "Acura na chuva",
+          "titulo_en": "Acura in the rain",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/for_acura_bw.png",
           "titulo": "Acura em preto e branco",
+          "titulo_en": "Acura in black and white",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/for_acura_praia.png",
           "titulo": "Acura na praia",
+          "titulo_en": "Acura at the beach",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/for_porsheazul.png",
           "titulo": "Porsche Taycan Turbo S na praia",
+          "titulo_en": "Porsche Taycan Turbo S at the beach",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/for_porsheazul_detalhes.png",
           "titulo": "Porsche Taycan Turbo S — detalhes",
+          "titulo_en": "Porsche Taycan Turbo S — details",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/for_porsheazul_longe.png",
           "titulo": "Porsche Taycan Turbo S — visão aberta",
+          "titulo_en": "Porsche Taycan Turbo S — wide view",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/for_spyder.png",
           "titulo": "Porsche 918 Spyder frontal",
+          "titulo_en": "Porsche 918 Spyder, front",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/for_spyder_detalhe.png",
           "titulo": "Porsche 918 Spyder — detalhes",
+          "titulo_en": "Porsche 918 Spyder — details",
           "w": 1920,
           "h": 1080
         },
         {
           "arquivo": "ForzaFotos/for_barco.png",
           "titulo": "Pequeno barco diante do vasto mar",
+          "titulo_en": "Small boat before the vast sea",
           "w": 1920,
           "h": 1080
         }

@@ -102,6 +102,19 @@ a { color: inherit; text-decoration: none; }
 .menu a:hover,
 .menu a[aria-current] { color: var(--tinta); }
 
+/* Idioma (PT | EN): separado das seções por um fio, o atual em tinta. */
+.idiomas {
+  display: inline-flex;
+  gap: 10px;
+  padding-left: clamp(14px, 2vw, 28px);
+  border-left: 1px solid var(--linha);
+}
+.idiomas a { padding: 0 2px; }
+
+/* Enquanto o idioma.js troca os textos pro inglês, nada de português piscando. */
+html.i18n-carregando body { visibility: hidden; }
+html[lang="en"] .sala-cabeca:not(.traduzida) :is(h1, .desc) { visibility: hidden; }
+
 /* ---------- Abertura da exposição ---------- */
 .abertura {
   padding: clamp(72px, 14vh, 150px) var(--margem) clamp(56px, 10vh, 110px);

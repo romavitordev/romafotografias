@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vitor Roma — Fotografia | Sorocaba/SP</title>
-    <meta name="description" content="Exposição permanente de Vitor Roma, fotógrafo em Sorocaba/SP: retratos, cidade, natureza e noites de flash. Sessões e ensaios sob consulta.">
+    <title data-i18n="titulo-inicio">Vitor Roma — Fotografia | Sorocaba/SP</title>
+    <meta name="description" data-i18n-attr="content:desc-inicio" content="Exposição permanente de Vitor Roma, fotógrafo em Sorocaba/SP: retratos, cidade, natureza e noites de flash. Sessões e ensaios sob consulta.">
     <link rel="canonical" href="https://romavitordev.github.io/romafotografias/">
+    <link rel="alternate" hreflang="pt-BR" href="https://romavitordev.github.io/romafotografias/">
+    <link rel="alternate" hreflang="en" href="https://romavitordev.github.io/romafotografias/?lang=en">
+    <link rel="alternate" hreflang="x-default" href="https://romavitordev.github.io/romafotografias/">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link rel="shortcut icon" href="favicon.ico">
@@ -24,6 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/idioma.js"></script>
     <link rel="preload" href="galeria/fotos.json" as="fetch" crossorigin>
     <!-- Abertura: decide antes da primeira pintura (uma vez por sessão).
          Se o main.js nunca carregar, a tela some sozinha em 6s. -->
@@ -56,32 +60,36 @@
         <div class="intro-barra"><i></i></div>
     </div>
 
-    <a class="pular" href="#obras">Pular para as obras</a>
+    <a class="pular" href="#obras" data-i18n="pular">Pular para as obras</a>
 
     <header class="topo">
-        <a class="assinatura" href="index.html" aria-label="Vitor Roma — início">
+        <a class="assinatura" href="index.html" aria-label="Vitor Roma — início" data-i18n-attr="aria-label:inicio">
             <strong>Vitor Roma</strong>
-            <span>Fotografia · Sorocaba, SP</span>
+            <span data-i18n="assinatura">Fotografia · Sorocaba, SP</span>
         </a>
-        <nav class="menu" aria-label="Navegação principal">
-            <a href="#obras">Obras</a>
-            <a href="#salas">Salas</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
+        <nav class="menu" aria-label="Navegação principal" data-i18n-attr="aria-label:nav">
+            <a href="#obras" data-i18n="nav-obras">Obras</a>
+            <a href="#salas" data-i18n="nav-salas">Salas</a>
+            <a href="#sobre" data-i18n="nav-sobre">Sobre</a>
+            <a href="#contato" data-i18n="nav-contato">Contato</a>
+            <span class="idiomas" role="group" aria-label="Idioma" data-i18n-attr="aria-label:idiomas">
+                <a href="?lang=pt" hreflang="pt-BR" lang="pt-BR" data-idioma="pt" title="Português">PT</a>
+                <a href="?lang=en" hreflang="en" lang="en" data-idioma="en" title="English">EN</a>
+            </span>
         </nav>
     </header>
 
     <main>
         <section class="abertura" aria-labelledby="titulo-expo">
-            <p class="rotulo">Exposição permanente · 2024 — <span data-ano>2026</span></p>
-            <h1 id="titulo-expo">Fotografando <em>a vida.</em></h1>
-            <p class="texto">
+            <p class="rotulo" data-i18n="expo-rotulo">Exposição permanente · 2024 — <span data-ano>2026</span></p>
+            <h1 id="titulo-expo" data-i18n="expo-titulo">Fotografando <em>a vida.</em></h1>
+            <p class="texto" data-i18n="expo-texto">
                 Retratos de quem está perto, a cidade que a gente atravessa sem olhar,
                 bichos, flores e algumas noites de flash. Entre, sem pressa.
             </p>
         </section>
 
-        <section id="obras" aria-label="Obras em destaque">
+        <section id="obras" aria-label="Obras em destaque" data-i18n-attr="aria-label:destaques">
             <div id="parede-destaques" class="parede">
                 <noscript><p class="rotulo">Ative o JavaScript para ver a exposição — ou veja as fotos no
                 <a href="https://instagram.com/romart.photos">Instagram</a>.</p></noscript>
@@ -90,7 +98,7 @@
 
         <section id="salas" class="secao" aria-labelledby="titulo-salas">
             <div class="secao-cabeca">
-                <h2 id="titulo-salas">As <em>salas</em></h2>
+                <h2 id="titulo-salas" data-i18n="salas-titulo">As <em>salas</em></h2>
                 <p class="rotulo" id="contagem-obras"></p>
             </div>
             <ol id="indice-salas" class="salas"></ol>
@@ -98,19 +106,19 @@
 
         <section id="sobre" class="secao" aria-labelledby="titulo-sobre">
             <div class="secao-cabeca">
-                <h2 id="titulo-sobre">Sobre o <em>fotógrafo</em></h2>
-                <p class="rotulo">Texto de parede</p>
+                <h2 id="titulo-sobre" data-i18n="sobre-titulo">Sobre o <em>fotógrafo</em></h2>
+                <p class="rotulo" data-i18n="sobre-rotulo">Texto de parede</p>
             </div>
             <div class="sobre">
                 <figure>
                     <img src="perfil/selfie.jpg" alt="Vitor Roma" width="865" height="1350" loading="lazy">
-                    <figcaption class="rotulo">Vitor Roma, autorretrato</figcaption>
+                    <figcaption class="rotulo" data-i18n="sobre-legenda">Vitor Roma, autorretrato</figcaption>
                 </figure>
                 <div class="texto">
-                    <p class="grande">
+                    <p class="grande" data-i18n="sobre-grande">
                         Fotografo para transformar instantes em memórias.
                     </p>
-                    <p>
+                    <p data-i18n="sobre-1">
                         Sou Vitor Roma, fotógrafo e desenvolvedor em Sorocaba. Comecei com uma
                         <span class="inteiro">Sony DSC-H400</span> e hoje fotografo com uma
                         <span class="inteiro">Canon T5i</span>, sempre com a mesma vontade:
@@ -118,21 +126,21 @@
                         ao olhar. Ainda estou no começo da jornada, e é justamente por isso que
                         cada sessão recebe atenção total e um carinho especial.
                     </p>
-                    <p>
+                    <p data-i18n="sobre-2">
                         Acredito que não basta olhar uma imagem: é preciso sentir o que ela carrega.
                         Seja num retrato, num evento ou num projeto autoral, busco fotos que contem
                         as <em>suas</em> histórias.
                     </p>
-                    <p>
+                    <p data-i18n="sobre-3">
                         E, por ser também desenvolvedor, posso levar o seu ensaio além das fotos:
                         um site para reunir e mostrar as imagens como portfólio, ou até um sistema
                         pensado do zero para o seu negócio.
                     </p>
-                    <blockquote>
+                    <blockquote data-i18n="citacao">
                         A verdadeira arte é só um reflexo dos sentimentos de quem a contempla (…)
                         <cite>Rafael Lange</cite>
                     </blockquote>
-                    <dl class="ficha">
+                    <dl class="ficha" data-i18n="ficha">
                         <dt>Base</dt><dd>Sorocaba, SP</dd>
                         <dt>Técnica</dt><dd>Fotografia digital, luz natural e flash</dd>
                         <dt>Equipamento</dt><dd><span class="inteiro">Canon T5i</span> (antes, <span class="inteiro">Sony DSC-H400</span>)</dd>
@@ -145,14 +153,14 @@
 
         <section id="contato" class="secao" aria-labelledby="titulo-contato">
             <div class="secao-cabeca">
-                <h2 id="titulo-contato">Vamos <em>fotografar?</em></h2>
-                <p class="rotulo">Sessões sob consulta</p>
+                <h2 id="titulo-contato" data-i18n="contato-titulo">Vamos <em>fotografar?</em></h2>
+                <p class="rotulo" data-i18n="contato-rotulo">Sessões sob consulta</p>
             </div>
             <div class="contato">
                 <div>
-                    <p class="convite">Retrato, ensaio, família ou uma ideia diferente — me conta o que você imagina.</p>
+                    <p class="convite" data-i18n="convite">Retrato, ensaio, família ou uma ideia diferente — me conta o que você imagina.</p>
                     <ul class="canais">
-                        <li><a href="https://wa.me/5515991023998?text=Oi%2C%20Vitor!%20Vi%20seu%20site%20e%20quero%20conversar%20sobre%20uma%20sess%C3%A3o%20de%20fotos." target="_blank" rel="noopener noreferrer"><span>WhatsApp</span><span>(15) 99102-3998</span></a></li>
+                        <li><a data-i18n-attr="href:whatsapp" href="https://wa.me/5515991023998?text=Oi%2C%20Vitor!%20Vi%20seu%20site%20e%20quero%20conversar%20sobre%20uma%20sess%C3%A3o%20de%20fotos." target="_blank" rel="noopener noreferrer"><span>WhatsApp</span><span>(15) 99102-3998</span></a></li>
                         <li><a href="mailto:romavitor@hotmail.com"><span>E-mail</span><span>romavitor@hotmail.com</span></a></li>
                         <li><a href="https://instagram.com/romart.photos" target="_blank" rel="noopener noreferrer"><span>Instagram</span><span>@romart.photos</span></a></li>
                         <li><a href="https://vsco.co/vrom4/gallery" target="_blank" rel="noopener noreferrer"><span>VSCO</span><span>vrom4</span></a></li>
@@ -160,13 +168,13 @@
                 </div>
 
                 <form id="form-contato" class="form" action="https://formspree.io/f/xzdjebek" method="POST">
-                    <label><span class="rotulo">Nome</span><input type="text" name="nome" autocomplete="name" required></label>
-                    <label><span class="rotulo">E-mail</span><input type="email" name="email" autocomplete="email" required></label>
-                    <label><span class="rotulo">Mensagem</span><textarea name="mensagem" required></textarea></label>
+                    <label><span class="rotulo" data-i18n="form-nome">Nome</span><input type="text" name="nome" autocomplete="name" required></label>
+                    <label><span class="rotulo" data-i18n="form-email">E-mail</span><input type="email" name="email" autocomplete="email" required></label>
+                    <label><span class="rotulo" data-i18n="form-mensagem">Mensagem</span><textarea name="mensagem" required></textarea></label>
                     <input type="hidden" name="_subject" value="Novo contato do site Roma Fotografias">
                     <!-- honeypot do Formspree: invisível para pessoas; se vier preenchido, o envio é descartado -->
                     <input type="text" name="_gotcha" class="isca" tabindex="-1" autocomplete="off" aria-hidden="true">
-                    <button type="submit">Enviar mensagem</button>
+                    <button type="submit" data-i18n="form-enviar">Enviar mensagem</button>
                     <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
                 </form>
             </div>
@@ -175,20 +183,20 @@
 
     <footer class="rodape">
         <p class="rotulo">© <span data-ano>2026</span> Vitor Roma — Roma Fotografias</p>
-        <p class="rotulo">Todas as fotos são autorais</p>
+        <p class="rotulo" data-i18n="rodape-autorais">Todas as fotos são autorais</p>
     </footer>
 
-    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Obra ampliada" aria-hidden="true">
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Obra ampliada" data-i18n-attr="aria-label:lightbox" aria-hidden="true">
         <div class="lb-topo">
             <span class="rotulo lb-contador"></span>
-            <button class="fechar" type="button">Fechar ✕</button>
+            <button class="fechar" type="button" data-i18n="fechar">Fechar ✕</button>
         </div>
         <div class="lb-palco"><img src="" alt=""></div>
         <div class="lb-base">
             <p class="rotulo lb-legenda"><b></b><span></span></p>
             <div class="lb-nav">
-                <button class="ant" type="button">← Anterior</button>
-                <button class="prox" type="button">Próxima →</button>
+                <button class="ant" type="button" data-i18n="anterior">← Anterior</button>
+                <button class="prox" type="button" data-i18n="proxima">Próxima →</button>
             </div>
         </div>
     </div>
