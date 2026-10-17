@@ -6,6 +6,9 @@
     <title>Máquinas | Vitor Roma — Fotografia</title>
     <meta name="description" content="Máquinas — Carros de verdade, à noite — luz de evento, reflexo de pintura e faróis na pista. Fotografia de Vitor Roma, Sorocaba/SP.">
     <link rel="canonical" href="https://romavitordev.github.io/romafotografias/maquinas.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://romavitordev.github.io/romafotografias/maquinas.html">
+    <link rel="alternate" hreflang="en" href="https://romavitordev.github.io/romafotografias/maquinas.html?lang=en">
+    <link rel="alternate" hreflang="x-default" href="https://romavitordev.github.io/romafotografias/maquinas.html">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link rel="shortcut icon" href="favicon.ico">
@@ -22,23 +25,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/idioma.js"></script>
     <link rel="preload" href="galeria/fotos.json" as="fetch" crossorigin>
     <meta name="theme-color" content="#f6f5f1">
 </head>
 <!-- Página gerada a partir do manifesto; o conteúdo da sala vem de galeria/fotos.json. -->
 <body data-sala="maquinas">
-    <a class="pular" href="#parede-sala">Pular para as obras</a>
+    <a class="pular" href="#parede-sala" data-i18n="pular">Pular para as obras</a>
 
     <header class="topo">
-        <a class="assinatura" href="index.html" aria-label="Vitor Roma — início">
+        <a class="assinatura" href="index.html" aria-label="Vitor Roma — início" data-i18n-attr="aria-label:inicio">
             <strong>Vitor Roma</strong>
-            <span>Fotografia · Sorocaba, SP</span>
+            <span data-i18n="assinatura">Fotografia · Sorocaba, SP</span>
         </a>
-        <nav class="menu" aria-label="Navegação principal">
-            <a href="index.html#obras">Obras</a>
-            <a href="index.html#salas" aria-current="page">Salas</a>
-            <a href="index.html#sobre">Sobre</a>
-            <a href="index.html#contato">Contato</a>
+        <nav class="menu" aria-label="Navegação principal" data-i18n-attr="aria-label:nav">
+            <a href="index.html#obras" data-i18n="nav-obras">Obras</a>
+            <a href="index.html#salas" aria-current="page" data-i18n="nav-salas">Salas</a>
+            <a href="index.html#sobre" data-i18n="nav-sobre">Sobre</a>
+            <a href="index.html#contato" data-i18n="nav-contato">Contato</a>
+            <span class="idiomas" role="group" aria-label="Idioma" data-i18n-attr="aria-label:idiomas">
+                <a href="?lang=pt" hreflang="pt-BR" lang="pt-BR" data-idioma="pt" title="Português">PT</a>
+                <a href="?lang=en" hreflang="en" lang="en" data-idioma="en" title="English">EN</a>
+            </span>
         </nav>
     </header>
 
@@ -59,25 +67,25 @@
             <a href="https://instagram.com/romart.photos">Instagram</a>.</p></noscript>
         </div>
 
-        <nav id="corredor" class="corredor" aria-label="Outras salas"></nav>
+        <nav id="corredor" class="corredor" aria-label="Outras salas" data-i18n-attr="aria-label:corredor"></nav>
     </main>
 
     <footer class="rodape">
         <p class="rotulo">© <span data-ano>2026</span> Vitor Roma — Roma Fotografias</p>
-        <p class="rotulo"><a href="index.html#contato">Agendar uma sessão →</a></p>
+        <p class="rotulo"><a href="index.html#contato" data-i18n="rodape-agendar">Agendar uma sessão →</a></p>
     </footer>
 
-    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Obra ampliada" aria-hidden="true">
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Obra ampliada" data-i18n-attr="aria-label:lightbox" aria-hidden="true">
         <div class="lb-topo">
             <span class="rotulo lb-contador"></span>
-            <button class="fechar" type="button">Fechar ✕</button>
+            <button class="fechar" type="button" data-i18n="fechar">Fechar ✕</button>
         </div>
         <div class="lb-palco"><img src="" alt=""></div>
         <div class="lb-base">
             <p class="rotulo lb-legenda"><b></b><span></span></p>
             <div class="lb-nav">
-                <button class="ant" type="button">← Anterior</button>
-                <button class="prox" type="button">Próxima →</button>
+                <button class="ant" type="button" data-i18n="anterior">← Anterior</button>
+                <button class="prox" type="button" data-i18n="proxima">Próxima →</button>
             </div>
         </div>
     </div>

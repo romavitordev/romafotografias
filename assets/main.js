@@ -9,6 +9,17 @@
 (() => {
   'use strict';
 
+  // Idioma (assets/idioma.js). Se ele não carregar, o site segue em português.
+  const I18N = window.ROMA_I18N || {
+    idioma: 'pt',
+    t: (c, v) => c,
+    campo: (o, n) => (o ? o[n] || '' : ''),
+    aplicar() {},
+  };
+  I18N.aplicar(); // antes de tudo: os textos traduzidos recriam os [data-ano]
+  const { t } = I18N;
+  const titulo = (f) => I18N.campo(f, 'titulo');
+
   const ROMANOS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
   const romano = (n) => ROMANOS[n - 1] || String(n);
   const dois = (n) => String(n).padStart(2, '0');
@@ -17,6 +28,20 @@
 
   /** Mesma regra do scripts/gera-galeria.mjs */
   const miniatura = (arquivo) => `miniaturas/${arquivo.replace(/\.[^.]+$/, '')}.jpg`;
+
+  /** Âncora do link direto de uma foto: vem do NOME DO ARQUIVO (não do
+      título), pra que editar o título não quebre links já compartilhados.
+      "ArquiteturaFotos/arq_sombra_na_esquina.jpg" -> "sombra-na-esquina" */
+  const ancora = (arquivo) =>
+    arquivo
+      .replace(/^.*\//, '')
+      .replace(/\.[^.]+$/, '')
+      .replace(/^(arq|ret|res|tar|mem|nat|ani|car|for|game|capa)[_-]/i, '')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
 
   /* ---------- Abertura ----------
      Na primeira visita (por sessão) a entrada mostra a marca no centro
@@ -121,7 +146,8 @@
     { w: 82, ml: 18, mb: 52 },
   ];
 
-  function montarParede(el, fotos, rotuloDe) {
+  // comLink: na sala, a foto aberta vira link direto (página.html#foto)
+  function montarParede(el, fotos, rotuloDe, comLink = false) {
     el.classList.toggle('pequena', fotos.length <= 8);
     el.innerHTML = fotos
       .map((f, i) => {
@@ -131,13 +157,13 @@
         const ml = Math.min(p.ml, 100 - w);
         return `
         <figure class="obra" style="--w:${w}%;--ml:${ml}%;--mb:${p.mb}px" tabindex="0" role="button"
-                data-indice="${i}" aria-label="Ampliar: ${esc(f.titulo)}">
+                data-indice="${i}" aria-label="${esc(t('ampliar', { t: titulo(f) }))}">
           <span class="moldura" style="aspect-ratio:${f.w || 4} / ${f.h || 5}">
-            <img src="${encodeURI(miniatura(f.arquivo))}" alt="${esc(f.titulo)}" width="${f.w}" height="${f.h}"
+            <img src="${encodeURI(miniatura(f.arquivo))}" alt="${esc(titulo(f))}" width="${f.w}" height="${f.h}"
                  loading="${i < 4 || telaIntro ? 'eager' : 'lazy'}" decoding="async"
                  onerror="this.onerror=null;this.src='${encodeURI(f.arquivo)}'">
           </span>
-          <figcaption><span>${dois(i + 1)}</span><b>${esc(f.titulo)}</b>${rotuloDe ? `<span>${esc(rotuloDe(f))}</span>` : ''}</figcaption>
+          <figcaption><span>${dois(i + 1)}</span><b>${esc(titulo(f))}</b>${rotuloDe ? `<span>${esc(rotuloDe(f))}</span>` : ''}</figcaption>
         </figure>`;
       })
       .join('');
@@ -145,7 +171,7 @@
 
     const abrir = (alvo) => {
       const fig = alvo.closest('.obra[data-indice]');
-      if (fig) lightbox.abrir(fotos, Number(fig.dataset.indice), rotuloDe);
+      if (fig) lightbox.abrir(fotos, Number(fig.dataset.indice), rotuloDe, comLink);
     };
     el.addEventListener('click', (e) => abrir(e.target));
     el.addEventListener('keydown', (e) => {
@@ -191,15 +217,44 @@
   /* ---------- Lightbox ---------- */
   const lightbox = (() => {
     const raiz = document.getElementById('lightbox');
-    if (!raiz) return { abrir() {} };
+    if (!raiz) return { abrir() {}, fechar() {} };
     const img = raiz.querySelector('.lb-palco img');
-    const titulo = raiz.querySelector('.lb-legenda b');
+    const legenda = raiz.querySelector('.lb-legenda b');
     const info = raiz.querySelector('.lb-legenda span');
     const contador = raiz.querySelector('.lb-contador');
     let lista = [];
     let atual = 0;
     let rotulo = null;
     let focoAnterior = null;
+    let comLink = false;
+
+    // Botão de compartilhar: só nas salas, onde cada foto tem link próprio.
+    const fecharBtn = raiz.querySelector('.fechar');
+    const linkBtn = document.createElement('button');
+    linkBtn.type = 'button';
+    linkBtn.className = 'lb-link';
+    linkBtn.textContent = t('copiar');
+    linkBtn.hidden = true;
+    fecharBtn.before(linkBtn);
+    const avisar = (texto) => {
+      linkBtn.textContent = texto;
+      setTimeout(() => (linkBtn.textContent = t('copiar')), 1800);
+    };
+    linkBtn.addEventListener('click', async () => {
+      const url = location.href;
+      if (navigator.share && matchMedia('(pointer: coarse)').matches) {
+        try { await navigator.share({ title: titulo(lista[atual]), url }); } catch { /* cancelado */ }
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(url);
+        avisar(t('copiado'));
+      } catch {
+        window.prompt(t('copieAqui'), url);
+      }
+    });
+
+    const urlSemFoto = () => location.pathname + location.search;
 
     function mostrar(i) {
       atual = (i + lista.length) % lista.length;
@@ -207,19 +262,22 @@
       img.classList.add('carregando');
       img.onload = () => img.classList.remove('carregando');
       img.src = encodeURI(f.arquivo);
-      img.alt = f.titulo;
-      titulo.textContent = f.titulo;
+      img.alt = titulo(f);
+      legenda.textContent = titulo(f);
       info.textContent = rotulo ? rotulo(f) : '';
       contador.textContent = `${dois(atual + 1)} / ${dois(lista.length)}`;
+      if (comLink) history.replaceState(null, '', `${urlSemFoto()}#${ancora(f.arquivo)}`);
       // pré-carrega a próxima
       const prox = lista[(atual + 1) % lista.length];
       if (prox) new Image().src = encodeURI(prox.arquivo);
       contarVisualizacao(f);
     }
 
-    function abrir(fotos, i, rotuloDe) {
+    function abrir(fotos, i, rotuloDe, link = false) {
       lista = fotos;
       rotulo = rotuloDe || null;
+      comLink = link;
+      linkBtn.hidden = !link;
       focoAnterior = document.activeElement;
       mostrar(i);
       raiz.classList.add('aberto');
@@ -229,13 +287,15 @@
     }
 
     function fechar() {
+      if (!raiz.classList.contains('aberto')) return;
+      if (comLink) history.replaceState(null, '', urlSemFoto());
       raiz.classList.remove('aberto');
       raiz.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
       if (focoAnterior) focoAnterior.focus();
     }
 
-    raiz.querySelector('.fechar').addEventListener('click', fechar);
+    fecharBtn.addEventListener('click', fechar);
     raiz.querySelector('.ant').addEventListener('click', () => mostrar(atual - 1));
     raiz.querySelector('.prox').addEventListener('click', () => mostrar(atual + 1));
     raiz.querySelector('.lb-palco').addEventListener('click', (e) => {
@@ -258,7 +318,7 @@
       x0 = null;
     });
 
-    return { abrir };
+    return { abrir, fechar };
   })();
 
   /* ---------- Manifesto ---------- */
@@ -279,7 +339,7 @@
         const onde = new Map();
         dados.categorias.forEach((cat) => cat.fotos.forEach((f) => onde.set(f.arquivo, { f, cat })));
         const escolhidas = (dados.destaques || []).map((a) => onde.get(a)).filter(Boolean);
-        const salaDe = new Map(escolhidas.map(({ f, cat }) => [f, cat.titulo]));
+        const salaDe = new Map(escolhidas.map(({ f, cat }) => [f, I18N.campo(cat, 'titulo')]));
         montarParede(
           paredeDestaques,
           escolhidas.map(({ f }) => f),
@@ -288,7 +348,7 @@
         acompanharIntro(paredeDestaques);
       })
       .catch(() => {
-        falhou(paredeDestaques, 'Não foi possível carregar a exposição agora.');
+        falhou(paredeDestaques, t('erroExpo'));
         fecharIntro();
       });
   }
@@ -300,7 +360,7 @@
       .then((dados) => {
         const total = dados.categorias.reduce((s, c) => s + c.fotos.length, 0);
         const contagem = document.getElementById('contagem-obras');
-        if (contagem) contagem.textContent = `${dados.categorias.length} salas · ${total} obras`;
+        if (contagem) contagem.textContent = t('salasObras', { s: dados.categorias.length, o: total });
 
         indice.innerHTML = dados.categorias
           .map(
@@ -309,8 +369,8 @@
             <a href="${cat.pagina}" data-capa="${encodeURI(miniatura(cat.capa))}">
               <span class="num">${romano(i + 1)}.</span>
               <img class="mini" src="${encodeURI(miniatura(cat.capa))}" alt="" loading="lazy">
-              <span><span class="nome">${esc(cat.titulo)}</span><span class="desc">${esc(cat.descricao)}</span></span>
-              <span class="qtd">${cat.fotos.length} obras</span>
+              <span><span class="nome">${esc(I18N.campo(cat, 'titulo'))}</span><span class="desc">${esc(I18N.campo(cat, 'descricao'))}</span></span>
+              <span class="qtd">${t('obras', { n: cat.fotos.length })}</span>
             </a>
           </li>`
           )
@@ -335,7 +395,7 @@
           previa.style.transform = `translate(${x}px, ${y}px)`;
         });
       })
-      .catch(() => falhou(indice, 'Não foi possível carregar as salas agora.'));
+      .catch(() => falhou(indice, t('erroSalas')));
   }
 
   /* ---------- Página de sala ---------- */
@@ -351,21 +411,51 @@
 
         const numero = document.getElementById('sala-numero');
         const qtd = document.getElementById('sala-qtd');
-        if (numero) numero.textContent = `Sala ${romano(i + 1)} de ${romano(n)}`;
-        if (qtd) qtd.textContent = `${cat.fotos.length} obras`;
+        const nomeSala = I18N.campo(cat, 'titulo');
+        if (numero) numero.textContent = t('salaDe', { i: romano(i + 1), n: romano(n) });
+        if (qtd) qtd.textContent = t('obras', { n: cat.fotos.length });
+        if (I18N.idioma !== 'pt') {
+          const h1 = document.querySelector('.sala-cabeca h1');
+          const desc = document.querySelector('.sala-cabeca .desc');
+          if (h1) h1.textContent = nomeSala;
+          if (desc) desc.textContent = I18N.campo(cat, 'descricao');
+          document.title = t('tituloSala', { t: nomeSala });
+          document.querySelector('meta[name="description"]')?.setAttribute('content', I18N.campo(cat, 'descricao'));
+        }
+        document.querySelector('.sala-cabeca')?.classList.add('traduzida');
 
-        montarParede(paredeSala, cat.fotos, () => `Sala ${romano(i + 1)} · ${cat.titulo}`);
+        const rotuloSala = () => `${t('sala', { i: romano(i + 1) })} · ${nomeSala}`;
+        montarParede(paredeSala, cat.fotos, rotuloSala, true);
+
+        // Link direto (sala.html#nome-da-foto): abre a foto já ampliada e
+        // deixa a parede posicionada nela pra quando fecharem.
+        const abrirDoLink = () => {
+          const alvo = decodeURIComponent(location.hash.slice(1));
+          const k = alvo ? cat.fotos.findIndex((f) => ancora(f.arquivo) === alvo) : -1;
+          if (k < 0) return;
+          const fig = paredeSala.querySelector(`.obra[data-indice="${k}"]`);
+          if (fig) {
+            fig.classList.add('on');
+            fig.scrollIntoView({ block: 'center' });
+          }
+          lightbox.abrir(cat.fotos, k, rotuloSala, true);
+        };
+        abrirDoLink();
+        window.addEventListener('hashchange', () => (location.hash ? abrirDoLink() : lightbox.fechar()));
 
         const corredor = document.getElementById('corredor');
         if (corredor) {
           const ant = dados.categorias[(i - 1 + n) % n];
           const prox = dados.categorias[(i + 1) % n];
           corredor.innerHTML = `
-            <a href="${ant.pagina}"><span class="rotulo">← Sala ${romano(((i - 1 + n) % n) + 1)}</span><strong>${esc(ant.titulo)}</strong></a>
-            <a href="${prox.pagina}"><span class="rotulo">Sala ${romano(((i + 1) % n) + 1)} →</span><strong>${esc(prox.titulo)}</strong></a>`;
+            <a href="${ant.pagina}"><span class="rotulo">← ${t('sala', { i: romano(((i - 1 + n) % n) + 1) })}</span><strong>${esc(I18N.campo(ant, 'titulo'))}</strong></a>
+            <a href="${prox.pagina}"><span class="rotulo">${t('sala', { i: romano(((i + 1) % n) + 1) })} →</span><strong>${esc(I18N.campo(prox, 'titulo'))}</strong></a>`;
         }
       })
-      .catch(() => falhou(paredeSala, 'Não foi possível carregar esta sala agora.'));
+      .catch(() => {
+        document.querySelector('.sala-cabeca')?.classList.add('traduzida');
+        falhou(paredeSala, t('erroSala'));
+      });
   }
 
   /* ---------- Formulário (Formspree) ---------- */
@@ -377,7 +467,7 @@
       const botao = form.querySelector('button[type="submit"]');
       botao.disabled = true;
       status.className = 'form-status';
-      status.textContent = 'Enviando…';
+      status.textContent = t('enviando');
       try {
         const resposta = await fetch(form.action, {
           method: 'POST',
@@ -386,11 +476,11 @@
         });
         if (!resposta.ok) throw new Error('falha no envio');
         status.className = 'form-status ok';
-        status.textContent = 'Mensagem enviada. Respondo em breve.';
+        status.textContent = t('enviado');
         form.reset();
       } catch {
         status.className = 'form-status erro';
-        status.textContent = 'Não foi possível enviar. Tente pelo WhatsApp.';
+        status.textContent = t('erroEnvio');
       } finally {
         botao.disabled = false;
       }

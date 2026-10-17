@@ -9,7 +9,8 @@ Site estático feito à mão: HTML, CSS e JavaScript puros, sem frameworks e sem
 ## 🖼 Como a exposição funciona
 
 - **Entrada** (`index.html`): a parede de destaques (lista `"destaques"` do manifesto), o índice das salas, o texto de parede (sobre) e o contato.
-- **Salas**: cada categoria do manifesto é uma sala, numerada na ordem em que aparece no JSON. Dentro de cada sala, as obras aparecem na ordem do JSON — elas estão agrupadas por série/tema (ex.: nas capturas virtuais, primeiro The Last of Us, depois outros jogos e por fim Forza).
+- **Salas**: cada categoria do manifesto é uma sala, numerada na ordem em que aparece no JSON. Dentro de cada sala, as obras aparecem na ordem do JSON: **as mais recentes primeiro** — foto nova entra no topo da sala. A exceção são as capturas virtuais (`"ordem": "serie"` no manifesto), agrupadas por jogo (primeiro The Last of Us, depois outros jogos e por fim Forza); lá a foto nova entra no fim.
+- **Link direto pra foto**: cada foto tem um link próprio, `<sala>.html#<nome-do-arquivo>` (sem o prefixo, com hífens — ex.: `arquitetura.html#sombra-na-esquina`). Quem abre o link cai na sala com a foto já ampliada. Na foto ampliada, o botão **Copiar link** copia esse endereço (no celular, abre o compartilhar). O link vem do nome do arquivo, então editar o título não quebra links já divulgados — mas renomear o arquivo quebra.
 
 | Sala | Página | Pasta | Prefixo |
 |---|---|---|---|
@@ -23,6 +24,14 @@ Site estático feito à mão: HTML, CSS e JavaScript puros, sem frameworks e sem
 | VIII. Máquinas | `maquinas.html` | `CarrosFotos/` | `car_` |
 | IX. Capturas virtuais | `forza.html` | `ForzaFotos/` | `for_` (Forza), `game_` (outros games) |
 
+## 🌎 Idiomas (PT / EN)
+
+O menu de cima tem **PT | EN**. O idioma é escolhido assim: `?lang=pt` ou `?lang=en` na URL → a última escolha do visitante → o idioma do navegador (português vê PT; qualquer outro vê EN). Robôs de busca sempre leem o português; a versão em inglês é anunciada a eles com `hreflang` (`<página>?lang=en`).
+
+- **Textos fixos** (menu, sobre, contato, botões): o HTML é escrito em português e o inglês fica no dicionário de [`assets/idioma.js`](assets/idioma.js). Elementos com `data-i18n="chave"` (ou `data-i18n-attr="atributo:chave"`) são trocados.
+- **Salas e fotos**: no manifesto, `titulo_en` e `descricao_en` em cada sala e `titulo_en` em cada foto. **Foto nova entra sem tradução** e aparece com o título em português até alguém preencher o `titulo_en` dela.
+- A página de estatísticas (`views.html`) é só para o dono do site e continua só em português.
+
 ## 📸 Como adicionar fotos (o jeito fácil)
 
 1. Abra a pasta da sala aqui no GitHub.
@@ -33,7 +42,7 @@ Site estático feito à mão: HTML, CSS e JavaScript puros, sem frameworks e sem
    - gera as **miniaturas** (`miniaturas/`, 1000px) usadas na parede; a foto original abre no lightbox;
    - o GitHub Pages republica o site.
 
-A foto entra na sala com um título derivado do nome do arquivo (`ret_ensaio_ana.jpg` → "Ensaio ana"). Quer um título melhor? Edite o campo `"titulo"` dela em `galeria/fotos.json`: títulos editados **nunca** são sobrescritos.
+A foto entra no topo da sala com um título derivado do nome do arquivo (`ret_ensaio_ana.jpg` → "Ensaio ana"). Quer um título melhor? Edite o campo `"titulo"` dela em `galeria/fotos.json` (e, para o inglês, acrescente `"titulo_en"`): títulos editados **nunca** são sobrescritos.
 
 **Parede de destaques:** para escolher o que aparece na entrada, edite a lista `"destaques"` no manifesto (caminhos das fotos, na ordem de exibição).
 
